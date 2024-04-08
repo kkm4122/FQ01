@@ -1,0 +1,4 @@
+D:\win\FQ01\Debug\FQ01.exe
+E:\win\FQ01\Debug\FQ01.exe
+E:\새 폴더 (3)\Debug\FQ01.exe
+D:\kkmproject\FQ01\Debug\FQ01.exe

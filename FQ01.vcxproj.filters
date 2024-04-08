@@ -1,0 +1,346 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Engine">
+      <UniqueIdentifier>{35d2511c-249c-47f0-bd8a-23ac4cd361c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IngameIntro">
+      <UniqueIdentifier>{be8fa6f3-5b7a-4600-a85d-ad433f571938}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Intro~saveload">
+      <UniqueIdentifier>{21ff7968-0731-43a3-8319-db33ea1d373c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="framework.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="FQ01.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="IScene.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="CApplication.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="IGame.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="CGameFQ4.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Ctext.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="CScreen.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="CIntroScene.h">
+      <Filter>Intro~saveload</Filter>
+    </ClInclude>
+    <ClInclude Include="CTitle.h">
+      <Filter>Intro~saveload</Filter>
+    </ClInclude>
+    <ClInclude Include="CSaveLoad.h">
+      <Filter>Intro~saveload</Filter>
+    </ClInclude>
+    <ClInclude Include="CSaveData.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="InGameIntro.h">
+      <Filter>IngameIntro</Filter>
+    </ClInclude>
+    <ClInclude Include="CCharObj.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="CAnimation.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="CImageFile.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="CMemoryBitmap.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="CSprite.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="CMap.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="CTextout.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="CUnit.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Map.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="CUnitMange.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="InGameIntro2.h">
+      <Filter>IngameIntro</Filter>
+    </ClInclude>
+    <ClInclude Include="CBattleScene.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="FQ01.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="CApplication.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="CGameFQ4.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Ctext.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="CScreen.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="CIntroScene.cpp">
+      <Filter>Intro~saveload</Filter>
+    </ClCompile>
+    <ClCompile Include="CTitle.cpp">
+      <Filter>Intro~saveload</Filter>
+    </ClCompile>
+    <ClCompile Include="CSaveLoad.cpp">
+      <Filter>Intro~saveload</Filter>
+    </ClCompile>
+    <ClCompile Include="CSaveData.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="InGameIntro.cpp">
+      <Filter>IngameIntro</Filter>
+    </ClCompile>
+    <ClCompile Include="CCharObj.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="CAnimation.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="CImageFile.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="CMemoryBitmap.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="CSprite.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="CMap.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="CTextout.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="CUnit.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="IScene.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Map.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="CUnitMange.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="InGameIntro2.cpp">
+      <Filter>IngameIntro</Filter>
+    </ClCompile>
+    <ClCompile Include="CBattleScene.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="FQ01.rc">
+      <Filter>리소스 파일</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="small.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="FQ01.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Intro1.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="..\Intro2.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="..\Intro3.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Image\Intro1.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Image\Intro2.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Image\Intro3.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Image\Intro4.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Image\Intro5.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Image\Intro6.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Image\Intro7.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Image\Intro8.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Image\Intro9.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Image\Title.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="image\bitmap1.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Image\saveload.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Image\castle.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Image\interface.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Image\systemMessageBox.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Image\NPCMessageBox.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Image\soldierSprite.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Image\char.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Image\Character\soldier02_1.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Image\Character\soldier02_2.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Image\Character\리스레이왕 라이오스\laios_2.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Image\Character\베닉크왕 케크\keck_1.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Image\Character\마시아왕 가비\gabi_2.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Image\Character\노호크왕 오라슨\orason_2.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Image\Character\알카나야왕 미솔렌\mysolen_2.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Image\Character\세버트왕 사크\sark_3.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Image\Character\에드윈왕 마레암\maream_2.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Image\Character\물장군 오그\ogg_2.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Image\Character\바람장군 스리후트\thryhoot_2.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Image\Character\자닐(아마도)\janil_2,bmp.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Image\Character\바르시아왕 제넬루\genelu_2.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Image\Character\흙의 장군 맥가이어\macgaia_3.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Image\Character\불장군 몰드레드\moldred_2.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Image\SceneFrame.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="image\bitmap2.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Image\frame.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Image\Character\아레스\ares.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Image\karion_meetingroom.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Image\Character\병사\soldier04.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Image\Character\병사\soldier03.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Image\Character\애레인\aerain.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Image\Character\대주교\archbishop.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Image\Character\곤라트\gonrad.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Image\map\전투씬 맵.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+  </ItemGroup>
+</Project>

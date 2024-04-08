@@ -1,0 +1,182 @@
+﻿  pch.cpp
+  CAnimation.cpp
+  CApplication.cpp
+  CBattleScene.cpp
+  CCharObj.cpp
+  CGameFQ4.cpp
+  CImageFile.cpp
+  CIntroScene.cpp
+  CMap.cpp
+  CMemoryBitmap.cpp
+  CSaveData.cpp
+  CSaveLoad.cpp
+C:\Users\김경모\Desktop\kkm\FQ01\CUnit.h(52,14): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/CBattleScene.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\김경모\Desktop\kkm\FQ01\CUnit.h(66,14): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/CBattleScene.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\김경모\Desktop\kkm\FQ01\CUnit.h(67,14): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/CBattleScene.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\김경모\Desktop\kkm\FQ01\CUnit.h(52,14): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/CGameFQ4.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\김경모\Desktop\kkm\FQ01\CUnit.h(66,14): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/CGameFQ4.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\김경모\Desktop\kkm\FQ01\CUnit.h(67,14): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/CGameFQ4.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\김경모\Desktop\kkm\FQ01\CUnit.h(52,14): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/CIntroScene.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\김경모\Desktop\kkm\FQ01\CUnit.h(66,14): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/CIntroScene.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\김경모\Desktop\kkm\FQ01\CUnit.h(67,14): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/CIntroScene.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\김경모\Desktop\kkm\FQ01\CUnit.h(52,14): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/CMap.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\김경모\Desktop\kkm\FQ01\CUnit.h(66,14): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/CMap.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\김경모\Desktop\kkm\FQ01\CUnit.h(67,14): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/CMap.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\김경모\Desktop\kkm\FQ01\CUnit.h(52,14): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/CSaveLoad.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\김경모\Desktop\kkm\FQ01\CUnit.h(66,14): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/CSaveLoad.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\김경모\Desktop\kkm\FQ01\CUnit.h(67,14): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/CSaveLoad.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\김경모\Desktop\kkm\FQ01\CSaveLoad.cpp(165,70): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/CSaveLoad.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\김경모\Desktop\kkm\FQ01\CSaveLoad.cpp(167,70): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/CSaveLoad.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\김경모\Desktop\kkm\FQ01\CSaveLoad.cpp(171,69): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/CSaveLoad.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\김경모\Desktop\kkm\FQ01\CSaveLoad.cpp(173,69): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/CSaveLoad.cpp'을(를) 컴파일하는 중)
+  
+  CScreen.cpp
+  CSprite.cpp
+  Ctext.cpp
+  CTextout.cpp
+C:\Users\김경모\Desktop\kkm\FQ01\CTextout.cpp(20,27): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/CTextout.cpp'을(를) 컴파일하는 중)
+  
+  CUnit.cpp
+C:\Users\김경모\Desktop\kkm\FQ01\CUnit.h(52,14): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/CUnit.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\김경모\Desktop\kkm\FQ01\CUnit.h(66,14): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/CUnit.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\김경모\Desktop\kkm\FQ01\CUnit.h(67,14): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/CUnit.cpp'을(를) 컴파일하는 중)
+  
+  CUnitMange.cpp
+C:\Users\김경모\Desktop\kkm\FQ01\CUnit.h(52,14): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/CUnitMange.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\김경모\Desktop\kkm\FQ01\CUnit.h(66,14): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/CUnitMange.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\김경모\Desktop\kkm\FQ01\CUnit.h(67,14): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/CUnitMange.cpp'을(를) 컴파일하는 중)
+  
+  FQ01.cpp
+C:\Users\김경모\Desktop\kkm\FQ01\CUnit.h(52,14): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/FQ01.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\김경모\Desktop\kkm\FQ01\CUnit.h(66,14): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/FQ01.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\김경모\Desktop\kkm\FQ01\CUnit.h(67,14): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/FQ01.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\김경모\Desktop\kkm\FQ01\FQ01.cpp(167,26): warning C4244: '인수': 'WPARAM'에서 'UINT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/FQ01.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\김경모\Desktop\kkm\FQ01\FQ01.cpp(185,40): warning C4244: '인수': 'WPARAM'에서 'UINT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/FQ01.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\김경모\Desktop\kkm\FQ01\FQ01.cpp(192,40): warning C4244: '인수': 'WPARAM'에서 'UINT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/FQ01.cpp'을(를) 컴파일하는 중)
+  
+  CTitle.cpp
+C:\Users\김경모\Desktop\kkm\FQ01\CUnit.h(52,14): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/CTitle.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\김경모\Desktop\kkm\FQ01\CUnit.h(66,14): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/CTitle.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\김경모\Desktop\kkm\FQ01\CUnit.h(67,14): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/CTitle.cpp'을(를) 컴파일하는 중)
+  
+  InGameIntro.cpp
+C:\Users\김경모\Desktop\kkm\FQ01\CUnit.h(52,14): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/InGameIntro.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\김경모\Desktop\kkm\FQ01\CUnit.h(66,14): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/InGameIntro.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\김경모\Desktop\kkm\FQ01\CUnit.h(67,14): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/InGameIntro.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\김경모\Desktop\kkm\FQ01\InGameIntro.cpp(306,37): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/InGameIntro.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\김경모\Desktop\kkm\FQ01\InGameIntro.cpp(307,37): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/InGameIntro.cpp'을(를) 컴파일하는 중)
+  
+  코드를 생성하고 있습니다...
+  컴파일하고 있습니다...
+  InGameIntro2.cpp
+C:\Users\김경모\Desktop\kkm\FQ01\CUnit.h(52,14): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/InGameIntro2.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\김경모\Desktop\kkm\FQ01\CUnit.h(66,14): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/InGameIntro2.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\김경모\Desktop\kkm\FQ01\CUnit.h(67,14): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/InGameIntro2.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\김경모\Desktop\kkm\FQ01\InGameIntro2.cpp(468,43): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/InGameIntro2.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\김경모\Desktop\kkm\FQ01\InGameIntro2.cpp(469,43): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/InGameIntro2.cpp'을(를) 컴파일하는 중)
+  
+  IScene.cpp
+C:\Users\김경모\Desktop\kkm\FQ01\CUnit.h(52,14): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/IScene.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\김경모\Desktop\kkm\FQ01\CUnit.h(66,14): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/IScene.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\김경모\Desktop\kkm\FQ01\CUnit.h(67,14): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/IScene.cpp'을(를) 컴파일하는 중)
+  
+  Map.cpp
+C:\Users\김경모\Desktop\kkm\FQ01\CUnit.h(52,14): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Map.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\김경모\Desktop\kkm\FQ01\CUnit.h(66,14): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Map.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\김경모\Desktop\kkm\FQ01\CUnit.h(67,14): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Map.cpp'을(를) 컴파일하는 중)
+  
+  Player.cpp
+  코드를 생성하고 있습니다...
+  FQ01.vcxproj -> C:\Users\김경모\Desktop\kkm\FQ01\x64\Debug\FQ01.exe
