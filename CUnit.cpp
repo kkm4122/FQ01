@@ -7,4 +7,8 @@ CUnit::~CUnit()
 {
 }
 
+void CUnit::Draw()
+{
+}
+
 
