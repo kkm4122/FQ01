@@ -2,12 +2,13 @@
 #include"CAnimation.h"
 #include"CSprite.h"
 
+
+#define STATE_Idle      0
+#define STATE_Move      1
+#define STATE_Attack    2
+
 class CUnit;
 
-struct TILE
-{
-	class CUnit* unit = nullptr;
-};
 
 
 
