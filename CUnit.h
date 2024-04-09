@@ -4,10 +4,7 @@
 
 class CUnit;
 
-struct TILE
-{
-	class CUnit* unit = nullptr;
-};
+
 
 
 

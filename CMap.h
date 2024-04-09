@@ -2,7 +2,13 @@
 #include "CUnit.h"
 #include "CImageFile.h"
 #include"CSprite.h"
-class CImageFile;
+class CImageFile; 
+
+struct TILE
+{
+	class CUnit* unit = nullptr;
+};
+
 class CMap
 {
 public:
