@@ -33,15 +33,16 @@ public:
 		unit->mTile.y = y;
 
 	}
-	void GetTile()
+	void SetMap(const WCHAR* fileName, const WCHAR* name)
 	{
-		//asdf
+		MapImg = CImageFile::New(fileName, name);
+		Mapobj.Set(posX, posY, 0, 0, MapImg, 0, CSprite::DrawType_Draw);
 	}
 
 
 	CImageFile* MapImg;
-	int posX;
-	int posY;
+	int posX=16;
+	int posY=48;
 	CSprite Mapobj;
 };
 
