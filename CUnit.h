@@ -17,6 +17,10 @@ struct POS
 	{
 		return x == other.x && y == other.y;
 	}
+	bool operator != (const POS& other)const
+	{
+		return x != other.x || y != other.y;
+	}
 };
 
 class CImageFile;

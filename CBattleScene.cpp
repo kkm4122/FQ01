@@ -3,7 +3,7 @@
 #include "CUnitMange.h"
 #include "CImageFile.h"
 #include "CBattleScene.h"
-
+#define VK_W 87
 CBattleScene::CBattleScene()
 {
 
@@ -38,7 +38,7 @@ void CBattleScene::onFrameMove()
 
 void CBattleScene::onDraw(HDC hdc)
 {
-    FieldMap->Mapobj.Draw(hdc);
+    FieldMap->Draw(hdc);
     UIs.Draw(hdc);
 }
 
@@ -58,8 +58,8 @@ void CBattleScene::onKeyDown(UINT virtual_key)
     case(VK_RIGHT):
         FieldMap->Mapobj.mDestX += 16;
         break;
-    case(87):
-        FieldMap->Mapobj.mDestX -= 16;
+    case(VK_W):
+        FieldMap->Mapobj.mDestY -= 16;
         break;
     default:
         break;

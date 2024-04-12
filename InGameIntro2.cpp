@@ -42,10 +42,10 @@ std::wstring s3 = L"a.SnoSTOP:3";
 InGameIntro2::InGameIntro2()
 {
     str = new WCHAR[512];
-    MainMap.posX = 16;
-    MainMap.posY = 48;
+    MainMap.PosX = 16;
+    MainMap.PosY = 48;
     MainMap.MapImg = CImageFile::New(MAKEINTRESOURCE(IDB_KARION_MEET), L"IDB_KARION_MEET");
-    mBG.Set(MainMap.posX,MainMap.posY,0,0, MainMap.MapImg,0, CSprite::DrawType_Draw);
+    mBG.Set(MainMap.PosX,MainMap.PosY,0,0, MainMap.MapImg,0, CSprite::DrawType_Draw);
 
 
 

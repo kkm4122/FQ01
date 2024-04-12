@@ -15,7 +15,7 @@
 CMap::CMap()
 {
 	MapImg = CImageFile::New(MAKEINTRESOURCE(BG_FEILD),L"BG_FEILD");
-	Mapobj.Set(posX, posY, 0, 0, MapImg, 0, CSprite::DrawType_Draw);
+	Mapobj.Set(PosX, PosY, 0, 0, MapImg, 0, CSprite::DrawType_Draw);
 }
 
 CMap::~CMap()

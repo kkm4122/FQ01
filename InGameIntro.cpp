@@ -24,8 +24,8 @@ InGameIntro::InGameIntro()
 {
 
 	str = new WCHAR[512];
-	MainMap.posX = 5;
-	MainMap.posY = 47;
+	MainMap.PosX = 5;
+	MainMap.PosY = 47;
 	MainMap.MapImg = CImageFile::New(MAKEINTRESOURCE(IDB_CASTLE), L"IDB_CASTLE");
 	UI = CImageFile::New(MAKEINTRESOURCE(IDB_UI), L"IDB_UI");
 	Textwin = CImageFile::New(MAKEINTRESOURCE(IDB_TEXTBOX), L"IDB_TEXTBOX");
@@ -71,13 +71,13 @@ InGameIntro::InGameIntro()
 	sScWin.Set(184, 48, 0, 0, SubScrWin, RGB(255, 0, 255), CSprite::DrawType_Transparent);
 	sScWin.mSrcHeight = 0;
 	sSc.Set(0, 0, 5, 300, MainMap.MapImg, 0, CSprite::DrawType_Draw);
-	mBG.Set(0, 0, MainMap.posX, 0, MainMap.MapImg, 0, CSprite::DrawType_Draw);
+	mBG.Set(0, 0, MainMap.PosX, 0, MainMap.MapImg, 0, CSprite::DrawType_Draw);
 	UIs.Set(0, 0, 0, 0, UI, RGB(255, 0, 255), CSprite::DrawType_Transparent);
 	TW.Set(144, 175, 0, 0, Textwin, RGB(255, 0, 255), CSprite::DrawType_Transparent);
 	CTW.Set(81, 175, 0, 0, CharTextwin, RGB(255, 0, 255), CSprite::DrawType_Transparent);
 	for (int i = 0; i < 27; i++)
 	{
-		Sobj[i].Set(CSPos[i].x - MainMap.posX, CSPos[i].y - MainMap.posY, 0, 0, obj[i].m_anifile.imgFile, RGB(255, 0, 255), CSprite::DrawType_Transparent);
+		Sobj[i].Set(CSPos[i].x - MainMap.PosX, CSPos[i].y - MainMap.PosY, 0, 0, obj[i].m_anifile.imgFile, RGB(255, 0, 255), CSprite::DrawType_Transparent);
 	}
 	//SWobj[6]
 	for (int i = 0; i < 6; i++)
@@ -124,7 +124,7 @@ void InGameIntro::onFrameMove()
 	case(1):
 		if (mBG.mDestY > -483)
 		{
-			MainMap.posY -= 16;
+			MainMap.PosY -= 16;
 			anim = true;
 		}
 		else if (y >= -15)
@@ -248,10 +248,10 @@ void InGameIntro::onFrameMove()
 		sScWin.mSrcHeight = suby;
 	}
 	
-	mBG.mDestY = MainMap.posY;
+	mBG.mDestY = MainMap.PosY;
 	for (int i = 0; i < 27; i++)
 	{
-		if(tsno<2)Sobj[i].mDestY = CSPos[i].y + (MainMap.posY);	//Sprite 안에있는 매개변수(좌표)를 직접 변경
+		if(tsno<2)Sobj[i].mDestY = CSPos[i].y + (MainMap.PosY);	//Sprite 안에있는 매개변수(좌표)를 직접 변경
 	}
 
 }

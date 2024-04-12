@@ -33,16 +33,22 @@ public:
 		unit->mTile.y = y;
 
 	}
+	void Draw(HDC hdc)
+	{
+		Mapobj.Draw(hdc);
+	}
 	void SetMap(const WCHAR* fileName, const WCHAR* name)
 	{
 		MapImg = CImageFile::New(fileName, name);
-		Mapobj.Set(posX, posY, 0, 0, MapImg, 0, CSprite::DrawType_Draw);
+		Mapobj.Set(PosX, PosY, 0, 0, MapImg, 0, CSprite::DrawType_Draw);
 	}
 	std::vector<CUnit*>mCharactors;
 
 	CImageFile* MapImg;
-	int posX=16;
-	int posY=48;
+	int PosX=16;
+	int PosY=48;
 	CSprite Mapobj;
+	int CamPosX=0;
+	int CamPosY=0;
 };
 
