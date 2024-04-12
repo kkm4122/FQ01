@@ -97,6 +97,7 @@ public:
 	{
 		mUnitSprite.Set2(Anino, dx, dy, m_anifile.ani, m_anifile.imgFile, RGB(255, 0, 255), CSprite::DrawType_Transparent);
 	}
+	void UpdateCamPos(int cx, int cy);
 
 public:
 
@@ -108,10 +109,11 @@ public:
 
 	UnitInfo* UInfo;
 
+	POS TilePos;
 	POS mPosition;
 	POS mTarget;
 	POS mDir;
-	
+	int size = 2;
 	float mSpeed;
 	
 	//int MapInfo;

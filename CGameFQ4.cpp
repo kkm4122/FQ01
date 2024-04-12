@@ -23,8 +23,8 @@ void CGameFQ4::OnCreate()
 	mGameIntro = new InGameIntro;
 	mGameIntro2 = new InGameIntro2;
 	mBattleScene = new CBattleScene;
-	//mCurrent = mIntroS;
-	mCurrent = mBattleScene;
+	mCurrent = mIntroS;
+	//mCurrent = mBattleScene;
 
 }
 
