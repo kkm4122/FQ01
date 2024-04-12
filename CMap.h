@@ -33,6 +33,10 @@ public:
 		unit->mTile.y = y;
 
 	}
+	void GetTile()
+	{
+		//asdf
+	}
 
 
 	CImageFile* MapImg;
