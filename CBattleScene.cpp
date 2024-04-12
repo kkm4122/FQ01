@@ -1,12 +1,15 @@
 #include "pch.h"
+#include "CMap.h"
 #include "CBattleScene.h"
 
 CBattleScene::CBattleScene()
 {
+    FieldMap = new CMap;
 }
 
 CBattleScene::~CBattleScene()
 {
+    delete FieldMap;
 }
 
 bool CBattleScene::Sample()
