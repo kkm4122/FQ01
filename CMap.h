@@ -19,7 +19,11 @@ public:
 
 	void Update()
 	{
+		for (CUnit* ic : mCharacters) {
+			if (ic)  ic->mUnitSprite.Update(10);
+		}
 		//Soldier1* a = (Soldier1*)mTiles[1][1].unit;
+		
 	}
 
 	void SetUnit(class CUnit* unit)
@@ -33,16 +37,31 @@ public:
 		unit->mTile.y = y;
 
 	}
+	void AddChar(int x,int y,  CUnit* a)
+	{
+		a->TileSet(x, y, L"a.Sno:0");
+		mCharacters.push_back(a);
+	}
 	void Draw(HDC hdc)
 	{
+		Mapobj.mDestX = PosX;
+		Mapobj.mDestY = PosY;
+		for (CUnit* ic : mCharacters) {
+			if (ic)  ic->UpdateCamPos(0, 0);
+		}
+
 		Mapobj.Draw(hdc);
+
+		for (CUnit* ic : mCharacters) {
+			if (ic) ic->Draw(hdc);
+		}
 	}
 	void SetMap(const WCHAR* fileName, const WCHAR* name)
 	{
 		MapImg = CImageFile::New(fileName, name);
 		Mapobj.Set(PosX, PosY, 0, 0, MapImg, 0, CSprite::DrawType_Draw);
 	}
-	std::vector<CUnit*>mCharactors;
+	std::vector<CUnit*>mCharacters;
 
 	CImageFile* MapImg;
 	int PosX=16;

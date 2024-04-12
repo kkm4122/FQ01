@@ -7,8 +7,9 @@ CUnit::~CUnit()
 {
 }
 
-void CUnit::Draw()
+void CUnit::Draw(HDC hdc)
 {
+	mUnitSprite.Draw(hdc);
 }
 
 void CUnit::UpdateCamPos(int cx, int cy)

@@ -13,7 +13,7 @@ public:
 
 	void Set(int dx, int dy, int w, int h, int fs);
 	void OutPut(HDC hdc, LPCWSTR str);
-	CImageFile* Textwin[2]
+	CImageFile* Textwin[2];
 	
 };
 

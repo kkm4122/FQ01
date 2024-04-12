@@ -74,7 +74,7 @@ public:
 			//g_Map->SetUnit(this);
 		}
 	}
-	void Draw();
+	void Draw(HDC hdc);
 
 	void SetPostion(int tile_x, int tile_y)
 	{
@@ -92,7 +92,12 @@ public:
 	}
 	virtual void move() {};
 	//void DrawUnit(HDC hdc);
-
+	void TileSet(int dx, int dy, const WCHAR* Anino)
+	{
+		dx *= 16;
+		dy *= 16;
+		mUnitSprite.Set2(Anino, dx, dy, m_anifile.ani, m_anifile.imgFile, RGB(255, 0, 255), CSprite::DrawType_Transparent);
+	}
 	void UnitSet(int dx, int dy, const WCHAR* Anino)
 	{
 		mUnitSprite.Set2(Anino, dx, dy, m_anifile.ani, m_anifile.imgFile, RGB(255, 0, 255), CSprite::DrawType_Transparent);
