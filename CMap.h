@@ -1,13 +1,12 @@
 #pragma once
 #include "CUnit.h"
-//#include "CImageFile.h"
+#include "CImageFile.h"
 #include"CSprite.h"
-class CImageFile;
+class CImageFile; 
 
 struct TILE
 {
 	class CUnit* unit = nullptr;
-	class Cunit* drawunit = nullptr;
 };
 
 class CMap
@@ -34,19 +33,11 @@ public:
 		unit->mTile.y = y;
 
 	}
-	void SetTile() 
-	{
 
-	}
 
 	CImageFile* MapImg;
-	
+	int posX;
+	int posY;
 	CSprite Mapobj;
-
-	int posX=16;
-	int posY=16;
-
-	int cameraX;
-	int cameraY;
 };
 

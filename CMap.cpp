@@ -3,6 +3,15 @@
 #include "resource.h"
 #include "CMap.h"
 
+
+
+
+
+
+
+
+
+
 CMap::CMap()
 {
 	MapImg = CImageFile::New(MAKEINTRESOURCE(BG_FEILD),L"BG_FEILD");
