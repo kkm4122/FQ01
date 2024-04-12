@@ -23,5 +23,7 @@ public:
 
 	virtual void onMouseDown(UINT x, UINT y, UINT left_right) override;
 	CMap* FieldMap;
+	CImageFile* UI;
+	CSprite UIs;
 };
 
