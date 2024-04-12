@@ -34,10 +34,15 @@ public:
 		unit->mTile.y = y;
 
 	}
+	void SetTile() 
+	{
 
+	}
 
 	CImageFile* MapImg;
+	
 	CSprite Mapobj;
+
 	int posX=16;
 	int posY=16;
 
