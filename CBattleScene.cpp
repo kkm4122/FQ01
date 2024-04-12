@@ -58,9 +58,13 @@ void CBattleScene::onKeyDown(UINT virtual_key)
     case(VK_RIGHT):
         FieldMap->Mapobj.mDestX += 16;
         break;
+    case(87):
+        FieldMap->Mapobj.mDestX -= 16;
+        break;
     default:
         break;
     }
+    //case()
 }
 
 void CBattleScene::onMouseDown(UINT x, UINT y, UINT left_right)

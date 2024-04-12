@@ -104,24 +104,26 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
 //
 BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
-   hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
+    RECT rc = { 0,0,640,480 }; //원하는 client 영역 rect생성
+    AdjustWindowRect(&rc, WS_OVERLAPPEDWINDOW, TRUE); //메뉴 있는 window에 값 적용
 
-   HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
-      CW_USEDEFAULT, 0, 656, 540, nullptr, nullptr, hInstance, nullptr);//위치 크기
+    HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
+        0, 0, rc.right - rc.left, rc.bottom - rc.top, nullptr, nullptr, hInstance, nullptr);
 
+
+   RECT rect;
+   GetClientRect(hWnd, &rect);//윈도우 크기 리턴
+   CApplication::theApp->WinHeight = rect.bottom- rect.top;
+   CApplication::theApp->WinWidth = rect.right - rect.left;
+
+   CApplication::theApp->mhWnd = hWnd;
+   ShowWindow(hWnd, nCmdShow);
+   UpdateWindow(hWnd);
    if (!hWnd)
    {
       return FALSE;
    }
 
-   RECT rc;
-   GetClientRect(hWnd, &rc);//윈도우 크기 리턴
-   CApplication::theApp->WinHeight = rc.bottom-rc.top;
-   CApplication::theApp->WinWidth = rc.right - rc.left;
-
-   CApplication::theApp->mhWnd = hWnd;
-   ShowWindow(hWnd, nCmdShow);
-   UpdateWindow(hWnd);
 
    return TRUE;
 }

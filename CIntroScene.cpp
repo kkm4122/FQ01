@@ -208,7 +208,7 @@ void CIntroScene::onFrameMove()
             Text_num = 0;
             Intro_num = 0;
             //mBG.mAlpha = 0;
-            mBG.Set(0, (540 - TitleImage->Height())/2, 0, 0, TitleImage, 0, CSprite::DrawType_Draw);
+            mBG.Set(0, (540 - TitleImage->Height())/4, 0, 0, TitleImage, 0, CSprite::DrawType_Draw);
             //CurrentText = &IntroT[9];
             CurrentText = &IntroT[Text_num];
             NextScene = true;
@@ -250,6 +250,10 @@ void CIntroScene::onDraw(HDC hdc)
     Fout.Draw(hdc);
     SelectObject(hdc, oldFont);
     DeleteObject(hFont);
+    if (Intro_num==8)
+    {
+
+    }
 }
 
 void CIntroScene::onKeyDown(UINT virtual_key)
@@ -260,10 +264,10 @@ void CIntroScene::onKeyDown(UINT virtual_key)
         Text_num = 0;
         Intro_num = 0;
         //mBG.mAlpha = 0;
-        mBG.Set(0, (540-TitleImage->Height())/2, 0, 0, TitleImage, 0, CSprite::DrawType_Draw);
+        mBG.Set(0, (540-TitleImage->Height())/4, 0, 0, TitleImage, 0, CSprite::DrawType_Draw);
         //CurrentText = &IntroT[9];
         CurrentText = &IntroT[Text_num];
-        NextScene = true;
+       NextScene = true;
         break;
     case(VK_SPACE):
         samplechange = true;
