@@ -114,12 +114,12 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
       return FALSE;
    }
 
-   CApplication::theApp->mhWnd = hWnd;
    RECT rc;
    GetClientRect(hWnd, &rc);//윈도우 크기 리턴
    CApplication::theApp->WinHeight = rc.bottom-rc.top;
    CApplication::theApp->WinWidth = rc.right - rc.left;
 
+   CApplication::theApp->mhWnd = hWnd;
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
 

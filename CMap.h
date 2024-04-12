@@ -38,7 +38,7 @@ public:
 		MapImg = CImageFile::New(fileName, name);
 		Mapobj.Set(posX, posY, 0, 0, MapImg, 0, CSprite::DrawType_Draw);
 	}
-
+	std::vector<CUnit*>mCharactors;
 
 	CImageFile* MapImg;
 	int posX=16;

@@ -17,9 +17,9 @@ CIntroScene::CIntroScene()
         IntroImage[i] =  CImageFile::New(MAKEINTRESOURCE(Image_num+i),ImgNo);
     }
     Fadeout = new CImageFile(MAKEINTRESOURCE(IDB_BITMAP1),L"FADEOUT");
-    Fout.Set(0, 0, 0, 0,Fadeout,0,CSprite::DrawType_AlphaBlend);
+    Fout.Set(0, (540-Fadeout->Height())/4+8, 0, 0, Fadeout, 0, CSprite::DrawType_AlphaBlend);
     Fout.mAlpha = 255;
-	mBG.Set(0,0,0,0,IntroImage[0],0,CSprite::DrawType_Draw);
+	mBG.Set(0, (540 - IntroImage[0]->Height())/4+8, 0,0,IntroImage[0],0,CSprite::DrawType_Draw);
     
     IntroT.push_back({
     151,280, { 0,0,0,0,0 },0,
@@ -199,7 +199,7 @@ void CIntroScene::onFrameMove()
             Intro_num++;
             //mBG.mAlpha = 0;
             //Fadein = true;
-            mBG.Set(0, 0, 0, 0, IntroImage[Intro_num], 0, CSprite::DrawType_Draw);
+            mBG.Set(0, (540- IntroImage[Intro_num]->Height())/4+8, 0, 0, IntroImage[Intro_num], 0, CSprite::DrawType_Draw);
 
             CurrentText = &IntroT[Text_num];
         }
@@ -208,7 +208,7 @@ void CIntroScene::onFrameMove()
             Text_num = 0;
             Intro_num = 0;
             //mBG.mAlpha = 0;
-            mBG.Set(0, 0, 0, 0, TitleImage, 0, CSprite::DrawType_Draw);
+            mBG.Set(0, (540 - TitleImage->Height())/2, 0, 0, TitleImage, 0, CSprite::DrawType_Draw);
             //CurrentText = &IntroT[9];
             CurrentText = &IntroT[Text_num];
             NextScene = true;
@@ -260,7 +260,7 @@ void CIntroScene::onKeyDown(UINT virtual_key)
         Text_num = 0;
         Intro_num = 0;
         //mBG.mAlpha = 0;
-        mBG.Set(0, 0, 0, 0, TitleImage, 0, CSprite::DrawType_Draw);
+        mBG.Set(0, (540-TitleImage->Height())/2, 0, 0, TitleImage, 0, CSprite::DrawType_Draw);
         //CurrentText = &IntroT[9];
         CurrentText = &IntroT[Text_num];
         NextScene = true;
@@ -278,7 +278,7 @@ void CIntroScene::onKeyDown(UINT virtual_key)
             Text_num++;
             Intro_num++;
             
-            mBG.Set(0, 0, 0, 0, IntroImage[Intro_num], 0, CSprite::DrawType_Draw);
+            mBG.Set(0, (540 - IntroImage[Intro_num]->Height()) / 4+8 , 0, 0, IntroImage[Intro_num], 0, CSprite::DrawType_Draw);
 
             CurrentText = &IntroT[Text_num];
             Fout.mAlpha = 255;
@@ -286,6 +286,7 @@ void CIntroScene::onKeyDown(UINT virtual_key)
         }
         else
         {
+            mBG.Set(0, (540 - TitleImage->Height()) / 2, 0, 0, TitleImage, 0, CSprite::DrawType_Draw);
             NextScene = true;
         }
         break;
