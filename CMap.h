@@ -39,8 +39,9 @@ public:
 	}
 	void AddChar(int x,int y,  CUnit* a)
 	{
-		a->TileSet(x, y, L"a.Sno:0");
-		mCharacters.push_back(a);
+		CUnit* asdf = a;
+		asdf->TileSet(x, y, L"a.Sno:0");
+		mCharacters.push_back(asdf);
 	}
 	void Draw(HDC hdc)
 	{
