@@ -2,6 +2,7 @@
 #include "CUnit.h"
 #include "CImageFile.h"
 #include"CSprite.h"
+#include"CScreen.h"
 class CImageFile; 
 
 struct TILE
@@ -41,21 +42,27 @@ public:
 	{
 		CUnit* asdf = a;
 		asdf->TileSet(x, y, L"a.Sno:0");
+		asdf->TilePos.x = x;
+		asdf->TilePos.y = y;
 		mCharacters.push_back(asdf);
 	}
 	void Draw(HDC hdc)
 	{
-		Mapobj.mDestX = PosX;
-		Mapobj.mDestY = PosY;
+		
+		Mapobj.mDestX = CamPosX+PosX;
+		Mapobj.mDestY = CamPosY+PosY;
+		CScreen Mapscreen(626, 863);
 		for (CUnit* ic : mCharacters) {
-			if (ic)  ic->UpdateCamPos(0, 0);
+			if (ic)  ic->UpdateCamPos(CamPosX, CamPosY);
 		}
 
-		Mapobj.Draw(hdc);
+		Mapobj.Draw(Mapscreen.m_HDC);
 
 		for (CUnit* ic : mCharacters) {
-			if (ic) ic->Draw(hdc);
+			if (ic) ic->Draw(Mapscreen.m_HDC);
 		}
+		Mapscreen.Draw(hdc,CamPosX,CamPosY,626,863 );
+
 	}
 	void SetMap(const WCHAR* fileName, const WCHAR* name)
 	{
@@ -70,5 +77,6 @@ public:
 	CSprite Mapobj;
 	int CamPosX=0;
 	int CamPosY=0;
+	//CScreen Mapscreen(610,863);
 };
 

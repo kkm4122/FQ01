@@ -4,6 +4,9 @@
 #include "CImageFile.h"
 #include "CBattleScene.h"
 #define VK_W 87
+#define VK_S 83
+#define VK_A 65
+#define VK_D 68
 CBattleScene::CBattleScene()
 {
 
@@ -51,19 +54,28 @@ void CBattleScene::onKeyDown(UINT virtual_key)
     switch (virtual_key)
     {
     case(VK_UP):
-        FieldMap->PosY -= 16;
+        FieldMap->CamPosY -= 16;
         break;
     case(VK_DOWN):
-        FieldMap->PosY += 16;
+        FieldMap->CamPosY += 16;
         break;
     case(VK_LEFT):
-        FieldMap->PosX -= 16;
+        FieldMap->CamPosX -= 16;
         break;
     case(VK_RIGHT):
-        FieldMap->PosX += 16;
+        FieldMap->CamPosX += 16;
         break;
     case(VK_W):
-        FieldMap->PosY -= 16;
+        FieldMap->mCharacters[0]->TilePos.y -= 1;
+        break;
+    case(VK_S):
+        FieldMap->mCharacters[0]->TilePos.y += 1;
+        break;
+    case(VK_A):
+        FieldMap->mCharacters[0]->TilePos.x -= 1;
+        break;
+    case(VK_D):
+        FieldMap->mCharacters[0]->TilePos.x += 1;
         break;
     default:
         break;
