@@ -7,7 +7,7 @@ CUnit::~CUnit()
 {
 }
 
-void CUnit::Update()
+void CUnit::Update(int dt)
 {
 		if(isMoving())
 		{

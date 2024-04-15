@@ -23,5 +23,6 @@ public:
 	CUnit* KarionSoldier[20];
 	CUnit* KarionSoldier2[20];
 	CUnit* KarionSoldier3[20];
+	CUnit* GarshiaSoldier[30];
 };
 

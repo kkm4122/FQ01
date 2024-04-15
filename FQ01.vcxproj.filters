@@ -342,5 +342,8 @@
     <Image Include="Image\map\전투씬 맵.bmp">
       <Filter>리소스 파일</Filter>
     </Image>
+    <Image Include="..\..\..\..\kkmproject\FQ01\Image\Character\soldier02 (1).bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
   </ItemGroup>
 </Project>

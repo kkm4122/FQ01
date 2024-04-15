@@ -213,6 +213,7 @@
     <ResourceCompile Include="FQ01.rc" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="..\..\..\..\kkmproject\FQ01\Image\Character\soldier02 (1).bmp" />
     <Image Include="..\Intro2.bmp" />
     <Image Include="..\Intro3.bmp" />
     <Image Include="FQ01.ico" />

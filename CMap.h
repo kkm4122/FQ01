@@ -29,19 +29,18 @@ public:
 
 	void SetUnit(class CUnit* unit)
 	{
-
 		mTiles[unit->mTile.y][unit->mTile.x].unit = nullptr;	//유닛포인터 공백
 		int x = unit->mPosition.x / 16;
 		int y = unit->mPosition.y / 16;
 		mTiles[y][x].unit = unit;
 		unit->mTile.x = x;
 		unit->mTile.y = y;
-
 	}
-	void AddChar(int x,int y,  CUnit* a)
+
+	void AddChar(int x,int y,  CUnit* a, const WCHAR* Anino)
 	{
 		CUnit* asdf = a;
-		asdf->TileSet(x, y, L"a.Sno:0");
+		asdf->TileSet(x, y, Anino);
 		asdf->TilePos.x = x;
 		asdf->TilePos.y = y;
 		mCharacters.push_back(asdf);

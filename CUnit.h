@@ -2,10 +2,14 @@
 #include"CAnimation.h"
 #include"CSprite.h"
 
+
+#define STATE_Idle      0
+#define STATE_Move      1
+#define STATE_Attack    2
+#define STATE_DEATH		3
+
+
 class CUnit;
-
-
-
 
 
 struct POS
@@ -43,7 +47,7 @@ public:
 		// 이동해야할 목표점 설정
 		// 충돌 감지
 	}
-	void Update();
+	void Update(int dt);
 	
 	void Draw(HDC hdc);
 
@@ -91,7 +95,8 @@ public:
 	POS mDir;
 	int size = 2;
 	float mSpeed;
-	
+	int TeamNo;
+	int UnitNo;
 	//int MapInfo;
 	
 	POS mTile;

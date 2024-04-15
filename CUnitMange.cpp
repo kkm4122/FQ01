@@ -95,6 +95,17 @@ void CUnitMange::SetUnit()
 			KarionSoldier2[i]->m_anifile.ani->CreateAniStop32(KarionSoldier2[i]->m_anifile.imgFile->Width(), KarionSoldier2[i]->m_anifile.imgFile->Height(), 100);
 		}
 	}
+	{//가르시아 병사 30명
+		for (int i = 0; i < 30; i++)
+		{
+			GarshiaSoldier[i] = new CUnit;
+			GarshiaSoldier[i]->m_anifile.imgFile = CImageFile::New(MAKEINTRESOURCE(IDB_ENEMYSOL1), L"IDB_ENEMYSOL1");
+			GarshiaSoldier[i]->m_anifile.ani = new CAnimation;
+			GarshiaSoldier[i]->m_anifile.ani->CreateAni32(GarshiaSoldier[i]->m_anifile.imgFile->Width(), GarshiaSoldier[i]->m_anifile.imgFile->Height(), 100);
+			GarshiaSoldier[i]->m_anifile.ani->CreateAniStop32(GarshiaSoldier[i]->m_anifile.imgFile->Width(), GarshiaSoldier[i]->m_anifile.imgFile->Height(), 100);
+			//GarshiaSoldier[i]->TileSet(0,0,)
+		}
+	}
 }
 
 void CUnitMange::onDestroy()
