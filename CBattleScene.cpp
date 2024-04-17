@@ -77,6 +77,9 @@ void CBattleScene::onKeyDown(UINT virtual_key)
     case(VK_D):
         FieldMap->mCharacters[0]->TilePos.x += 1;
         break;
+    case(VK_RETURN):
+        FieldMap->mCharacters[0]->MoveTo(2, 3);
+        break;
     default:
         break;
     }

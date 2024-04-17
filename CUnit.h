@@ -25,6 +25,20 @@ struct POS
 	{
 		return x != other.x || y != other.y;
 	}
+	POS operator -(const POS& other)const
+	{
+		POS result;
+		result.x = x - other.x;
+		result.y = y - other.y;
+		return result;
+	}
+	POS operator +(const POS& other)const
+	{
+		POS result;
+		result.x = x + other.x;
+		result.y = y + other.y;
+		return result;
+	}
 };
 
 class CImageFile;
@@ -59,11 +73,16 @@ public:
 	void MoveTo(int tile_x, int tile_y)
 	{
 		//asdf
-		mTarget.x = tile_x * 16;
-		mTarget.y = tile_y * 16;
+		TilePos.x += tile_x ;
+		TilePos.y += tile_y ;
 		//if (isMoving)
 		
 		
+	}
+	void Walk(int Posx, int Posy)
+	{
+		mTarget = { Posx,Posy };
+		mDir = TilePos - mTarget;
 	}
 	virtual void move() {};
 	//void DrawUnit(HDC hdc);
