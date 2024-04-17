@@ -32,17 +32,26 @@ public:
 		mTiles[unit->mTile.y][unit->mTile.x].unit = nullptr;	//À¯´ÖÆ÷ÀÎÅÍ °ø¹é
 		int x = unit->mPosition.x / 16;
 		int y = unit->mPosition.y / 16;
+		for (int uy = 0; uy < unit->size; uy++)
+		{
+			for (int ux = 0; ux < unit->size; ux++)
+			{
+				mTiles[y + uy][x + ux].unit = unit;
+			}
+		}
 		mTiles[y][x].unit = unit;
 		unit->mTile.x = x;
 		unit->mTile.y = y;
 	}
 
-	void AddChar(int x,int y,  CUnit* a, const WCHAR* Anino)
+	void AddChar(int x,int y,int size,int id,  CUnit* a, const WCHAR* Anino)
 	{
 		CUnit* asdf = a;
 		asdf->TileSet(x, y, Anino);
 		asdf->TilePos.x = x;
 		asdf->TilePos.y = y;
+		asdf->size = size;
+		asdf->UnitNo = id;
 		mCharacters.push_back(asdf);
 	}
 	void Draw(HDC hdc)
@@ -50,10 +59,11 @@ public:
 		
 		Mapobj.mDestX = CamPosX+PosX;
 		Mapobj.mDestY = CamPosY+PosY;
+		//¸ÊÀÇ Ãâ·ÂÁÂÇ¥(Ä«¸Þ¶ó ÁÂÇ¥)°¡ ¹Ù²ð¶§ ÃÖ½ÅÈ­
 		CScreen Mapscreen(626, 863);
 		for (CUnit* ic : mCharacters) {
 			if (ic)  ic->UpdateCamPos(CamPosX, CamPosY);
-		}
+		}//¸ÊÀÇ ÀÖ´Â À¯´ÖÁÂÇ¥ ÃÖ½ÅÈ­
 
 		Mapobj.Draw(Mapscreen.m_HDC);
 
@@ -67,6 +77,9 @@ public:
 	{
 		MapImg = CImageFile::New(fileName, name);
 		Mapobj.Set(PosX, PosY, 0, 0, MapImg, 0, CSprite::DrawType_Draw);
+		mx = MapImg->Width() / 16;
+		my = MapImg->Height() / 16;
+		
 	}
 	std::vector<CUnit*>mCharacters;
 
@@ -76,6 +89,8 @@ public:
 	CSprite Mapobj;
 	int CamPosX=0;
 	int CamPosY=0;
+	int mx;
+	int my;
 	//CScreen Mapscreen(610,863);
 };
 

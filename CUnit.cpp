@@ -7,6 +7,12 @@ CUnit::~CUnit()
 {
 }
 
+bool CUnit::isMoving()
+{
+
+	return !(mPosition == mTarget);
+}
+
 void CUnit::Update(int dt)
 {
 		if(isMoving())

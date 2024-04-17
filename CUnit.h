@@ -10,6 +10,11 @@
 
 
 class CUnit;
+class UnitInfo
+{
+public:
+
+};
 
 
 struct POS
@@ -50,10 +55,8 @@ class CUnit
 public:
 	
 	~CUnit();
-	bool isMoving()
-	{
-		return !(mPosition == mTarget);
-	}
+	bool isMoving();
+	
 
 	void Think()
 	{
@@ -79,10 +82,19 @@ public:
 		
 		
 	}
-	void Walk(int Posx, int Posy)
+	bool Walk(int tx,int ty)
 	{
-		mTarget = { Posx,Posy };
+		mTarget = {tx, ty};
 		mDir = TilePos - mTarget;
+		if (mDir.x >= mDir.y)
+		{
+			if(mDir.x)
+			TilePos.x++;
+		}
+		else
+		{
+			TilePos.y++;
+		}
 	}
 	virtual void move() {};
 	//void DrawUnit(HDC hdc);
@@ -106,7 +118,7 @@ public:
 	CFrameSprite mUnitSprite;
 	CFrameSprite UnitState;
 
-	UnitInfo* UInfo;
+	UnitInfo UInfo;
 
 	POS TilePos;
 	POS mPosition;
@@ -124,8 +136,3 @@ public:
 
 
 
-class UnitInfo
-{
-public:
-	
-};

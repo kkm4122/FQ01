@@ -18,9 +18,10 @@ CBattleScene::CBattleScene()
     FieldMap->Mapobj.Set(0, 0, 0, 0, FieldMap->MapImg, 0, CSprite::DrawType_Draw);*/
     UI = CImageFile::New(MAKEINTRESOURCE(IDB_UI), L"IDB_UI");
     UIs.Set(0, 0, 0, 0, UI, RGB(255, 0, 255), CSprite::DrawType_Transparent);
-    FieldMap->AddChar(3, 3, CUnitMange::a->KarionSoldier[10], L"a.Sno:0");
-    FieldMap->AddChar(30, 5, CUnitMange::a->GarshiaSoldier[0], L"a.SnoSTOP:0");
+    FieldMap->AddChar(3, 3, 2, 1, CUnitMange::a->KarionSoldier[10], L"a.Sno:0");
+    FieldMap->AddChar(30, 5, 2, 2, CUnitMange::a->GarshiaSoldier[0], L"a.SnoSTOP:0");
    // FieldMap->mCharacters[0]->TileSet(3, 3, L"a.Sno:0");
+
 }
 
 CBattleScene::~CBattleScene()
