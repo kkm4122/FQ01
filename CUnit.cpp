@@ -1,4 +1,5 @@
 #include "pch.h"
+#include "CMap.h"
 #include "CUnit.h"
 
 
@@ -35,6 +36,11 @@ void CUnit::Update(int dt)
 void CUnit::Draw(HDC hdc)
 {
 	mUnitSprite.Draw(hdc);
+}
+
+bool CUnit::CANMoveOneTile(CMap* Map)
+{
+	return false;
 }
 
 void CUnit::UpdateCamPos(int cx, int cy)

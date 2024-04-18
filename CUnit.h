@@ -1,4 +1,5 @@
 #pragma once
+
 #include"CAnimation.h"
 #include"CSprite.h"
 
@@ -13,7 +14,7 @@
 #define MOVE_RIGHT		7
 #define MOVE_NONDIR		8
 
-
+class CMap;
 class CUnit;
 class UnitInfo
 {
@@ -102,11 +103,8 @@ public:
 		else if (mDir.y < 0)return MOVE_UP;
 		else return MOVE_NONDIR;
 	}
-	void MoveOneTile()
-	{
-
-	}
-	void Walk(CUnit* a)
+	bool CANMoveOneTile(CMap* Map);
+	void DirWalk(CUnit* a)
 	{
 		mTarget = {a->TilePos.x, a->TilePos.y };
 		
