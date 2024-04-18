@@ -7,6 +7,11 @@
 #define STATE_Move      1
 #define STATE_Attack    2
 #define STATE_DEATH		3
+#define MOVE_UP			4
+#define MOVE_DOWN		5
+#define MOVE_LEFT		6
+#define MOVE_RIGHT		7
+#define MOVE_NONDIR		8
 
 
 class CUnit;
@@ -15,6 +20,7 @@ class UnitInfo
 public:
 
 };
+
 
 
 struct POS
@@ -75,37 +81,79 @@ public:
 	}
 	void MoveTo(int tile_x, int tile_y)
 	{
-		//asdf
+		// 해당 변수만큼 이동
 		TilePos.x += tile_x ;
 		TilePos.y += tile_y ;
-		//if (isMoving)
-		
-		
 	}
-	bool Walk(int tx,int ty)
+	void Coordinate(int x, int y)
 	{
-		mTarget = {tx, ty};
-		mDir = TilePos - mTarget;
-		if (mDir.x >= mDir.y)
+		TilePos.x = x;
+		TilePos.y = y;
+	}
+	int XDIR()
+	{
+		if (mDir.x > 0)return MOVE_RIGHT;
+		else if (mDir.x < 0)return MOVE_LEFT;
+		else return MOVE_NONDIR;
+	}
+	int YDIR()
+	{
+		if (mDir.y > 0)return MOVE_DOWN;
+		else if (mDir.y < 0)return MOVE_UP;
+		else return MOVE_NONDIR;
+	}
+	void MoveOneTile()
+	{
+
+	}
+	void Walk(CUnit* a)
+	{
+		mTarget = {a->TilePos.x, a->TilePos.y };
+		
+		mDir = mTarget - TilePos;
+		if (abs(mDir.x) >= abs(mDir.y))
 		{
-			if(mDir.x)
-			TilePos.x++;
+			switch (XDIR())
+			{
+			case MOVE_RIGHT:
+				TilePos.x++;
+				mUnitSprite.ChangeAnimation(mRight);
+				break;
+			case MOVE_LEFT:
+				TilePos.x--;
+				mUnitSprite.ChangeAnimation(mLeft);
+				break;
+			default:
+				break;
+			}
 		}
 		else
 		{
-			TilePos.y++;
+			switch (YDIR())
+			{
+			case MOVE_DOWN:
+				TilePos.y++;
+				mUnitSprite.ChangeAnimation(mDown);
+				break;
+			case MOVE_UP:
+				TilePos.y--;
+				mUnitSprite.ChangeAnimation(mUp);
+				break;
+			default:
+				break;
+			}			
 		}
 	}
 	virtual void move() {};
 	//void DrawUnit(HDC hdc);
 	void TileSet(int dx, int dy, const WCHAR* Anino)
-	{
+	{//타일로 받은 좌표값을 변환시켜 화면 출력
 		int tx = dx*16;
 		int ty = dy*16;
 		mUnitSprite.Set2(Anino, tx, ty, m_anifile.ani, m_anifile.imgFile, RGB(255, 0, 255), CSprite::DrawType_Transparent);
 	}
 	void UnitSet(int dx, int dy, const WCHAR* Anino)
-	{
+	{//맵 타일 없이 유닛 화면 출력
 		mUnitSprite.Set2(Anino, dx, dy, m_anifile.ani, m_anifile.imgFile, RGB(255, 0, 255), CSprite::DrawType_Transparent);
 	}
 	void UpdateCamPos(int cx, int cy);
@@ -130,7 +178,14 @@ public:
 	int UnitNo;
 	//int MapInfo;
 	
-	POS mTile;
+	std::wstring mDown = L"a.Sno:0";//아래
+	std::wstring mLeft = L"a.Sno:1";//왼쪽
+	std::wstring mRight = L"a.Sno:2";//오른쪽
+	std::wstring mUp = L"a.Sno:3";//위
+	std::wstring s0 = L"a.SnoSTOP:0";
+	std::wstring s1 = L"a.SnoSTOP:1";
+	std::wstring s2 = L"a.SnoSTOP:2";
+	std::wstring s3 = L"a.SnoSTOP:3";
 };
 
 

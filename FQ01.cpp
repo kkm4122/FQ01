@@ -7,6 +7,7 @@
 #include "CApplication.h"
 #include "CGameFQ4.h"
 #include "CUnitMange.h"
+
 #define MAX_LOADSTRING 100
 
 // 전역 변수:

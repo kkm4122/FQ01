@@ -25,5 +25,6 @@ public:
 	CMap* FieldMap;
 	CImageFile* UI;
 	CSprite UIs;
+	int framecount = 0;
 };
 

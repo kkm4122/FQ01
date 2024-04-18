@@ -21,7 +21,7 @@ public:
 	void Update()
 	{
 		for (CUnit* ic : mCharacters) {
-			if (ic)  ic->mUnitSprite.Update(10);
+			if (ic)  ic->mUnitSprite.Update(20);
 		}
 		//Soldier1* a = (Soldier1*)mTiles[1][1].unit;
 		
@@ -29,7 +29,7 @@ public:
 
 	void SetUnit(class CUnit* unit)
 	{
-		mTiles[unit->mTile.y][unit->mTile.x].unit = nullptr;	//유닛포인터 공백
+		mTiles[unit->TilePos.y][unit->TilePos.x].unit = nullptr;	//유닛포인터 공백
 		int x = unit->mPosition.x / 16;
 		int y = unit->mPosition.y / 16;
 		for (int uy = 0; uy < unit->size; uy++)
@@ -40,8 +40,8 @@ public:
 			}
 		}
 		mTiles[y][x].unit = unit;
-		unit->mTile.x = x;
-		unit->mTile.y = y;
+		unit->TilePos.x = x;
+		unit->TilePos.y = y;
 	}
 
 	void AddChar(int x,int y,int size,int id,  CUnit* a, const WCHAR* Anino)
