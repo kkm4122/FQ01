@@ -53,6 +53,7 @@ public:
 		mPosition.x = tile_x * 16;
 		mPosition.y = tile_y * 16;
 	}
+	void WalkToAstar();
 	void MoveTo(int tile_x, int tile_y)
 	{
 		// 해당 변수만큼 이동

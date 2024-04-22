@@ -17,6 +17,7 @@ public:
 	~CMap();
 	TILE mTiles[100][100];
 
+	
 
 	void Update()
 	{
