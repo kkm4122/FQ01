@@ -71,27 +71,27 @@ public:
 		for (CUnit* ic : mCharacters) {
 			if (ic) ic->Draw(Mapscreen.m_HDC);
 		}
-		Mapscreen.Draw(hdc,CamPosX,CamPosY,626,863 );
+		Mapscreen.Draw(hdc, Mapobj.mDestX, Mapobj.mDestY,626,863 );
 
 	}
 	void SetMap(const WCHAR* fileName, const WCHAR* name)
 	{
 		MapImg = CImageFile::New(fileName, name);
 		Mapobj.Set(PosX, PosY, 0, 0, MapImg, 0, CSprite::DrawType_Draw);
-		mx = MapImg->Width() / 16;
-		my = MapImg->Height() / 16;
+		SizeX = MapImg->Width() / 16;
+		SizeY = MapImg->Height() / 16;
 		
 	}
 	std::vector<CUnit*>mCharacters;
 
 	CImageFile* MapImg;
+	CSprite Mapobj;
 	int PosX=16;
 	int PosY=48;
-	CSprite Mapobj;
 	int CamPosX=0;
 	int CamPosY=0;
-	int mx;
-	int my;
+	int SizeX;
+	int SizeY;
 	//CScreen Mapscreen(610,863);
 };
 
