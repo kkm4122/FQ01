@@ -47,7 +47,7 @@ void CBattleScene::onFrameMove()
     if (framecount % 10 == 0)
     {
         framecount = 0;
-        FieldMap->mCharacters[1]->Walk(FieldMap->mCharacters[0]);
+        FieldMap->mCharacters[1]->DirWalk(FieldMap->mCharacters[0]);
         
     }
 }

@@ -2,6 +2,7 @@
 
 #include"CAnimation.h"
 #include"CSprite.h"
+#include"POS.h"
 
 
 #define STATE_Idle      0
@@ -14,44 +15,16 @@
 #define MOVE_RIGHT		7
 #define MOVE_NONDIR		8
 
+class AstarHandler;
 class CMap;
 class CUnit;
+class POS;
 class UnitInfo
 {
 public:
 
 };
 
-
-
-struct POS
-{
-	int x;
-	int y;
-
-	bool operator == (const POS& other)const
-	{
-		return x == other.x && y == other.y;
-	}
-	bool operator != (const POS& other)const
-	{
-		return x != other.x || y != other.y;
-	}
-	POS operator -(const POS& other)const
-	{
-		POS result;
-		result.x = x - other.x;
-		result.y = y - other.y;
-		return result;
-	}
-	POS operator +(const POS& other)const
-	{
-		POS result;
-		result.x = x + other.x;
-		result.y = y + other.y;
-		return result;
-	}
-};
 
 class CImageFile;
 class UnitInfo;
