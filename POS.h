@@ -1,10 +1,21 @@
 #pragma once
+#define UP 1
+#define LEFT 2
+#define RIGHT 3
+#define DOWN 4
+
 class POS
 {
 public:
 	int x;
 	int y;
-
+	int XYDir(const POS& other)const
+	{
+		if (x == other.x && y == other.y - 1) { return UP; }
+		else if (x == other.x && y == other.y + 1) { return DOWN; }
+		else if (x == other.x - 1 && y == other.y) { return LEFT; }
+		else if (x == other.x + 1 && y == other.y) { return RIGHT; }
+	}
 	bool operator == (const POS& other)const
 	{
 		return x == other.x && y == other.y;
