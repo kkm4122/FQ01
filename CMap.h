@@ -61,7 +61,7 @@ public:
 		Mapobj.mDestX = CamPosX+PosX;
 		Mapobj.mDestY = CamPosY+PosY;
 		//¸ÊÀÇ Ãâ·ÂÁÂÇ¥(Ä«¸Þ¶ó ÁÂÇ¥)°¡ ¹Ù²ð¶§ ÃÖ½ÅÈ­
-		CScreen Mapscreen(626, 863);
+		CScreen Mapscreen(SizeX*16+16, SizeY*16);
 		for (CUnit* ic : mCharacters) {
 			if (ic)  ic->UpdateCamPos(CamPosX, CamPosY);
 		}//¸ÊÀÇ ÀÖ´Â À¯´ÖÁÂÇ¥ ÃÖ½ÅÈ­
@@ -71,7 +71,7 @@ public:
 		for (CUnit* ic : mCharacters) {
 			if (ic) ic->Draw(Mapscreen.m_HDC);
 		}
-		Mapscreen.Draw(hdc, Mapobj.mDestX, Mapobj.mDestY,626,863 );
+		Mapscreen.Draw(hdc, Mapobj.mDestX, Mapobj.mDestY, SizeX * 16 , SizeY * 16);
 
 	}
 	void SetMap(const WCHAR* fileName, const WCHAR* name);
@@ -80,12 +80,12 @@ public:
 
 	CImageFile* MapImg;
 	CSprite Mapobj;
-	int PosX=16;
-	int PosY=48;
-	int CamPosX=0;
-	int CamPosY=0;
-	int SizeX;
-	int SizeY;
+	int PosX = 16;
+	int PosY = 48;
+	int CamPosX = 0;
+	int CamPosY = 0;
+	int SizeX = 0;
+	int SizeY = 0;
 	//CScreen Mapscreen(610,863);
 };
 

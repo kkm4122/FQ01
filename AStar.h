@@ -1,5 +1,6 @@
 #pragma once
 #include "POS.h"
+class CMap;
 class AStar {
 public:
 	
@@ -13,4 +14,5 @@ public:
 		POS EndPoint;
 		NODE* pParent;
 	};
+	CMap* TileMap;
 };

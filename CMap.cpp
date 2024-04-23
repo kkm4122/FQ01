@@ -14,10 +14,12 @@
 
 CMap::CMap()
 {
-	PosX = 0;
-	PosY = 0;
+	
+	
 	MapImg = CImageFile::New(MAKEINTRESOURCE(BG_FEILD),L"BG_FEILD");
 	Mapobj.Set(PosX, PosY, 0, 0, MapImg, 0, CSprite::DrawType_Draw);
+	SizeX = MapImg->Width() / 16;
+	SizeY = MapImg->Height() / 16;
 }
 
 CMap::~CMap()
