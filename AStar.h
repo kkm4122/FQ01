@@ -2,6 +2,7 @@
 #include "POS.h"
 #include <list>
 class CMap;
+
 class AStar {
 public:
 	
@@ -16,6 +17,13 @@ public:
 		Node* pParent;
 	public:
 		Node(POS POINT, POS EndP, Node* _pParent);
+		Node();
+		//~Node();
 	};
+
+private:
+	std::list<Node*>::iterator CoordNode(int dx, int dy, std::list<Node*>* SNode);
+
+public:
 	std::list<POS*> PathFind(CMap* CurMap, POS StartP, POS EndP);
 };
