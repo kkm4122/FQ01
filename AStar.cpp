@@ -35,9 +35,6 @@ AStar::Node::~Node()
 
 
 
-
-
-
 std::list<POS*> AStar::PathFind(CMap* CurMap, POS StartP, POS EndP)
 {
     std::list<Node*> OpenNode; // 열린노드
@@ -47,12 +44,23 @@ std::list<POS*> AStar::PathFind(CMap* CurMap, POS StartP, POS EndP)
     OpenNode.push_back(new Node(StartP, EndP, NULL));//시작좌표 저장
     std::list<Node*>::iterator iter;
 
-    while (OpenNode.end() != OpenNode.begin()) {}
+    while (OpenNode.end() != OpenNode.begin()&&OpenNode.end() == CoordNode(EndP.x, EndP.y, &OpenNode))
+    //end()==begin()이면 오픈노드가 비어있다는 뜻 end()!= CoordNode이면 오픈노드 안에 목적지가 들어있음(목적지를 찾음)
+    {
+
+    }
     return path;
 }
 
-std::list<AStar::Node*>::iterator CoordNode(int dx, int dy, std::list<AStar::Node*>* SNode)
+std::list<AStar::Node*>::iterator AStar::CoordNode(int dx, int dy, std::list<AStar::Node*>* SNode)//선택된 노드리스트에서 x,y의 좌표를 가진 노드를 반환 없으면 end() 반환
 {
-    std::list<AStar::Node*>::iterator iter;
+    std::list<AStar::Node*>::iterator iter = SNode->begin();
+    for (int i = 1; iter != SNode->end(); i++, iter++)
+    {
+        if ((*iter)->PointPOS.x == dx && (*iter)->PointPOS.y == dy)
+        {
+            return iter;
+        }
+    }
     return SNode->end();
 }
