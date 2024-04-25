@@ -90,5 +90,7 @@ std::list<AStar::Node*>::iterator AStar::CoordNode(int dx, int dy, std::list<ASt
 
 void AStar::ExploreNode(CMap* CurMap, Node* SNode, std::list<Node*> OpenNode, std::list<Node*> CloseNode, POS EndP)
 {
-
+    bool up = true, right = true, down = true, left = true; // 이 결과에 따라 대각선 방향 탐색 여부를 결정. true == 장애물 있음, false == 없음
+    std::list<Node*>::iterator iter;
+    POS point;
 }
