@@ -18,16 +18,41 @@ public:
 	TILE mTiles[100][100];
 
 	
-
 	void Update()
 	{
+
+		for (int i = 0; i < 100; i++) 
+		{
+			for (int j = 0; j < 100; j++) 
+			{
+				mTiles[i][j].unit = nullptr;
+			}
+		}
+		for (auto ic : mCharacters) 
+		{
+			if (ic) 
+			{
+				for (int i = 0; i < ic->size; i++) 
+				{
+					for (int j = 0; j < ic->size; j++) 
+					{
+						if (ic->TilePos.x >= 0 && ic->TilePos.x + ic->size < SizeX && ic->TilePos.y >= 0 && ic->TilePos.y + ic->size < SizeY)
+						{
+							mTiles[ic->TilePos.x + i][ic->TilePos.y + j].unit = ic;
+						}
+
+					}
+				}
+			}
+		}
+
 		for (CUnit* ic : mCharacters) {
-			if (ic)  ic->mUnitSprite.Update(20);
+			if (ic)  ic->Update(20);
 		}
 		//Soldier1* a = (Soldier1*)mTiles[1][1].unit;
-		
-	}
 
+
+	}
 	void SetUnit(class CUnit* unit)
 	{
 		mTiles[unit->TilePos.y][unit->TilePos.x].unit = nullptr;	//유닛포인터 공백
@@ -51,9 +76,17 @@ public:
 		asdf->TileSet(x, y, Anino);
 		asdf->TilePos.x = x;
 		asdf->TilePos.y = y;
+		for (int uy = 0; uy < a->size; uy++)
+		{
+			for (int ux = 0; ux < a->size; ux++)
+			{
+				mTiles[y + uy][x + ux].unit = a;
+			}
+		}
 		asdf->size = size;
 		asdf->UnitNo = id;
 		mCharacters.push_back(asdf);
+		//SetUnit(a);
 	}
 	void Draw(HDC hdc)
 	{

@@ -16,8 +16,8 @@ bool CUnit::isMoving()
 
 void CUnit::Update(int dt)
 {
-		
-	}
+	mUnitSprite.Update(dt);
+}
 
 void CUnit::Draw(HDC hdc)
 {
