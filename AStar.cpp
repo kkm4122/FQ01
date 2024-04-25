@@ -87,3 +87,8 @@ std::list<AStar::Node*>::iterator AStar::CoordNode(int dx, int dy, std::list<ASt
     }
     return SeNode->end();
 }
+
+void AStar::ExploreNode(CMap* CurMap, Node* SNode, std::list<Node*> OpenNode, std::list<Node*> CloseNode, POS EndP)
+{
+
+}

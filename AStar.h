@@ -21,9 +21,10 @@ public:
 		~Node();
 	};
 
-
 	std::list<AStar::Node*>::iterator NextNode(std::list<Node*>* SeNode);
 	std::list<AStar::Node*>::iterator CoordNode(int dx, int dy, std::list<Node*>* SeNode);
+	void ExploreNode(CMap* CurMap, Node* SNode, std::list<Node*> OpenNode, std::list<Node*> CloseNode, POS EndP);
+
 
 public:
 	std::list<POS*> PathFind(CMap* CurMap, POS StartP, POS EndP);
