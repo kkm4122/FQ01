@@ -54,9 +54,25 @@ std::list<POS*> AStar::PathFind(CMap* CurMap, POS StartP, POS EndP)
 
 std::list<AStar::Node*>::iterator AStar::NextNode(std::list<Node*>* SeNode)
 {
+    std::list<AStar::Node*>::iterator iter = (*SeNode).begin();
+
     int MinF = 5959595959;//처음 최솟값을 정하기위한 변수값
     int CuNodeNo = 0; //0=노드가 정해지지않음
-    return std::list<AStar::Node*>::iterator();
+    for (int i = 1; iter != (*SeNode).end(); i++, iter++)
+    {
+        if ((*iter)->F <= MinF)
+        {
+            MinF = (*iter)->F;
+            CuNodeNo = i;
+        }
+    }
+    iter= (*SeNode).begin();
+    for (int i = 1; i < CuNodeNo; i++)
+    {
+        iter++;
+    }
+
+    return iter;
 }
 
 std::list<AStar::Node*>::iterator AStar::CoordNode(int dx, int dy, std::list<AStar::Node*>* SeNode)//선택된 노드리스트에서 x,y의 좌표를 가진 노드를 반환 없으면 end() 반환
