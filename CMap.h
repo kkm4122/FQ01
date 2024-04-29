@@ -36,9 +36,9 @@ public:
 				{
 					for (int j = 0; j < ic->size; j++) 
 					{
-						if (ic->TilePos.x >= 0 && ic->TilePos.x + ic->size < SizeX && ic->TilePos.y >= 0 && ic->TilePos.y + ic->size < SizeY)
+						if (ic->TilePos.x >= 0 && ic->TilePos.x + ic->size - 1 < SizeX && ic->TilePos.y >= 0 && ic->TilePos.y + ic->size - 1 < SizeY)
 						{
-							mTiles[ic->TilePos.x + i][ic->TilePos.y + j].unit = ic;
+							mTiles[ic->TilePos.y + i][ic->TilePos.x + j].unit = ic;
 						}
 
 					}
