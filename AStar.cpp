@@ -98,5 +98,7 @@ void AStar::ExploreNode(CMap* CurMap, Node* SNode, std::list<Node*> OpenNode, st
     point.x = SNode->PointPOS.x;
     point.y = SNode->PointPOS.y-1;
     if(point.y>=0&& CurMap->mTiles[point.y][point.x].unit==nullptr)
-    { }
+    {
+
+    }
 }
