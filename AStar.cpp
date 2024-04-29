@@ -1,6 +1,8 @@
 #include "pch.h"
 #include "AStar.h"
+#include "CMap.h"
 #include <list>
+
 #include<stdio.h>
 
 
@@ -93,4 +95,8 @@ void AStar::ExploreNode(CMap* CurMap, Node* SNode, std::list<Node*> OpenNode, st
     bool up = true, right = true, down = true, left = true; // 이 결과에 따라 대각선 방향 탐색 여부를 결정. true == 장애물 있음, false == 없음
     std::list<Node*>::iterator iter;
     POS point;
+    point.x = SNode->PointPOS.x;
+    point.y = SNode->PointPOS.y-1;
+    if(point.y>=0&& CurMap->mTiles[point.y][point.x].unit==nullptr)
+    { }
 }

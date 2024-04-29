@@ -110,7 +110,7 @@ public:
 	void SetMap(const WCHAR* fileName, const WCHAR* name);
 	
 	std::vector<CUnit*>mCharacters;
-
+	CUnit Obstacle;
 	CImageFile* MapImg;
 	CSprite Mapobj;
 	int PosX = 16;
