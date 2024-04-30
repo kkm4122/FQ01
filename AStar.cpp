@@ -95,7 +95,7 @@ std::list<AStar::Node*>::iterator AStar::CoordNode(int dx, int dy, std::list<ASt
     return SeNode->end();
 }
 
-void AStar::ExploreNode(CMap* CurMap, Node* SNode, std::list<Node*>* OpenNode, std::list<Node*>* CloseNode, POS EndP)
+void AStar::ExploreNode(CMap* CurMap, Node* SNode, std::list<Node*>* OpenNode, std::list<Node*>* CloseNode, POS EndP)//노드 탐색
 {
     bool up = true, right = true, down = true, left = true; // 이 결과에 따라 대각선 방향 탐색 여부를 결정. true == 장애물 있음, false == 없음
     std::list<Node*>::iterator iter;
@@ -132,7 +132,7 @@ void AStar::ExploreNode(CMap* CurMap, Node* SNode, std::list<Node*>* OpenNode, s
     point.y = SNode->PointPOS.y;
     if (point.y >= 0 && CurMap->mTiles[point.y][point.x].unit == nullptr)
     {//현재 노드의 좌표의 상부분이 맵 안에 존재하고 장애물이 없는 경우
-        up = false;//false = 장애물이 없다
+        right = false;//false = 장애물이 없다
         //end() 노드의 끝좌표(아무것도 들어가있지 않음)
         //현노드end()!=Coordnode(현노드)는 현노드안에 좌표값을 가지는노드가 발견된 경우 즉 end()==coordnode는 좌표값을 가진 노드가 발견되지 않는경우 좌표가 현 노드안에 없다 
         if (OpenNode->end() != CoordNode(point.x, point.y, OpenNode))
@@ -159,7 +159,7 @@ void AStar::ExploreNode(CMap* CurMap, Node* SNode, std::list<Node*>* OpenNode, s
     point.y = SNode->PointPOS.y + 1;
     if (point.y >= 0 && CurMap->mTiles[point.y][point.x].unit == nullptr)
     {//현재 노드의 좌표의 상부분이 맵 안에 존재하고 장애물이 없는 경우
-        up = false;//false = 장애물이 없다
+        down = false;//false = 장애물이 없다
         //end() 노드의 끝좌표(아무것도 들어가있지 않음)
         //현노드end()!=Coordnode(현노드)는 현노드안에 좌표값을 가지는노드가 발견된 경우 즉 end()==coordnode는 좌표값을 가진 노드가 발견되지 않는경우 좌표가 현 노드안에 없다 
         if (OpenNode->end() != CoordNode(point.x, point.y, OpenNode))
@@ -186,7 +186,7 @@ void AStar::ExploreNode(CMap* CurMap, Node* SNode, std::list<Node*>* OpenNode, s
     point.y = SNode->PointPOS.y;
     if (point.y >= 0 && CurMap->mTiles[point.y][point.x].unit == nullptr)
     {//현재 노드의 좌표의 상부분이 맵 안에 존재하고 장애물이 없는 경우
-        up = false;//false = 장애물이 없다
+        left = false;//false = 장애물이 없다
         //end() 노드의 끝좌표(아무것도 들어가있지 않음)
         //현노드end()!=Coordnode(현노드)는 현노드안에 좌표값을 가지는노드가 발견된 경우 즉 end()==coordnode는 좌표값을 가진 노드가 발견되지 않는경우 좌표가 현 노드안에 없다 
         if (OpenNode->end() != CoordNode(point.x, point.y, OpenNode))
