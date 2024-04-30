@@ -113,10 +113,10 @@ public:
 	CUnit Obstacle;
 	CImageFile* MapImg;
 	CSprite Mapobj;
-	int PosX = 16;
-	int PosY = 48;
-	int CamPosX = 0;
-	int CamPosY = 0;
+	int PosX = 0;
+	int PosY = 0;
+	int CamPosX = 16;
+	int CamPosY = 48;
 	int SizeX = 0;
 	int SizeY = 0;
 	//CScreen Mapscreen(610,863);

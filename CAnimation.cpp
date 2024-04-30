@@ -32,7 +32,6 @@ void CAnimation::CreateSample()
 	fa_face->m_Name = L"char_F";
 	m_FramAnimations.push_back(fa_face);
 
-	
 	//FRAME fm;
 	
 
@@ -73,8 +72,10 @@ void CAnimation::CreateSample()
 	fa_back->m_Name = L"char_B";
 	m_FramAnimations.push_back(fa_back);
 
-
-
+	//delete fa_face;
+	//delete fa_left;
+	//delete fa_right;
+	//delete fa_back;
 
 }
 void CAnimation::CreateAniW(int bw, int bh, int fw, int fh, int dt)
@@ -99,6 +100,7 @@ void CAnimation::CreateAniW(int bw, int bh, int fw, int fh, int dt)
 		swprintf_s(AniFno, 9, L"a.Sno:%d", i);
 		a->m_Name = AniFno;
 		m_FramAnimations.push_back(a);
+		//delete a;
 	}
 }
 
@@ -119,6 +121,7 @@ void CAnimation::CreateAniH(int bw, int bh, int fw, int fh, int dt)
 		swprintf_s(AniFno, 9, L"a.Sno:%d", i);
 		a->m_Name = AniFno;
 		m_FramAnimations.push_back(a);
+		//delete a;
 	}
 }
 
@@ -142,6 +145,7 @@ void CAnimation::CreateAni32(int bw, int bh, int dt)
 		swprintf_s(AniFno, 100, L"a.Sno:%d", i);
 		a->m_Name = AniFno;
 		m_FramAnimations.push_back(a);
+		//delete a;
 	}
 }
 
@@ -165,7 +169,34 @@ void CAnimation::CreateAniStop32(int bw, int bh, int dt)
 			swprintf_s(AniFno, 100, L"a.SnoSTOP:%d", i+(j*h32));
 			a->m_Name = AniFno;
 			m_FramAnimations.push_back(a);
+			//delete a;
 		}
+
+	}
+}
+void CAnimation::CreateAniStop16(int bw, int bh, int dt)
+{
+	int w16 = bw / 16;
+	int h16 = bh / 16;
+
+
+
+	//가로 세로 
+	for (int j = 0; j < w16; j++)
+	{
+		for (int i = 0; i < h16; i++)
+		{
+			FrameAnimation* a = new FrameAnimation;
+			a->m_Frames.push_back(FRAME(j * 16, i * 16, 16, 16));
+			a->m_AnimKeys.push_back(ANIM_KEY(0, dt));
+
+			WCHAR AniFno[100];
+			swprintf_s(AniFno, 100, L"a.SnoSTOP:%d", i + (j * h16));
+			a->m_Name = AniFno;
+			m_FramAnimations.push_back(a);
+			//delete a;
+		}
+
 	}
 }
 

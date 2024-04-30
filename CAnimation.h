@@ -44,6 +44,7 @@ public:
 	FrameAnimation* Find(std::wstring& name);
 	void CreateAni32(int bw, int bh, int dt);
 	void CreateAniStop32(int bw, int bh, int dt);
+	void CreateAniStop16(int bw, int bh, int dt);
 	void CreateAniW(int bw,int bh, int fw, int fh, int dt);
 	void CreateAniH(int bw, int bh, int fw, int fh, int dt);
 };

@@ -106,6 +106,17 @@ void CUnitMange::SetUnit()
 			//GarshiaSoldier[i]->TileSet(0,0,)
 		}
 	}
+	{//장애물 오브잭
+		for (int i = 0; i < 20; i++)
+		{
+			BlackObj[i] = new CUnit;
+			BlackObj[i]->size = 1;
+			BlackObj[i]->m_anifile.imgFile = CImageFile::New(MAKEINTRESOURCE(IDB_BLACKOBJ), L"IDB_BLACKOBJ");
+			BlackObj[i]->m_anifile.ani = new CAnimation;
+			BlackObj[i]->m_anifile.ani->CreateAniStop16(BlackObj[i]->m_anifile.imgFile->Width(), BlackObj[i]->m_anifile.imgFile->Height(), 100);
+			
+		}
+	}
 }
 
 void CUnitMange::onDestroy()

@@ -22,7 +22,7 @@ CBattleScene::CBattleScene()
     FieldMap->AddChar(30, 5, 2, 2, CUnitMange::a->GarshiaSoldier[0], L"a.SnoSTOP:0");
     FieldMap->AddChar(20, 10, 2, 2, CUnitMange::a->Aerain, L"a.SnoSTOP:0");
    // FieldMap->mCharacters[0]->TileSet(3, 3, L"a.Sno:0");
-    
+    FieldMap->AddChar(5, 5, 1, 100, CUnitMange::a->BlackObj[0], L"a.SnoSTOP:0");
 }
 
 CBattleScene::~CBattleScene()
@@ -55,7 +55,7 @@ void CBattleScene::onFrameMove()
 void CBattleScene::onDraw(HDC hdc)
 {
     FieldMap->Draw(hdc);
-    UIs.Draw(hdc);
+    //UIs.Draw(hdc);
 }
 
 void CBattleScene::onKeyDown(UINT virtual_key)

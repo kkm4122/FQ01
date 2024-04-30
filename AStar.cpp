@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "AStar.h"
 #include "CMap.h"
+#include "CUnit.h"
 #include <list>
 
 #include<stdio.h>
@@ -55,6 +56,25 @@ std::list<POS*> AStar::PathFind(CMap* CurMap, POS StartP, POS EndP)
         ExploreNode(CurMap, SNode, &OpenNode, &CloseNode, EndP);
         CloseNode.push_back(SNode); // 현재 탐색한 노드를 닫힌 노드에 추가
         OpenNode.erase(iter); // 닫힌 노드에 추가한 노드를 열린 노드에서 제거
+    }
+    if ((OpenNode.end() != OpenNode.begin())) // 길을 찾은 경우	OpenNode.end()!= FindCoordNode(EndPoint.x,EndPoint.y,&OpenNode)
+    {
+        iter = CoordNode(EndP.x, EndP.y, &OpenNode);
+        for (SNode = *iter; SNode->pParent != NULL; SNode->pParent)//부모가 NULL(시작경로)일때까지 경로 저장
+        {
+            path.push_back(new POS(SNode->PointPOS.x, SNode->PointPOS.y));
+        }
+        path.push_back(new POS(SNode->PointPOS.x, SNode->PointPOS.y));//시작경로 저장
+        path.reverse();//패스경로를 역순으로 저장 (목적지~시작)을 (시작~목적지)로
+    }
+    for (; iter != OpenNode.end(); iter++)
+    {
+        delete* iter; // 열린 노드 동적할당 해제
+    }
+    iter = CloseNode.begin();
+    for (; iter != CloseNode.end(); iter++)
+    {
+        delete* iter; // 닫힌 노드 동적할당 해제 
     }
     return path;
 }
@@ -124,7 +144,7 @@ void AStar::ExploreNode(CMap* CurMap, Node* SNode, std::list<Node*>* OpenNode, s
         else
         {
             //장애물이 없고 닫힌노드 열린노드에 해당 좌표가 존재하지 않는경우
-            OpenNode->push_back(new Node(point.x, point.y, SNode, EndP));
+            OpenNode->push_back(new Node(point, EndP, SNode));
         }
     }
     //우
@@ -151,7 +171,7 @@ void AStar::ExploreNode(CMap* CurMap, Node* SNode, std::list<Node*>* OpenNode, s
         else
         {
             //장애물이 없고 닫힌노드 열린노드에 해당 좌표가 존재하지 않는경우
-            OpenNode->push_back(new Node(point.x, point.y, SNode, EndP));
+            OpenNode->push_back(new Node(point, EndP, SNode));
         }
     }
     //하
@@ -178,7 +198,7 @@ void AStar::ExploreNode(CMap* CurMap, Node* SNode, std::list<Node*>* OpenNode, s
         else
         {
             //장애물이 없고 닫힌노드 열린노드에 해당 좌표가 존재하지 않는경우
-            OpenNode->push_back(new Node(point.x, point.y, SNode, EndP));
+            OpenNode->push_back(new Node(point, EndP, SNode));
         }
     }
     //좌
@@ -205,7 +225,7 @@ void AStar::ExploreNode(CMap* CurMap, Node* SNode, std::list<Node*>* OpenNode, s
         else
         {
             //장애물이 없고 닫힌노드 열린노드에 해당 좌표가 존재하지 않는경우
-            OpenNode->push_back(new Node(point.x, point.y, SNode, EndP));
+            OpenNode->push_back(new Node(point, EndP, SNode));
         }
     }
 }
