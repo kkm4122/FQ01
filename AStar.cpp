@@ -123,7 +123,7 @@ void AStar::ExploreNode(CMap* CurMap, Node* SNode, std::list<Node*>* OpenNode, s
     //상
     point.x = SNode->PointPOS.x;
     point.y = SNode->PointPOS.y - 1;
-    if (point.y >= 0 && CurMap->mTiles[point.y][point.x].unit == nullptr)
+    if (SNode->PointPOS.y > 0 && CurMap->mTiles[point.y][point.x].unit == nullptr)
     {//현재 노드의 좌표의 상부분이 맵 안에 존재하고 장애물이 없는 경우
         up = false;//false = 장애물이 없다
         //end() 노드의 끝좌표(아무것도 들어가있지 않음)
@@ -150,7 +150,7 @@ void AStar::ExploreNode(CMap* CurMap, Node* SNode, std::list<Node*>* OpenNode, s
     //우
     point.x = SNode->PointPOS.x + 1;
     point.y = SNode->PointPOS.y;
-    if (point.y >= 0 && CurMap->mTiles[point.y][point.x].unit == nullptr)
+    if (SNode->PointPOS.x < (CurMap->SizeX - 1) && CurMap->mTiles[point.y][point.x].unit == nullptr)
     {//현재 노드의 좌표의 상부분이 맵 안에 존재하고 장애물이 없는 경우
         right = false;//false = 장애물이 없다
         //end() 노드의 끝좌표(아무것도 들어가있지 않음)
@@ -177,7 +177,7 @@ void AStar::ExploreNode(CMap* CurMap, Node* SNode, std::list<Node*>* OpenNode, s
     //하
     point.x = SNode->PointPOS.x;
     point.y = SNode->PointPOS.y + 1;
-    if (point.y >= 0 && CurMap->mTiles[point.y][point.x].unit == nullptr)
+    if (SNode->PointPOS.y < (CurMap->SizeY - 1) && CurMap->mTiles[point.y][point.x].unit == nullptr)
     {//현재 노드의 좌표의 상부분이 맵 안에 존재하고 장애물이 없는 경우
         down = false;//false = 장애물이 없다
         //end() 노드의 끝좌표(아무것도 들어가있지 않음)
@@ -204,7 +204,138 @@ void AStar::ExploreNode(CMap* CurMap, Node* SNode, std::list<Node*>* OpenNode, s
     //좌
     point.x = SNode->PointPOS.x - 1;
     point.y = SNode->PointPOS.y;
-    if (point.y >= 0 && CurMap->mTiles[point.y][point.x].unit == nullptr)
+    if (SNode->PointPOS.x > 0 && CurMap->mTiles[point.y][point.x].unit == nullptr)
+    {//현재 노드의 좌표의 상부분이 맵 안에 존재하고 장애물이 없는 경우
+        left = false;//false = 장애물이 없다
+        //end() 노드의 끝좌표(아무것도 들어가있지 않음)
+        //현노드end()!=Coordnode(현노드)는 현노드안에 좌표값을 가지는노드가 발견된 경우 즉 end()==coordnode는 좌표값을 가진 노드가 발견되지 않는경우 좌표가 현 노드안에 없다 
+        if (OpenNode->end() != CoordNode(point.x, point.y, OpenNode))
+        {
+            iter = CoordNode(point.x, point.y, OpenNode);
+            if ((*iter)->G > (SNode->G + 10)) // 원래 부모를 통해서 갔을 때의 비용보다 현재 노드를 통해서 갔을 때 비용이 더 낮아질 경우 
+            {
+                (*iter)->pParent = SNode; // 현재 노드를 부모로 바꿈
+            }
+        }
+
+        else if (CloseNode->end() != CoordNode(point.x, point.y, CloseNode))
+        {
+            //닫힌노드에 좌표가 있는경우
+        }
+        else
+        {
+            //장애물이 없고 닫힌노드 열린노드에 해당 좌표가 존재하지 않는경우
+            OpenNode->push_back(new Node(point, EndP, SNode));
+        }
+    }
+}
+//if (point.y >= 0 && CurMap->mTiles[point.y][point.x].unit == nullptr)
+bool NullNode(CUnit* Unit, CMap* CurMap, POS point)
+{
+    for (int i = 0; i < Unit->size; i++)
+    {
+        for (int j = 0; j < Unit->size; j++)
+        {
+            if (CurMap->mTiles[point.y + j][point.x + i].unit != nullptr)
+            {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+void AStar::ExPloerUnitNode(CUnit* Unit, CMap* CurMap, Node* SNode, std::list<Node*>* OpenNode, std::list<Node*>* CloseNode, POS EndP)
+{   //1x1이아닌 2x2이상의 유닛들 탐색 노드
+
+    bool up = true, right = true, down = true, left = true; // 이 결과에 따라 대각선 방향 탐색 여부를 결정. true == 장애물 있음, false == 없음
+    std::list<Node*>::iterator iter;
+    POS point;
+    //상
+    point.x = SNode->PointPOS.x;
+    point.y = SNode->PointPOS.y - 1;
+    if (SNode->PointPOS.y > 0 && NullNode(Unit, CurMap, point))
+    {//현재 노드의 좌표의 상부분이 맵 안에 존재하고 장애물이 없는 경우
+        up = false;//false = 장애물이 없다
+        //end() 노드의 끝좌표(아무것도 들어가있지 않음)
+        //현노드end()!=Coordnode(현노드)는 현노드안에 좌표값을 가지는노드가 발견된 경우 즉 end()==coordnode는 좌표값을 가진 노드가 발견되지 않는경우 좌표가 현 노드안에 없다 
+        if (OpenNode->end() != CoordNode(point.x, point.y, OpenNode))
+        {
+            iter = CoordNode(point.x, point.y, OpenNode);
+            if ((*iter)->G > (SNode->G + 10)) // 원래 부모를 통해서 갔을 때의 비용보다 현재 노드를 통해서 갔을 때 비용이 더 낮아질 경우 
+            {
+                (*iter)->pParent = SNode; // 현재 노드를 부모로 바꿈
+            }
+        }
+
+        else if (CloseNode->end() != CoordNode(point.x, point.y, CloseNode))
+        {
+            //닫힌노드에 좌표가 있는경우
+        }
+        else
+        {
+            //장애물이 없고 닫힌노드 열린노드에 해당 좌표가 존재하지 않는경우
+            OpenNode->push_back(new Node(point, EndP, SNode));
+        }
+    }
+    //우
+    point.x = SNode->PointPOS.x + 1;
+    point.y = SNode->PointPOS.y;
+    if (SNode->PointPOS.x + Unit->size - 1 < (CurMap->SizeX - 1) && NullNode(Unit, CurMap, point))
+    {//현재 노드의 좌표의 상부분이 맵 안에 존재하고 장애물이 없는 경우
+        right = false;//false = 장애물이 없다
+        //end() 노드의 끝좌표(아무것도 들어가있지 않음)
+        //현노드end()!=Coordnode(현노드)는 현노드안에 좌표값을 가지는노드가 발견된 경우 즉 end()==coordnode는 좌표값을 가진 노드가 발견되지 않는경우 좌표가 현 노드안에 없다 
+        if (OpenNode->end() != CoordNode(point.x, point.y, OpenNode))
+        {
+            iter = CoordNode(point.x, point.y, OpenNode);
+            if ((*iter)->G > (SNode->G + 10)) // 원래 부모를 통해서 갔을 때의 비용보다 현재 노드를 통해서 갔을 때 비용이 더 낮아질 경우 
+            {
+                (*iter)->pParent = SNode; // 현재 노드를 부모로 바꿈
+            }
+        }
+
+        else if (CloseNode->end() != CoordNode(point.x, point.y, CloseNode))
+        {
+            //닫힌노드에 좌표가 있는경우
+        }
+        else
+        {
+            //장애물이 없고 닫힌노드 열린노드에 해당 좌표가 존재하지 않는경우
+            OpenNode->push_back(new Node(point, EndP, SNode));
+        }
+    }
+
+    //하
+    point.x = SNode->PointPOS.x;
+    point.y = SNode->PointPOS.y + 1;
+    if (SNode->PointPOS.y + Unit->size - 1 < (CurMap->SizeY - 1) && NullNode(Unit, CurMap, point))
+    {//현재 노드의 좌표의 상부분이 맵 안에 존재하고 장애물이 없는 경우
+        down = false;//false = 장애물이 없다
+        //end() 노드의 끝좌표(아무것도 들어가있지 않음)
+        //현노드end()!=Coordnode(현노드)는 현노드안에 좌표값을 가지는노드가 발견된 경우 즉 end()==coordnode는 좌표값을 가진 노드가 발견되지 않는경우 좌표가 현 노드안에 없다 
+            if (OpenNode->end() != CoordNode(point.x, point.y, OpenNode))
+            {
+                iter = CoordNode(point.x, point.y, OpenNode);
+                if ((*iter)->G > (SNode->G + 10)) // 원래 부모를 통해서 갔을 때의 비용보다 현재 노드를 통해서 갔을 때 비용이 더 낮아질 경우 
+                {
+                    (*iter)->pParent = SNode; // 현재 노드를 부모로 바꿈
+                }
+            }
+
+            else if (CloseNode->end() != CoordNode(point.x, point.y, CloseNode))
+            {
+                //닫힌노드에 좌표가 있는경우
+            }
+            else
+            {
+                //장애물이 없고 닫힌노드 열린노드에 해당 좌표가 존재하지 않는경우
+                OpenNode->push_back(new Node(point, EndP, SNode));
+            }
+    }
+    //좌
+    point.x = SNode->PointPOS.x - 1;
+    point.y = SNode->PointPOS.y;
+    if (SNode->PointPOS.x > 0 && NullNode(Unit, CurMap, point))
     {//현재 노드의 좌표의 상부분이 맵 안에 존재하고 장애물이 없는 경우
         left = false;//false = 장애물이 없다
         //end() 노드의 끝좌표(아무것도 들어가있지 않음)
