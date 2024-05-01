@@ -2,7 +2,8 @@
 
 #include"CAnimation.h"
 #include"CSprite.h"
-#include"POS.h"
+//#include"POS.h"
+#include"Astar.h"
 #include"AstarHandler.h"
 
 
@@ -79,6 +80,11 @@ public:
 		else return MOVE_NONDIR;
 	}
 	bool CANMoveOneTile(CMap* Map);
+	void TargetAstar(CUnit* a)
+	{
+		mTarget = { a->TilePos.x, a->TilePos.y };
+		path = PathFind
+	}
 	void DirWalk(CUnit* a)
 	{
 		mTarget = {a->TilePos.x, a->TilePos.y };
@@ -150,7 +156,8 @@ public:
 	int TeamNo;
 	int UnitNo;
 	//int MapInfo;
-	
+	std::list<POS*> path;	//경로 좌표
+	std::list<POS*>::iterator iter;		//경로 순서
 	std::wstring mDown = L"a.Sno:0";//아래
 	std::wstring mLeft = L"a.Sno:1";//왼쪽
 	std::wstring mRight = L"a.Sno:2";//오른쪽
