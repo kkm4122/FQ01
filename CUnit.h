@@ -80,10 +80,10 @@ public:
 		else return MOVE_NONDIR;
 	}
 	bool CANMoveOneTile(CMap* Map);
-	void TargetAstar(CUnit* a)
+	void TargetAstar(CMap* Map,CUnit* a)
 	{
 		mTarget = { a->TilePos.x, a->TilePos.y };
-		path = PathFind
+		path = A.PathFind(Map, TilePos, mTarget);
 	}
 	void DirWalk(CUnit* a)
 	{
@@ -146,7 +146,7 @@ public:
 	CFrameSprite UnitState;
 
 	UnitInfo UInfo;
-
+	AStar A;
 	POS TilePos;
 	POS mPosition;
 	POS mTarget;
