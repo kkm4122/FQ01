@@ -85,6 +85,10 @@ public:
 		mTarget = { a->TilePos.x, a->TilePos.y };
 		path = A.PathFind(Map, TilePos, mTarget);
 	}
+	void MovePath()
+	{
+		//path.
+	}
 	void DirWalk(CUnit* a)
 	{
 		mTarget = {a->TilePos.x, a->TilePos.y };
