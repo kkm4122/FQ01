@@ -29,6 +29,32 @@ bool CUnit::CANMoveOneTile(CMap* Map)
 	return false;
 }
 
+void CUnit::TargetAstar(CMap* Map, CUnit* a)
+{
+	mTarget = { a->TilePos.x, a->TilePos.y };
+	path = A.PathFind(a, Map, TilePos, mTarget);
+}
+
+void CUnit::MovePath(CMap* Map, CUnit* a)
+{
+	TargetAstar(Map, a);
+}
+
+bool CUnit::CanMove(CMap* Map, CUnit* Target, POS NextP)
+{
+	for (int y = 0; y < size; y++)
+	{
+		for (int x = 0; x < size; x++)
+		{
+			if (Map->mTiles[NextP.y + y][NextP.x + x].unit != nullptr && Map->mTiles[y][x].unit != Target)
+			{
+				return false;
+			}
+		}
+	}
+	return true;
+}
+
 void CUnit::UpdateCamPos(int cx, int cy)
 {
 	mUnitSprite.mDestX =  cx + (16 * TilePos.x);

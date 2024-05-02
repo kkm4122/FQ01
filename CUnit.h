@@ -81,28 +81,12 @@ public:
 		else return MOVE_NONDIR;
 	}
 	bool CANMoveOneTile(CMap* Map);
-	void TargetAstar(CMap* Map,CUnit* a)
-	{
-		mTarget = { a->TilePos.x, a->TilePos.y };
-		path = A.PathFind(a, Map, TilePos, mTarget);
-	}
-	void MovePath(CMap* Map, CUnit* a)
-	{
-		TargetAstar(Map, a);
-	}
-	bool CanMove(CMap* Map, CUnit* Target, POS NextP)
-	{
-		for (int y = 0; y < size; y++)
-		{
-			for (int x = 0; x < size; x++)
-			{
-				if (Map->mTiles[NextP.y+y][NextP.x+x].unit != nullptr && Map->mTiles[y][x].unit != Target)
-				{
-					
-				}
-			}
-		}
-	}
+	void TargetAstar(CMap* Map, CUnit* a);
+	
+	void MovePath(CMap* Map, CUnit* a);
+	
+	bool CanMove(CMap* Map, CUnit* Target, POS NextP);
+	
 	void DirWalk(CUnit* a)
 	{
 		mTarget = {a->TilePos.x, a->TilePos.y };
