@@ -38,7 +38,7 @@ AStar::Node::~Node()
 
 
 
-std::list<POS*> AStar::PathFind(CMap* CurMap, POS StartP, POS EndP)
+std::list<POS*> AStar::PathFind(CUnit* TUnit, CMap* CurMap, POS StartP, POS EndP)
 {
     std::list<Node*> OpenNode; // 열린노드
     std::list<Node*> CloseNode; // 닫힌노드
@@ -230,21 +230,24 @@ void AStar::ExploreNode(CMap* CurMap, Node* SNode, std::list<Node*>* OpenNode, s
     }
 }
 //if (point.y >= 0 && CurMap->mTiles[point.y][point.x].unit == nullptr)
-bool NullNode(CUnit* Unit, CMap* CurMap, POS point)
+bool NullNode(CUnit* Unit,CUnit* TUnit, CMap* CurMap, POS point)
 {
     for (int i = 0; i < Unit->size; i++)
     {
         for (int j = 0; j < Unit->size; j++)
         {
-            if (CurMap->mTiles[point.y + j][point.x + i].unit != nullptr)
+            if (CurMap->mTiles[point.y + j][point.x + i].unit != nullptr&& CurMap->mTiles[point.y + j][point.x + i].unit!=Unit)
             {
-                return false;
+                if (CurMap->mTiles[point.y + j][point.x + i].unit != TUnit)
+                {//TUnit 의 사이즈안에 들어갈 경우 이동가능처리
+                    return false;
+                }
             }
         }
     }
     return true;
 }
-void AStar::ExPloerUnitNode(CUnit* Unit, CMap* CurMap, Node* SNode, std::list<Node*>* OpenNode, std::list<Node*>* CloseNode, POS EndP)
+void AStar::ExPloerUnitNode(CUnit* Unit, CUnit* TUnit, CMap* CurMap, Node* SNode, std::list<Node*>* OpenNode, std::list<Node*>* CloseNode, POS EndP)
 {   //1x1이아닌 2x2이상의 유닛들 탐색 노드
 
     bool up = true, right = true, down = true, left = true; // 이 결과에 따라 대각선 방향 탐색 여부를 결정. true == 장애물 있음, false == 없음
@@ -253,7 +256,7 @@ void AStar::ExPloerUnitNode(CUnit* Unit, CMap* CurMap, Node* SNode, std::list<No
     //상
     point.x = SNode->PointPOS.x;
     point.y = SNode->PointPOS.y - 1;
-    if (SNode->PointPOS.y > 0 && NullNode(Unit, CurMap, point))
+    if (SNode->PointPOS.y > 0 && NullNode(Unit, TUnit, CurMap, point))
     {//현재 노드의 좌표의 상부분이 맵 안에 존재하고 장애물이 없는 경우
         up = false;//false = 장애물이 없다
         //end() 노드의 끝좌표(아무것도 들어가있지 않음)
@@ -280,7 +283,7 @@ void AStar::ExPloerUnitNode(CUnit* Unit, CMap* CurMap, Node* SNode, std::list<No
     //우
     point.x = SNode->PointPOS.x + 1;
     point.y = SNode->PointPOS.y;
-    if (SNode->PointPOS.x + Unit->size - 1 < (CurMap->SizeX - 1) && NullNode(Unit, CurMap, point))
+    if (SNode->PointPOS.x + Unit->size - 1 < (CurMap->SizeX - 1) && NullNode(Unit, TUnit,CurMap, point))
     {//현재 노드의 좌표의 상부분이 맵 안에 존재하고 장애물이 없는 경우
         right = false;//false = 장애물이 없다
         //end() 노드의 끝좌표(아무것도 들어가있지 않음)
@@ -308,7 +311,7 @@ void AStar::ExPloerUnitNode(CUnit* Unit, CMap* CurMap, Node* SNode, std::list<No
     //하
     point.x = SNode->PointPOS.x;
     point.y = SNode->PointPOS.y + 1;
-    if (SNode->PointPOS.y + Unit->size - 1 < (CurMap->SizeY - 1) && NullNode(Unit, CurMap, point))
+    if (SNode->PointPOS.y + Unit->size - 1 < (CurMap->SizeY - 1) && NullNode(Unit, TUnit, CurMap, point))
     {//현재 노드의 좌표의 상부분이 맵 안에 존재하고 장애물이 없는 경우
         down = false;//false = 장애물이 없다
         //end() 노드의 끝좌표(아무것도 들어가있지 않음)
@@ -335,7 +338,7 @@ void AStar::ExPloerUnitNode(CUnit* Unit, CMap* CurMap, Node* SNode, std::list<No
     //좌
     point.x = SNode->PointPOS.x - 1;
     point.y = SNode->PointPOS.y;
-    if (SNode->PointPOS.x > 0 && NullNode(Unit, CurMap, point))
+    if (SNode->PointPOS.x > 0 && NullNode(Unit, TUnit, CurMap, point))
     {//현재 노드의 좌표의 상부분이 맵 안에 존재하고 장애물이 없는 경우
         left = false;//false = 장애물이 없다
         //end() 노드의 끝좌표(아무것도 들어가있지 않음)

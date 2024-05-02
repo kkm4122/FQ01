@@ -24,7 +24,8 @@ class POS;
 class UnitInfo
 {
 public:
-
+	float HP = 100;
+	float Attack = 10;
 };
 
 
@@ -83,11 +84,24 @@ public:
 	void TargetAstar(CMap* Map,CUnit* a)
 	{
 		mTarget = { a->TilePos.x, a->TilePos.y };
-		path = A.PathFind(Map, TilePos, mTarget);
+		path = A.PathFind(a, Map, TilePos, mTarget);
 	}
-	void MovePath()
+	void MovePath(CMap* Map, CUnit* a)
 	{
-		//path.
+		TargetAstar(Map, a);
+	}
+	bool CanMove(CMap* Map, CUnit* Target, POS NextP)
+	{
+		for (int y = 0; y < size; y++)
+		{
+			for (int x = 0; x < size; x++)
+			{
+				if (Map->mTiles[NextP.y+y][NextP.x+x].unit != nullptr && Map->mTiles[y][x].unit != Target)
+				{
+					
+				}
+			}
+		}
 	}
 	void DirWalk(CUnit* a)
 	{

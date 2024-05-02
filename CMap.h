@@ -8,6 +8,7 @@ class CImageFile;
 struct TILE
 {
 	class CUnit* unit = nullptr;
+	class CUnit* Path = nullptr;
 };
 
 class CMap
@@ -26,24 +27,28 @@ public:
 			for (int j = 0; j < 100; j++) 
 			{
 				mTiles[i][j].unit = nullptr;
+				mTiles[i][j].unit = nullptr;
 			}
 		}
 		for (auto ic : mCharacters) 
 		{
-			if (ic) 
+			if (ic)
 			{
-				for (int i = 0; i < ic->size; i++) 
+				if (ic->TilePos.x >= 0 && ic->TilePos.x + ic->size - 1 < SizeX && ic->TilePos.y >= 0 && ic->TilePos.y + ic->size - 1 < SizeY)
 				{
-					for (int j = 0; j < ic->size; j++) 
+					mTiles[ic->TilePos.y][ic->TilePos.x].Path = ic;
+					for (int i = 0; i < ic->size; i++)
 					{
-						if (ic->TilePos.x >= 0 && ic->TilePos.x + ic->size - 1 < SizeX && ic->TilePos.y >= 0 && ic->TilePos.y + ic->size - 1 < SizeY)
+						for (int j = 0; j < ic->size; j++)
 						{
+
 							mTiles[ic->TilePos.y + i][ic->TilePos.x + j].unit = ic;
 						}
 
 					}
 				}
 			}
+			
 		}
 
 		for (CUnit* ic : mCharacters) {
@@ -66,6 +71,7 @@ public:
 			}
 		}
 		mTiles[y][x].unit = unit;
+		mTiles[y][x].Path = unit;
 		unit->TilePos.x = x;
 		unit->TilePos.y = y;
 	}
@@ -83,6 +89,7 @@ public:
 				mTiles[y + uy][x + ux].unit = a;
 			}
 		}
+		mTiles[y][x].Path = a;
 		asdf->size = size;
 		asdf->UnitNo = id;
 		mCharacters.push_back(asdf);
