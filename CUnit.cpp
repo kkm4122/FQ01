@@ -46,7 +46,7 @@ bool CUnit::CanMove(CMap* Map, CUnit* Target, POS NextP)
 	{
 		for (int x = 0; x < size; x++)
 		{
-			if (Map->mTiles[NextP.y + y][NextP.x + x].unit != nullptr && Map->mTiles[y][x].unit != Target)
+			if (Map->mTiles[NextP.y + y][NextP.x + x].unit != nullptr )
 			{
 				return false;
 			}
