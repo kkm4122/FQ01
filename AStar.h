@@ -1,6 +1,7 @@
 #pragma once
 #include "POS.h"
 #include <list>
+#include <stack>
 class CMap;
 class CUnit;
 class AStar {
@@ -28,4 +29,5 @@ public:
 
 public:
 	std::list<POS*> PathFind(CUnit* TUnit, CMap* CurMap, POS StartP, POS EndP);
+	std::stack<POS*> PathFind_stack(CUnit* TUnit, CMap* CurMap, POS StartP, POS EndP);
 };

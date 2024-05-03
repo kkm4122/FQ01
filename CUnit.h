@@ -56,7 +56,8 @@ public:
 		mPosition.x = tile_x * 16;
 		mPosition.y = tile_y * 16;
 	}
-	void WalkToAstar();
+	void WalkToAstar(CMap* Map, CUnit* a);
+	void StackToAstar(CMap* Map, CUnit* target);
 	void MoveTo(int tile_x, int tile_y)
 	{
 		// 해당 변수만큼 이동
@@ -68,6 +69,8 @@ public:
 		TilePos.x = x;
 		TilePos.y = y;
 	}
+	void Move(int x, int y);
+	
 	int XDIR()
 	{
 		if (mDir.x > 0)return MOVE_RIGHT;
@@ -160,6 +163,7 @@ public:
 	//int MapInfo;
 	std::list<POS*> path;	//경로 좌표
 	std::list<POS*>::iterator iter;		//경로 순서
+	std::stack<POS*> path_stack;
 	std::wstring mDown = L"a.Sno:0";//아래
 	std::wstring mLeft = L"a.Sno:1";//왼쪽
 	std::wstring mRight = L"a.Sno:2";//오른쪽

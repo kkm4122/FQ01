@@ -3,7 +3,7 @@
 #include "CMap.h"
 #include "CUnit.h"
 #include <list>
-
+#include <stack>
 #include<stdio.h>
 
 
@@ -44,6 +44,7 @@ std::list<POS*> AStar::PathFind(CUnit* TUnit, CMap* CurMap, POS StartP, POS EndP
     std::list<Node*> CloseNode; // 닫힌노드
     Node* SNode; // 선택된 노드
     std::list<POS*> path;// 길
+    
     OpenNode.push_back(new Node(StartP, EndP, NULL));//시작좌표 저장
     std::list<Node*>::iterator iter;
 
@@ -66,6 +67,49 @@ std::list<POS*> AStar::PathFind(CUnit* TUnit, CMap* CurMap, POS StartP, POS EndP
         }
         path.push_back(new POS(SNode->PointPOS.x, SNode->PointPOS.y));//시작경로 저장
         path.reverse();//패스경로를 역순으로 저장 (목적지~시작)을 (시작~목적지)로
+    }
+    for (; iter != OpenNode.end(); iter++)
+    {
+        delete* iter; // 열린 노드 동적할당 해제
+    }
+    iter = CloseNode.begin();
+    for (; iter != CloseNode.end(); iter++)
+    {
+        delete* iter; // 닫힌 노드 동적할당 해제 
+    }
+    return path;
+}
+
+std::stack<POS*> AStar::PathFind_stack(CUnit* TUnit, CMap* CurMap, POS StartP, POS EndP)
+{
+    std::list<Node*> OpenNode; // 열린노드
+    std::list<Node*> CloseNode; // 닫힌노드
+    Node* SNode; // 선택된 노드
+    std::stack<POS*> path;// 길
+
+    OpenNode.push_back(new Node(StartP, EndP, NULL));//시작좌표 저장
+    std::list<Node*>::iterator iter;
+
+    while (OpenNode.end() != OpenNode.begin() && OpenNode.end() == CoordNode(EndP.x, EndP.y, &OpenNode))
+        //end()==begin()이면 오픈노드가 비어있다는 뜻 end()!= CoordNode이면 오픈노드 안에 목적지가 들어있음(목적지를 찾음)
+    {
+        iter = NextNode(&OpenNode); // 열린노드 중 F값이 제일 작은 노드의 주소를 찾아서 iter 에 저장
+        SNode = *iter; // 열린노드 중 F값이 제일 작은 노드를 SNode에 저장
+        // 선택된 SNode 주변의 4방향 노드 탐색, 값이 수정될 수 있는 것은 열린 노드 뿐이므로 열린 노드는 주소를 전달.    
+        ExploreNode(CurMap, SNode, &OpenNode, &CloseNode, EndP);
+        //ExPloerUnitNode(, TUnit,)
+        CloseNode.push_back(SNode); // 현재 탐색한 노드를 닫힌 노드에 추가
+        OpenNode.erase(iter); // 닫힌 노드에 추가한 노드를 열린 노드에서 제거
+    }
+    if ((OpenNode.end() != OpenNode.begin())) // 길을 찾은 경우	OpenNode.end()!= FindCoordNode(EndPoint.x,EndPoint.y,&OpenNode)
+    {
+        iter = CoordNode(EndP.x, EndP.y, &OpenNode);
+        for (SNode = *iter; SNode->pParent != NULL; SNode->pParent)//부모가 NULL(시작경로)일때까지 경로 저장
+        {
+            path.push(new POS(SNode->PointPOS.x, SNode->PointPOS.y));
+        }
+        path.push(new POS(SNode->PointPOS.x, SNode->PointPOS.y));//시작경로 저장
+       //패스경로를 역순으로 저장 (목적지~시작)을 (시작~목적지)로
     }
     for (; iter != OpenNode.end(); iter++)
     {
