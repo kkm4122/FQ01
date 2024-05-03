@@ -82,7 +82,7 @@ public:
 	}
 	bool CANMoveOneTile(CMap* Map);
 	void TargetAstar(CMap* Map, CUnit* a);
-	
+	bool Searchthis(CMap* Map, CUnit* Target, POS NextP);
 	void MovePath(CMap* Map, CUnit* a);
 	
 	bool CanMove(CMap* Map, CUnit* Target, POS NextP);

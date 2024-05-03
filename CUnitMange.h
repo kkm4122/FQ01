@@ -19,7 +19,7 @@ public:
 	CUnit* Gonrad;
 	CUnit* ArchBishop;
 	CUnit* Actum;
-	CUnit* BlackObj[20];
+	CUnit* BlackObj[100];
 	CUnit* KarionSoldier[20];
 	CUnit* KarionSoldier2[20];
 	CUnit* KarionSoldier3[20];

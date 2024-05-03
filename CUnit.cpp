@@ -35,6 +35,21 @@ void CUnit::TargetAstar(CMap* Map, CUnit* a)
 	path = A.PathFind(a, Map, TilePos, mTarget);
 }
 
+bool CUnit::Searchthis(CMap* Map, CUnit* Target, POS NextP)
+{
+	for (int y = 0; y < size; y++)
+	{
+		for (int x = 0; x < size; x++)
+		{
+			if (Map->mTiles[NextP.y + y][NextP.x + x].unit == Target)
+			{
+				return true;
+			}
+		}
+	}
+	return false;
+}
+
 void CUnit::MovePath(CMap* Map, CUnit* a)
 {
 	TargetAstar(Map, a);
@@ -46,7 +61,7 @@ bool CUnit::CanMove(CMap* Map, CUnit* Target, POS NextP)
 	{
 		for (int x = 0; x < size; x++)
 		{
-			if (Map->mTiles[NextP.y + y][NextP.x + x].unit != nullptr )
+			if (Map->mTiles[NextP.y + y][NextP.x + x].unit != nullptr&& Map->mTiles[NextP.y + y][NextP.x + x].unit!=this)
 			{
 				return false;
 			}

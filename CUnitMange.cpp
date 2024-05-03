@@ -107,7 +107,7 @@ void CUnitMange::SetUnit()
 		}
 	}
 	{//장애물 오브잭
-		for (int i = 0; i < 20; i++)
+		for (int i = 0; i < 100; i++)
 		{
 			BlackObj[i] = new CUnit;
 			BlackObj[i]->size = 1;
