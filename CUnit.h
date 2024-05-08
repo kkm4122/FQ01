@@ -84,7 +84,7 @@ public:
 		else return MOVE_NONDIR;
 	}
 	bool CANMoveOneTile(CMap* Map);
-	void TargetAstar(CMap* Map, CUnit* a);
+	void TargetAstar(CMap* Map, CUnit* target);
 	bool Searchthis(CMap* Map, CUnit* Target, POS NextP);
 	void MovePath(CMap* Map, CUnit* a);
 	

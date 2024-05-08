@@ -24,22 +24,32 @@ void CUnit::Draw(HDC hdc)
 	mUnitSprite.Draw(hdc);
 }
 
-void CUnit::WalkToAstar(CMap* Map, CUnit* a)
+
+
+void CUnit::WalkToAstar(CMap* Map, CUnit* target)
 {
 	if (!path.empty())
 	{
-		POS* pathasdf = path.back();
-		
-		if (pathasdf->x != a->TilePos.x || pathasdf->y != a->TilePos.y)
+		//POS* destP = path.front()
+		if (path.back()->x == target->TilePos.x&& path.back()->y == target->TilePos.y)
 		{
-			path.clear();
-			TargetAstar(Map, a);
+			POS* nextP = path.front();
+			POS dir;
+			dir.x = nextP->x - TilePos.x;
+			dir.y = nextP->y - TilePos.y;
+			Move(dir.x, dir.y);
+			path.pop_front();
 		}
 		else
 		{
-			pathasdf = path.front();
-
+			path.clear();
+			path=A.PathFind(this, target, Map, TilePos, target->TilePos);
 		}
+		
+	}
+	else
+	{
+		path=A.PathFind(this, target, Map, TilePos, target->TilePos);
 	}
 }
 
@@ -60,7 +70,7 @@ void CUnit::StackToAstar(CMap* Map, CUnit* target)
 	}
 	else
 	{
-		A.PathFind_stack(this, target, Map, this->TilePos, target->TilePos);
+		A.PathFind_stack(this, target, Map, TilePos, target->TilePos);
 	}
 }
 
@@ -97,7 +107,7 @@ void CUnit::TargetAstar(CMap* Map, CUnit* a)
 {
 	
 		mTarget = { a->TilePos.x, a->TilePos.y };
-		path = A.PathFind(a, Map, TilePos, a->TilePos);
+		path = A.PathFind(this,a, Map, TilePos, a->TilePos);
 	
 }
 
