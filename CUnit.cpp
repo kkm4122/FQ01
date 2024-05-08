@@ -47,6 +47,7 @@ void CUnit::StackToAstar(CMap* Map, CUnit* target)
 {
 	if (!path_stack.empty())
 	{
+		
 		POS* nextP = path_stack.top();
 		/*
 		다음 갈 위치에 장애물 있으면 해결동작,
@@ -56,6 +57,10 @@ void CUnit::StackToAstar(CMap* Map, CUnit* target)
 		Move(nextP->x-TilePos.x, nextP->y-TilePos.y);
 		path_stack.pop();
 		
+	}
+	else
+	{
+		A.PathFind_stack(this, target, Map, this->TilePos, target->TilePos);
 	}
 }
 

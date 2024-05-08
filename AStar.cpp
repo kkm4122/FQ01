@@ -38,7 +38,7 @@ AStar::Node::~Node()
 
 
 
-std::list<POS*> AStar::PathFind(CUnit* TUnit, CMap* CurMap, POS StartP, POS EndP)
+std::list<POS*> AStar::PathFind(CUnit* Unit, CUnit* TUnit, CMap* CurMap, POS StartP, POS EndP)
 {
     std::list<Node*> OpenNode; // 열린노드
     std::list<Node*> CloseNode; // 닫힌노드
@@ -96,7 +96,7 @@ std::stack<POS*> AStar::PathFind_stack(CUnit* Unit,CUnit* TUnit, CMap* CurMap, P
         iter = NextNode(&OpenNode); // 열린노드 중 F값이 제일 작은 노드의 주소를 찾아서 iter 에 저장
         SNode = *iter; // 열린노드 중 F값이 제일 작은 노드를 SNode에 저장
         // 선택된 SNode 주변의 4방향 노드 탐색, 값이 수정될 수 있는 것은 열린 노드 뿐이므로 열린 노드는 주소를 전달.    
-        ExploreNode(CurMap, SNode, &OpenNode, &CloseNode, EndP);
+        //ExploreNode(CurMap, SNode, &OpenNode, &CloseNode, EndP);
         ExPloerUnitNode(Unit, TUnit, CurMap, SNode, &OpenNode, &CloseNode, EndP);
         CloseNode.push_back(SNode); // 현재 탐색한 노드를 닫힌 노드에 추가
         OpenNode.erase(iter); // 닫힌 노드에 추가한 노드를 열린 노드에서 제거

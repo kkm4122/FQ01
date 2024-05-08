@@ -28,6 +28,6 @@ public:
 	void ExPloerUnitNode(CUnit* Unit,CUnit* TUnit, CMap* CurMap, Node* SNode, std::list<Node*>* OpenNode, std::list<Node*>* CloseNode, POS EndP);
 
 public:
-	std::list<POS*> PathFind(CUnit* TUnit, CMap* CurMap, POS StartP, POS EndP);
+	std::list<POS*> PathFind(CUnit* Unit, CUnit* TUnit, CMap* CurMap, POS StartP, POS EndP);
 	std::stack<POS*> PathFind_stack(CUnit* Unit, CUnit* TUnit, CMap* CurMap, POS StartP, POS EndP);
 };
