@@ -25,6 +25,7 @@ CMap::CMap()
 		for(int x = 0; x <= SizeX; x++)
 		{
 			mTiles[y][x].unit = nullptr;
+			mTiles[y][x].Path = nullptr;
 			if (y == SizeY)
 			{
 				mTiles[y][x].unit = &Obstacle;

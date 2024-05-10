@@ -123,8 +123,8 @@ public:
 	CSprite Mapobj;
 	int PosX = 0;
 	int PosY = 0;
-	int CamPosX = 16;
-	int CamPosY = 48;
+	int CamPosX = 16;//UI창내부 화면 좌표
+	int CamPosY = 48;//UI창내부 화면 좌표
 	int SizeX = 0;
 	int SizeY = 0;
 	//CScreen Mapscreen(610,863);
