@@ -41,7 +41,7 @@ public:
 					{
 						for (int j = 0; j < ic->size; j++)
 						{
-
+							//if(mTiles[ic->TilePos.y + i][ic->TilePos.x + j].unit!=nullptr)
 							mTiles[ic->TilePos.y + i][ic->TilePos.x + j].unit = ic;
 						}
 

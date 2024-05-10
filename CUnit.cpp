@@ -37,6 +37,7 @@ void CUnit::WalkToAstar(CMap* Map, CUnit* target)
 			POS dir;
 			dir.x = nextP->x - TilePos.x;
 			dir.y = nextP->y - TilePos.y;
+			Map->Update();
 			for (int i = 0; i < size; i++)
 			{
 				for (int j = 0; j < size; j++)
@@ -50,6 +51,7 @@ void CUnit::WalkToAstar(CMap* Map, CUnit* target)
 				}
 			}
 			Move(dir.x, dir.y);
+			
 			path.pop_front();
 		}
 		else
@@ -60,8 +62,21 @@ void CUnit::WalkToAstar(CMap* Map, CUnit* target)
 			POS dir;
 			dir.x = nextP->x - TilePos.x;
 			dir.y = nextP->y - TilePos.y;
-			
+			Map->Update();
+			for (int i = 0; i < size; i++)
+			{
+				for (int j = 0; j < size; j++)
+				{
+					if (Map->mTiles[nextP->y + i][nextP->x + j].unit == target)
+					{
+						path.clear();
+						return;
+					}
+
+				}
+			}
 			Move(dir.x, dir.y);
+			
 			path.pop_front();
 		}
 	}
@@ -95,6 +110,7 @@ void CUnit::Move(int x, int y)
 		TilePos.y--;
 		mUnitSprite.ChangeAnimation(mUp);
 	}
+	
 }
 
 
@@ -129,6 +145,7 @@ void CUnit::MovePath(CMap* Map, CUnit* a)
 
 bool CUnit::CanMove(CMap* Map, CUnit* Target, POS NextP)
 {
+	Map->Update();
 	for (int y = 0; y < size; y++)
 	{
 		for (int x = 0; x < size; x++)
@@ -145,6 +162,7 @@ bool CUnit::CanMove(CMap* Map, CUnit* Target, POS NextP)
 void CUnit::WalkOneTile(CMap* Map, int x)
 
 {
+	Map->Update();
 	switch (x)
 	{
 	case MOVE_UP:
@@ -178,9 +196,11 @@ void CUnit::WalkOneTile(CMap* Map, int x)
 	default:
 		break;
 	}
+	Map->Update();
 }
 bool CUnit::CanMoveXY(CMap* Map, int x, int y)
 {
+	Map->Update();
 	int px = TilePos.x + x;
 	int py = TilePos.y + y;
 	if (px < 0 || py < 0 || px + size - 1>Map->SizeX - 1 || py + size - 1>Map->SizeY - 1)
