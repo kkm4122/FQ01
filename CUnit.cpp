@@ -37,6 +37,18 @@ void CUnit::WalkToAstar(CMap* Map, CUnit* target)
 			POS dir;
 			dir.x = nextP->x - TilePos.x;
 			dir.y = nextP->y - TilePos.y;
+			for (int i = 0; i < size; i++)
+			{
+				for (int j = 0; j < size; j++)
+				{
+					if (Map->mTiles[nextP->y + i][nextP->x + j].unit == target)
+					{
+						path.clear();
+						return;
+					}
+					
+				}
+			}
 			Move(dir.x, dir.y);
 			path.pop_front();
 		}
@@ -48,10 +60,10 @@ void CUnit::WalkToAstar(CMap* Map, CUnit* target)
 			POS dir;
 			dir.x = nextP->x - TilePos.x;
 			dir.y = nextP->y - TilePos.y;
+			
 			Move(dir.x, dir.y);
 			path.pop_front();
 		}
-		
 	}
 	else
 	{
@@ -85,10 +97,7 @@ void CUnit::Move(int x, int y)
 	}
 }
 
-bool CUnit::CANMoveOneTile(CMap* Map)
-{
-	return false;
-}
+
 
 void CUnit::TargetAstar(CMap* Map, CUnit* a)
 {
@@ -133,6 +142,66 @@ bool CUnit::CanMove(CMap* Map, CUnit* Target, POS NextP)
 	return true;
 }
 
+void CUnit::WalkOneTile(CMap* Map, int x)
+
+{
+	switch (x)
+	{
+	case MOVE_UP:
+		if (CanMoveXY(Map, 0, -1))
+		{
+			TilePos.y--;
+			mUnitSprite.ChangeAnimation(mUp);
+		}
+		break;
+	case MOVE_DOWN:
+		if (CanMoveXY(Map, 0, 1))
+		{
+			TilePos.y++;
+			mUnitSprite.ChangeAnimation(mDown);
+		}
+		break;
+	case MOVE_LEFT:
+		if (CanMoveXY(Map, -1, 0))
+		{
+			TilePos.x--;
+			mUnitSprite.ChangeAnimation(mLeft);
+		}
+		break;
+	case MOVE_RIGHT:
+		if (CanMoveXY(Map, 1, 0))
+		{
+			TilePos.x++;
+			mUnitSprite.ChangeAnimation(mRight);
+		}
+		break;
+	default:
+		break;
+	}
+}
+bool CUnit::CanMoveXY(CMap* Map, int x, int y)
+{
+	int px = TilePos.x + x;
+	int py = TilePos.y + y;
+	if (px < 0 || py < 0 || px + size - 1>Map->SizeX - 1 || py + size - 1>Map->SizeY - 1)
+	{
+		return false;
+	}
+	else
+	{
+		for (int i = 0; i < size; i++)
+		{
+			for (int j = 0; j < size; j++)
+			{
+				if (Map->mTiles[py + j][px + i].unit != this && Map->mTiles[py + j][px + i].unit != nullptr && Map->mTiles[py + j][px + i].Path != nullptr)
+				{
+					return false;
+				}
+			}
+		}
+	}
+	return true;
+}
 void CUnit::UpdateCamPos(int cx, int cy)
 {
 	mUnitSprite.mDestX =  cx + (16 * TilePos.x);

@@ -88,16 +88,16 @@ void CBattleScene::onKeyDown(UINT virtual_key)
         FieldMap->CamPosX += 16;
         break;
     case(VK_W):
-        FieldMap->mCharacters[0]->WalkOneTile(4);
+        FieldMap->mCharacters[0]->WalkOneTile(FieldMap,4);
         break;
     case(VK_S):
-        FieldMap->mCharacters[0]->WalkOneTile(5);
+        FieldMap->mCharacters[0]->WalkOneTile(FieldMap, 5);
         break;
     case(VK_A):
-        FieldMap->mCharacters[0]->WalkOneTile(6);
+        FieldMap->mCharacters[0]->WalkOneTile(FieldMap, 6);
         break;
     case(VK_D):
-        FieldMap->mCharacters[0]->WalkOneTile(7);
+        FieldMap->mCharacters[0]->WalkOneTile(FieldMap, 7);
         break;
     case(VK_RETURN):
         FieldMap->mCharacters[0]->MoveTo(2, 3);

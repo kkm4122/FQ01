@@ -48,16 +48,13 @@ public:
 		// 충돌 감지
 	}
 	void Update(int dt);
-	
 	void Draw(HDC hdc);
-
 	void SetPostion(int tile_x, int tile_y)
 	{
 		mPosition.x = tile_x * 16;
 		mPosition.y = tile_y * 16;
 	}
 	void WalkToAstar(CMap* Map, CUnit* a);
-	
 	void MoveTo(int tile_x, int tile_y)
 	{
 		// 해당 변수만큼 이동
@@ -70,7 +67,6 @@ public:
 		TilePos.y = y;
 	}
 	void Move(int x, int y);
-	
 	int XDIR()
 	{
 		if (mDir.x > 0)return MOVE_RIGHT;
@@ -83,36 +79,12 @@ public:
 		else if (mDir.y < 0)return MOVE_UP;
 		else return MOVE_NONDIR;
 	}
-	bool CANMoveOneTile(CMap* Map);
 	void TargetAstar(CMap* Map, CUnit* target);
 	bool Searchthis(CMap* Map, CUnit* Target, POS NextP);
 	void MovePath(CMap* Map, CUnit* a);
-	
 	bool CanMove(CMap* Map, CUnit* Target, POS NextP);
-	void WalkOneTile(int x)
-	{
-		switch (x)
-		{
-		case MOVE_DOWN:
-			TilePos.y++;
-			mUnitSprite.ChangeAnimation(mDown);
-			break;
-		case MOVE_UP:
-			TilePos.y--;
-			mUnitSprite.ChangeAnimation(mUp);
-			break;
-		case MOVE_RIGHT:
-			TilePos.x++;
-			mUnitSprite.ChangeAnimation(mRight);
-			break;
-		case MOVE_LEFT:
-			TilePos.x--;
-			mUnitSprite.ChangeAnimation(mLeft);
-			break;
-		default:
-			break;
-		}
-	}
+	void WalkOneTile(CMap* Map, int x);
+	bool CanMoveXY(CMap* Map, int x, int y);	
 	void DirWalk(CUnit* a)
 	{
 		mTarget = {a->TilePos.x, a->TilePos.y };
