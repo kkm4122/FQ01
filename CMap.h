@@ -48,7 +48,6 @@ public:
 					}
 				}
 			}
-			
 		}
 
 		for (CUnit* ic : mCharacters) {
