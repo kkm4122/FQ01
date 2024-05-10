@@ -44,6 +44,12 @@ void CUnit::WalkToAstar(CMap* Map, CUnit* target)
 		{
 			path.clear();
 			path=A.PathFind(this, target, Map, TilePos, target->TilePos);
+			POS* nextP = path.front();
+			POS dir;
+			dir.x = nextP->x - TilePos.x;
+			dir.y = nextP->y - TilePos.y;
+			Move(dir.x, dir.y);
+			path.pop_front();
 		}
 		
 	}

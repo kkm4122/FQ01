@@ -89,7 +89,30 @@ public:
 	void MovePath(CMap* Map, CUnit* a);
 	
 	bool CanMove(CMap* Map, CUnit* Target, POS NextP);
-	
+	void WalkOneTile(int x)
+	{
+		switch (x)
+		{
+		case MOVE_DOWN:
+			TilePos.y++;
+			mUnitSprite.ChangeAnimation(mDown);
+			break;
+		case MOVE_UP:
+			TilePos.y--;
+			mUnitSprite.ChangeAnimation(mUp);
+			break;
+		case MOVE_RIGHT:
+			TilePos.x++;
+			mUnitSprite.ChangeAnimation(mRight);
+			break;
+		case MOVE_LEFT:
+			TilePos.x--;
+			mUnitSprite.ChangeAnimation(mLeft);
+			break;
+		default:
+			break;
+		}
+	}
 	void DirWalk(CUnit* a)
 	{
 		mTarget = {a->TilePos.x, a->TilePos.y };
@@ -160,6 +183,7 @@ public:
 	float mSpeed;
 	int TeamNo;
 	int UnitNo;
+	int UnitSit = STATE_Idle;
 	//int MapInfo;
 	std::list<POS*> path;	//경로 좌표
 	std::list<POS*>::iterator iter;		//경로 순서

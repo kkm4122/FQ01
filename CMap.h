@@ -22,9 +22,9 @@ public:
 	void Update()
 	{
 
-		for (int i = 0; i < 100; i++) 
+		for (int i = 0; i < SizeY; i++) 
 		{
-			for (int j = 0; j < 100; j++) 
+			for (int j = 0; j < SizeX; j++) 
 			{
 				mTiles[i][j].unit = nullptr;
 				mTiles[i][j].unit = nullptr;
@@ -78,10 +78,10 @@ public:
 
 	void AddChar(int x,int y,int size,int id,  CUnit* a, const WCHAR* Anino)
 	{
-		CUnit* asdf = a;
-		asdf->TileSet(x, y, Anino);
-		asdf->TilePos.x = x;
-		asdf->TilePos.y = y;
+		CUnit* AddUnit = a;
+		AddUnit->TileSet(x, y, Anino);
+		AddUnit->TilePos.x = x;
+		AddUnit->TilePos.y = y;
 		for (int uy = 0; uy < a->size; uy++)
 		{
 			for (int ux = 0; ux < a->size; ux++)
@@ -89,34 +89,36 @@ public:
 				mTiles[y + uy][x + ux].unit = a;
 			}
 		}
-		mTiles[y][x].Path = a;
-		asdf->size = size;
-		asdf->UnitNo = id;
-		mCharacters.push_back(asdf);
+		//mTiles[y][x].Path = a;
+		AddUnit->size = size;
+		AddUnit->UnitNo = id;
+		mCharacters.push_back(AddUnit);
 		//SetUnit(a);
 	}
-	void Draw(HDC hdc)
+	void AddObject(int x, int y, int size, int id, CUnit* a, const WCHAR* Anino)
 	{
-		
-		Mapobj.mDestX = CamPosX+PosX;
-		Mapobj.mDestY = CamPosY+PosY;
-		//¸ÊÀÇ Ãâ·ÂÁÂÇ¥(Ä«¸Þ¶ó ÁÂÇ¥)°¡ ¹Ù²ð¶§ ÃÖ½ÅÈ­
-		CScreen Mapscreen(SizeX*16+16, SizeY*16);
-		for (CUnit* ic : mCharacters) {
-			if (ic)  ic->UpdateCamPos(CamPosX, CamPosY);
-		}//¸ÊÀÇ ÀÖ´Â À¯´ÖÁÂÇ¥ ÃÖ½ÅÈ­
-
-		Mapobj.Draw(Mapscreen.m_HDC);
-
-		for (CUnit* ic : mCharacters) {
-			if (ic) ic->Draw(Mapscreen.m_HDC);
+		CUnit* AddUnit = a;
+		AddUnit->TileSet(x, y, Anino);
+		AddUnit->TilePos.x = x;
+		AddUnit->TilePos.y = y;
+		for (int uy = 0; uy < a->size; uy++)
+		{
+			for (int ux = 0; ux < a->size; ux++)
+			{
+				mTiles[y + uy][x + ux].Path = a;
+			}
 		}
-		Mapscreen.Draw(hdc, Mapobj.mDestX, Mapobj.mDestY, SizeX * 16 , SizeY * 16);
-
+		mTiles[y][x].Path = a;
+		AddUnit->size = size;
+		AddUnit->UnitNo = id;
+		mObject.push_back(AddUnit);
 	}
+	void Draw(HDC hdc);
+	
 	void SetMap(const WCHAR* fileName, const WCHAR* name);
 	
 	std::vector<CUnit*>mCharacters;
+	std::vector<CUnit*>mObject;
 	CUnit Obstacle;
 	CImageFile* MapImg;
 	CSprite Mapobj;

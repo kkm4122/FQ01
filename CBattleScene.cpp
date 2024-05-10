@@ -9,7 +9,7 @@
 #define VK_D 68
 CBattleScene::CBattleScene()
 {
-
+    //BG_FEILD
     FieldMap = new CMap;
     FieldMap->SetMap(MAKEINTRESOURCE(BG_FEILD), L"BG_FEILD");
     /*FieldMap->posX = 16;
@@ -88,16 +88,16 @@ void CBattleScene::onKeyDown(UINT virtual_key)
         FieldMap->CamPosX += 16;
         break;
     case(VK_W):
-        FieldMap->mCharacters[0]->TilePos.y -= 1;
+        FieldMap->mCharacters[0]->WalkOneTile(4);
         break;
     case(VK_S):
-        FieldMap->mCharacters[0]->TilePos.y += 1;
+        FieldMap->mCharacters[0]->WalkOneTile(5);
         break;
     case(VK_A):
-        FieldMap->mCharacters[0]->TilePos.x -= 1;
+        FieldMap->mCharacters[0]->WalkOneTile(6);
         break;
     case(VK_D):
-        FieldMap->mCharacters[0]->TilePos.x += 1;
+        FieldMap->mCharacters[0]->WalkOneTile(7);
         break;
     case(VK_RETURN):
         FieldMap->mCharacters[0]->MoveTo(2, 3);

@@ -106,7 +106,7 @@ void CUnitMange::SetUnit()
 			//GarshiaSoldier[i]->TileSet(0,0,)
 		}
 	}
-	{//장애물 오브잭
+	{//장애물 오브잭 검은색16x16픽셀
 		for (int i = 0; i < 100; i++)
 		{
 			BlackObj[i] = new CUnit;

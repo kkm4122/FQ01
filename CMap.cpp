@@ -28,10 +28,12 @@ CMap::CMap()
 			if (y == SizeY)
 			{
 				mTiles[y][x].unit = &Obstacle;
+				mTiles[y][x].Path = &Obstacle;
 			}
 			else if (x == SizeX)
 			{
 				mTiles[y][x].unit = &Obstacle;
+				mTiles[y][x].Path = &Obstacle;
 			}
 		}
 	}
@@ -40,6 +42,25 @@ CMap::CMap()
 
 CMap::~CMap()
 {
+}
+
+void CMap::Draw(HDC hdc)
+{
+	Mapobj.mDestX = CamPosX + PosX;
+	Mapobj.mDestY = CamPosY + PosY;
+	//¸ÊÀÇ Ãâ·ÂÁÂÇ¥(Ä«¸Þ¶ó ÁÂÇ¥)°¡ ¹Ù²ð¶§ ÃÖ½ÅÈ­
+	CScreen Mapscreen(SizeX * 16 + 16, SizeY * 16);
+	for (CUnit* ic : mCharacters) {
+		if (ic)  ic->UpdateCamPos(CamPosX, CamPosY);
+	}//¸ÊÀÇ ÀÖ´Â À¯´ÖÁÂÇ¥ ÃÖ½ÅÈ­
+
+	Mapobj.Draw(Mapscreen.m_HDC);
+
+	for (CUnit* ic : mCharacters) {
+		if (ic) ic->Draw(Mapscreen.m_HDC);
+	}
+	Mapscreen.Draw(hdc, Mapobj.mDestX, Mapobj.mDestY, SizeX * 16, SizeY * 16);
+
 }
 
 void CMap::SetMap(const WCHAR* fileName, const WCHAR* name)
