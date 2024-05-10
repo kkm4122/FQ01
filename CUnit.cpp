@@ -59,26 +59,7 @@ void CUnit::WalkToAstar(CMap* Map, CUnit* target)
 	}
 }
 
-void CUnit::StackToAstar(CMap* Map, CUnit* target)
-{
-	if (!path_stack.empty())
-	{
-		
-		POS* nextP = path_stack.top();
-		/*
-		다음 갈 위치에 장애물 있으면 해결동작,
-		astar bool함수 만들기
-		move bool 
-		*/
-		Move(nextP->x-TilePos.x, nextP->y-TilePos.y);
-		path_stack.pop();
-		
-	}
-	else
-	{
-		A.PathFind_stack(this, target, Map, TilePos, target->TilePos);
-	}
-}
+
 
 void CUnit::Move(int x, int y)
 {
