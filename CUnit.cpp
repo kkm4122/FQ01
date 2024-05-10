@@ -213,7 +213,7 @@ bool CUnit::CanMoveXY(CMap* Map, int x, int y)
 		{
 			for (int j = 0; j < size; j++)
 			{
-				if (Map->mTiles[py + j][px + i].unit != this && Map->mTiles[py + j][px + i].unit != nullptr && Map->mTiles[py + j][px + i].Path != nullptr)
+				if (Map->mTiles[py + j][px + i].unit != nullptr && Map->mTiles[py + j][px + i].unit != this || Map->mTiles[py + j][px + i].Path != nullptr)
 				{
 					return false;
 				}

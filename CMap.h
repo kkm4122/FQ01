@@ -27,7 +27,7 @@ public:
 			for (int j = 0; j < SizeX; j++) 
 			{
 				mTiles[i][j].unit = nullptr;
-				mTiles[i][j].unit = nullptr;
+				mTiles[i][j].Path = nullptr;
 			}
 		}
 		for (auto ic : mCharacters) 
@@ -36,7 +36,7 @@ public:
 			{
 				if (ic->TilePos.x >= 0 && ic->TilePos.x + ic->size - 1 < SizeX && ic->TilePos.y >= 0 && ic->TilePos.y + ic->size - 1 < SizeY)
 				{
-					mTiles[ic->TilePos.y][ic->TilePos.x].Path = ic;
+					
 					for (int i = 0; i < ic->size; i++)
 					{
 						for (int j = 0; j < ic->size; j++)
