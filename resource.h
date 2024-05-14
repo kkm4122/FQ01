@@ -59,8 +59,15 @@
 #define IDB_BITMAP5                     179
 #define BG_FEILD                        179
 #define IDB_ENEMYSOL1                   181
-#define IDB_BITMAP6                     182
 #define IDB_BLACKOBJ                    182
+#define TUI_1_1                         183
+#define TUI_1_2                         184
+#define TUI_2_1                         185
+#define TUI_2_2                         186
+#define TUI_3_1                         187
+#define TUI_3_2                         188
+#define TUI_4_1                         189
+#define TUI_4_2                         190
 #define IDS_CUT1                        10000
 #define IDS_CUT1_1                      10001
 #define IDS_CUT1_2                      10002
@@ -98,7 +105,7 @@
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NO_MFC                     1
-#define _APS_NEXT_RESOURCE_VALUE        183
+#define _APS_NEXT_RESOURCE_VALUE        191
 #define _APS_NEXT_COMMAND_VALUE         32771
 #define _APS_NEXT_CONTROL_VALUE         1000
 #define _APS_NEXT_SYMED_VALUE           110

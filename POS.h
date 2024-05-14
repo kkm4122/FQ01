@@ -31,6 +31,7 @@ public:
 		result.y = y - other.y;
 		return result;
 	}
+	
 	POS operator +(const POS& other)const
 	{
 		POS result;

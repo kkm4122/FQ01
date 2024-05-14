@@ -22,10 +22,10 @@ void CGameFQ4::OnCreate()
 	mSaveLoad = new CSaveLoad;
 	mGameIntro = new InGameIntro;
 	mGameIntro2 = new InGameIntro2;
-	mBattleScene = new CBattleScene;
+	//mBattleScene = new CBattleScene;
 	//mCurrent = mIntroS;
-	mCurrent = mBattleScene;
-
+	//mCurrent = mBattleScene;7
+	mCurrent = mGameIntro2;
 }
 
 void CGameFQ4::OnDestroy()
