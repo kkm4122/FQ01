@@ -26,3 +26,8 @@ void CTextOut::OutPut(HDC hdc,LPCWSTR str)
 	SelectObject(hdc, oldFont);
 	DeleteObject(hFont);
 }
+
+void CTextOut::Draw(HDC hdc, LPCWSTR str,int a)
+{
+
+}
