@@ -107,6 +107,7 @@ void InGameIntro2::onFrameMove()
     CUnitMange::a->ArchBishop->mUnitSprite.Update(10);
     CUnitMange::a->ArchBishop->UnitState.Update(10);
 
+    CUnitMange::a->Aerain->mUnitSprite.Update(10);
     CUnitMange::a->Aerain->UnitState.Update(10);
     CUnitMange::a->Actum->UnitState.Update(10);
     for (int i = 0; i < 5; i++)
@@ -428,6 +429,46 @@ void InGameIntro2::onFrameMove()
             {
                 CUnitMange::a->Ares->mUnitSprite.mDestY += 16;
             }
+        }
+        if (CUnitMange::a->Ares->mUnitSprite.mDestY == 320)
+        {
+            if (dt == 4)
+            {
+                CUnitMange::a->Ares->mUnitSprite.ChangeAnimation(s0);
+                CUnitMange::a->Aerain->mUnitSprite.ChangeAnimation(m3);
+                tsno++;
+                //  현재 아레스 좌표 304 320
+            }
+        }
+        break;
+    case(16):
+        dt++;
+        if (dt % 5 == 0)
+        {
+            dt = 0;
+            if (CUnitMange::a->Aerain->mUnitSprite.mDestY > 352)
+            {
+                CUnitMange::a->Aerain->mUnitSprite.mDestY -= 16;
+            }
+        }
+        if (CUnitMange::a->Aerain->mUnitSprite.mDestY == 352)
+        {
+            if (dt == 4)
+            {
+                CUnitMange::a->Aerain->mUnitSprite.ChangeAnimation(s3);
+
+                tsno++;
+                //Tboxnum++;
+            }
+        }
+        break;
+    case(17):
+        Tbox = true;
+        ClickEvent = true;
+        if (Tboxnum == 12)
+        {
+            Tbox = false;
+            ClickEvent = false;
         }
         break;
     default:
