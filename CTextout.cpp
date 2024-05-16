@@ -49,6 +49,8 @@ void CTextOut::Draw(HDC hdc, LPCWSTR str, int charsize)
 	RECT Tbox2 = { dx + 1,dy,width + 1,height };
 	a = DrawText(hdc, str, wcslen(str), &Tbox, DT_WORDBREAK);
 	UIDraw(hdc, charsize);
+	//b = (CTS.mImgFile->Height()-a)/4;
+	
 	//DrawText(hdc, str, wcslen(str), &Tbox, DT_CALCRECT);
 	//DrawText(hdc, str, wcslen(str), &Tbox, DT_WORDBREAK);
 	DrawText(hdc, str, wcslen(str), &Tbox, DT_WORDBREAK); 
@@ -99,6 +101,6 @@ void CTextOut::UIDraw(HDC hdc, int Charsize)
 	default:
 		break;
 	}
-	CTS.Set(dx - 71, dy - 8, 0, 0, CT, RGB(255, 0, 255), CSprite::DrawType_Transparent);
+	CTS.Set(81, 175, 0, 0, CT, RGB(255, 0, 255), CSprite::DrawType_Transparent);
 	CTS.Draw(hdc);
 }

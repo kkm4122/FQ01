@@ -8,6 +8,7 @@ public:
 	int dx, dy, width, height, fontSize;
 	
 	int a;
+	int b;
 	HFONT FontInfo;
 	
 public:

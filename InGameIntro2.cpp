@@ -72,8 +72,8 @@ InGameIntro2::InGameIntro2()
     CharTextwin = CImageFile::New(MAKEINTRESOURCE(IDB_NPCTEXTBOX), L"IDB_NPCTEXTBOX");
     CTW.Set(81, 175, 0, 0, CharTextwin, RGB(255, 0, 255), CSprite::DrawType_Transparent);
     //x+71,y+8
-    TS.Set(152, 183, 488, 248, 16);
-    TS2.Set(153, 183, 489, 248, 16);
+    TS.Set(160, 191, 488, 256, 16);
+    TS2.Set(161, 191, 489, 256, 16);
 
 }
 
