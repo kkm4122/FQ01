@@ -69,13 +69,13 @@ public:
 	void Move(int x, int y);
 	int XDIR()
 	{
-		if (mDir.x > 0)return MOVE_RIGHT;
+		if (mDir.x >= 0)return MOVE_RIGHT;
 		else if (mDir.x < 0)return MOVE_LEFT;
 		else return MOVE_NONDIR;
 	}
 	int YDIR()
 	{
-		if (mDir.y > 0)return MOVE_DOWN;
+		if (mDir.y >= 0)return MOVE_DOWN;
 		else if (mDir.y < 0)return MOVE_UP;
 		else return MOVE_NONDIR;
 	}
@@ -90,7 +90,7 @@ public:
 		if(Facing)
 		{
 			mDir.x = a->mUnitSprite.mDestX - mUnitSprite.mDestX;
-			mDir.x = a->mUnitSprite.mDestY - mUnitSprite.mDestY;
+			mDir.y = a->mUnitSprite.mDestY - mUnitSprite.mDestY;
 			if (abs(mDir.x) >= abs(mDir.y))
 			{
 				switch (XDIR())

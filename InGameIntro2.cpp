@@ -46,12 +46,12 @@ InGameIntro2::InGameIntro2()
     MainMap.PosY = 48;
     MainMap.MapImg = CImageFile::New(MAKEINTRESOURCE(IDB_KARION_MEET), L"IDB_KARION_MEET");
     mBG.Set(MainMap.PosX,MainMap.PosY,0,0, MainMap.MapImg,0, CSprite::DrawType_Draw);
-
-
-
     CUnitMange::a->Ares->UnitSet(304, 288, L"a.SnoSTOP:0");
     CUnitMange::a->Gonrad->UnitSet(336, 112, L"a.SnoSTOP:0");
+    CUnitMange::a->Gonrad->Facing = true;
+    
     CUnitMange::a->ArchBishop->UnitSet(242, 80, L"a.Sno:0");
+    
     CUnitMange::a->Aerain->UnitSet(304, 384, L"a.SnoSTOP:3");
 
     CUnitMange::a->KarionSoldier[0]->UnitSet(208, 112, L"a.SnoSTOP:0");
@@ -59,10 +59,16 @@ InGameIntro2::InGameIntro2()
     CUnitMange::a->KarionSoldier[2]->UnitSet(400, 112, L"a.SnoSTOP:0");
     CUnitMange::a->KarionSoldier[3]->UnitSet(242, 320, L"a.SnoSTOP:2");
     CUnitMange::a->KarionSoldier[4]->UnitSet(368, 320, L"a.SnoSTOP:1");
-
+    for (int i = 0; i < 5; i++)
+    {
+        CUnitMange::a->KarionSoldier[i]->Facing = true;
+        
+    }
     CUnitMange::a->KarionSoldier2[0]->UnitSet(97, 144, L"a.SnoSTOP:1");
     CUnitMange::a->KarionSoldier2[1]->UnitSet(512, 144, L"a.SnoSTOP:2");
-
+    CUnitMange::a->KarionSoldier2[0]->Facing = true;
+    CUnitMange::a->KarionSoldier2[1]->Facing = true;
+    
     UI = CImageFile::New(MAKEINTRESOURCE(IDB_UI), L"IDB_UI");
     UIs.Set(0, 0, 0, 0, UI, RGB(255, 0, 255), CSprite::DrawType_Transparent);
 
@@ -103,6 +109,7 @@ void InGameIntro2::onFrameMove()
 
     CUnitMange::a->Gonrad->mUnitSprite.Update(10);
     CUnitMange::a->Gonrad->UnitState.Update(10);
+    CUnitMange::a->Gonrad->FacingTarget(CUnitMange::a->Ares);
     
     CUnitMange::a->ArchBishop->mUnitSprite.Update(10);
     CUnitMange::a->ArchBishop->UnitState.Update(10);
@@ -113,9 +120,12 @@ void InGameIntro2::onFrameMove()
     for (int i = 0; i < 5; i++)
     {
         CUnitMange::a->KarionSoldier[i]->mUnitSprite.Update(10);
+        CUnitMange::a->KarionSoldier[i]->FacingTarget(CUnitMange::a->Ares);
     }
     CUnitMange::a->KarionSoldier2[0]->mUnitSprite.Update(10);
     CUnitMange::a->KarionSoldier2[1]->mUnitSprite.Update(10);
+    CUnitMange::a->KarionSoldier2[0]->FacingTarget(CUnitMange::a->Ares);
+    CUnitMange::a->KarionSoldier2[1]->FacingTarget(CUnitMange::a->Ares);
 
     switch (tsno)
     {
@@ -137,17 +147,10 @@ void InGameIntro2::onFrameMove()
                 CUnitMange::a->Ares->mUnitSprite.mDestX += 16;
             }
         }
-        if (CUnitMange::a->Ares->mUnitSprite.mDestX == 368)
-        {
-            CUnitMange::a->KarionSoldier2[1]->mUnitSprite.ChangeAnimation(s0);
-        }
-        if (CUnitMange::a->Ares->mUnitSprite.mDestX == 400)
-        {
-            CUnitMange::a->KarionSoldier[0]->mUnitSprite.ChangeAnimation(s2);
-        }
+        
         if (CUnitMange::a->Ares->mUnitSprite.mDestX == 464)
         {//아레스 위로 이동
-            CUnitMange::a->KarionSoldier[1]->mUnitSprite.ChangeAnimation(s2);
+            
             if (dt == 9)//이동과 애니메이션 프레임 맞추기 위함
             {
                 CUnitMange::a->Ares->mUnitSprite.ChangeAnimation(m3);
@@ -168,10 +171,7 @@ void InGameIntro2::onFrameMove()
                 CUnitMange::a->Ares->mUnitSprite.mDestY -= 16;
             }
         }
-        if (CUnitMange::a->Ares->mUnitSprite.mDestY == 224)
-        {
-            CUnitMange::a->Gonrad->mUnitSprite.ChangeAnimation(s1);
-        }
+        
         if (CUnitMange::a->Ares->mUnitSprite.mDestY == 192)
         {
             if (dt == 9)//이동과 애니메이션 프레임 맞추기 위함
@@ -192,7 +192,8 @@ void InGameIntro2::onFrameMove()
         {
             Tbox = false;
             ClickEvent = false;
-            CUnitMange::a->Gonrad->mUnitSprite.ChangeAnimation(m2);
+            CUnitMange::a->Gonrad->Facing = false;
+            CUnitMange::a->Gonrad->mUnitSprite.ChangeAnimation(m3);
             dt = 9;
             CUnitMange::a->Gonrad->mUnitSprite.m_AnimInst.anikeyNo = 1;
             CUnitMange::a->Gonrad->mUnitSprite.m_AnimInst.delayTime = 0;
@@ -214,7 +215,7 @@ void InGameIntro2::onFrameMove()
         {
             if (dt == 9)//이동과 애니메이션 프레임 맞추기 위함
             {
-                CUnitMange::a->Gonrad->mUnitSprite.ChangeAnimation(m1);
+                CUnitMange::a->Gonrad->mUnitSprite.ChangeAnimation(m2);
 
                 dt = 9;
                 CUnitMange::a->Gonrad->mUnitSprite.m_AnimInst.anikeyNo = 1;
