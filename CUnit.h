@@ -85,6 +85,47 @@ public:
 	bool CanMove(CMap* Map, CUnit* Target, POS NextP);
 	void WalkOneTile(CMap* Map, int x);
 	bool CanMoveXY(CMap* Map, int x, int y);	
+	void FacingTarget(CUnit* a)
+	{
+		if(Facing)
+		{
+			mDir.x = a->mUnitSprite.mDestX - mUnitSprite.mDestX;
+			mDir.x = a->mUnitSprite.mDestY - mUnitSprite.mDestY;
+			if (abs(mDir.x) >= abs(mDir.y))
+			{
+				switch (XDIR())
+				{
+				case MOVE_RIGHT:
+					mUnitSprite.ChangeAnimation(s2);
+					break;
+				case MOVE_LEFT:
+					mUnitSprite.ChangeAnimation(s1);
+					break;
+				default:
+					break;
+				}
+			}
+			else
+			{
+				switch (YDIR())
+				{
+				case MOVE_DOWN:
+
+					mUnitSprite.ChangeAnimation(s0);
+					break;
+				case MOVE_UP:
+
+					mUnitSprite.ChangeAnimation(s3);
+					break;
+				default:
+					break;
+				}
+			}
+		}
+		
+		
+	}
+	
 	void DirWalk(CUnit* a)
 	{
 		mTarget = {a->TilePos.x, a->TilePos.y };
@@ -160,7 +201,7 @@ public:
 	CUnit* Target = nullptr;
 	//int MapInfo;
 	std::list<POS*> path;	//경로 좌표
-	
+	bool Facing = false;
 	std::wstring mDown = L"a.Sno:0";//아래
 	std::wstring mLeft = L"a.Sno:1";//왼쪽
 	std::wstring mRight = L"a.Sno:2";//오른쪽

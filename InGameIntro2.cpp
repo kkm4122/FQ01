@@ -398,7 +398,7 @@ void InGameIntro2::onFrameMove()
             }
         }
         break;
-    case(14):
+    case(14)://아레스 좌로 이동
         dt++;
         if (dt % 5 == 0)
         {
@@ -469,6 +469,48 @@ void InGameIntro2::onFrameMove()
         {
             Tbox = false;
             ClickEvent = false;
+            CUnitMange::a->Ares->mUnitSprite.ChangeAnimation(m2);
+            CUnitMange::a->Ares->mUnitSprite.m_AnimInst.anikeyNo = 1;
+            CUnitMange::a->Ares->mUnitSprite.m_AnimInst.delayTime = 0;
+            tsno++;
+            //아레스 좌표 304 320
+        }
+        break;
+    case(18):
+        dt++;
+        if (dt % 5 == 0)
+        {
+            dt = 0;
+            if (CUnitMange::a->Ares->mUnitSprite.mDestX < 336)
+            {
+                CUnitMange::a->Ares->mUnitSprite.mDestX += 16;
+            }
+        }
+        if (CUnitMange::a->Ares->mUnitSprite.mDestX == 336)
+        {
+            if (dt == 4)//이동과 애니메이션 프레임 맞추기 위함
+            {
+                CUnitMange::a->Ares->mUnitSprite.ChangeAnimation(m0);
+                CUnitMange::a->Ares->mUnitSprite.m_AnimInst.anikeyNo = 1;
+                CUnitMange::a->Ares->mUnitSprite.m_AnimInst.delayTime = 0;
+                tsno++;
+                //  현재 아레스 좌표 336 320
+            }
+        }
+        break;
+    case(19)://아레스 아래로 이동
+        dt++;
+        if (dt % 5 == 0)
+        {
+            dt = 0;
+            if (CUnitMange::a->Ares->mUnitSprite.mDestY < 388)
+            {
+                CUnitMange::a->Ares->mUnitSprite.mDestY += 16;
+            }// 현재 아레스 좌표 336 388
+            if (CUnitMange::a->Ares->mUnitSprite.mDestY == 388)
+            {
+
+            }
         }
         break;
     default:
