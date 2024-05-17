@@ -6,6 +6,7 @@ class CTitle;
 class CSaveLoad;
 class InGameIntro;
 class InGameIntro2;
+class InGameIntro3;
 class CBattleScene;
 class CGameFQ4 :
     public IGame
@@ -23,6 +24,7 @@ public:
     CSaveLoad* mSaveLoad;
     InGameIntro* mGameIntro;
     InGameIntro2* mGameIntro2;
+    InGameIntro3* mGameIntro3;
     CBattleScene* mBattleScene;
 };
 

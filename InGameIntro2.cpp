@@ -97,7 +97,7 @@ bool InGameIntro2::Sample()
 
 bool InGameIntro2::isChanged()
 {
-    return false;
+    return NextScene;
 }
 
 void InGameIntro2::onFrameMove()
@@ -495,6 +495,8 @@ void InGameIntro2::onFrameMove()
                 CUnitMange::a->Ares->mUnitSprite.m_AnimInst.anikeyNo = 1;
                 CUnitMange::a->Ares->mUnitSprite.m_AnimInst.delayTime = 0;
                 tsno++;
+                CUnitMange::a->KarionSoldier[3]->Facing = false;
+                CUnitMange::a->KarionSoldier[4]->Facing = false;
                 //  현재 아레스 좌표 336 320
             }
         }
@@ -508,10 +510,40 @@ void InGameIntro2::onFrameMove()
             {
                 CUnitMange::a->Ares->mUnitSprite.mDestY += 16;
             }// 현재 아레스 좌표 336 388
-            if (CUnitMange::a->Ares->mUnitSprite.mDestY == 388)
+            if (CUnitMange::a->Ares->mUnitSprite.mDestY >= 388)
             {
-
+                if (CUnitMange::a->KarionSoldier[4]->mUnitSprite.mDestX > 336)
+                    CUnitMange::a->KarionSoldier[4]->mUnitSprite.mDestX -= 16;
             }
+            if (CUnitMange::a->KarionSoldier[4]->mUnitSprite.mDestX <= 336)
+            {
+                if (CUnitMange::a->KarionSoldier[3]->mUnitSprite.mDestX < 274)
+                {
+                    CUnitMange::a->KarionSoldier[3]->mUnitSprite.ChangeAnimation(s2);
+                    CUnitMange::a->KarionSoldier[3]->mUnitSprite.mDestX += 16;
+                }
+            }
+            if (CUnitMange::a->KarionSoldier[3]->mUnitSprite.mDestX >= 274)
+            {
+                CUnitMange::a->KarionSoldier[4]->mUnitSprite.ChangeAnimation(s0);
+                CUnitMange::a->KarionSoldier[4]->mUnitSprite.mDestY += 16;
+            }
+            if (CUnitMange::a->KarionSoldier[4]->mUnitSprite.mDestY >= 352)
+            {
+                if (CUnitMange::a->KarionSoldier[3]->mUnitSprite.mDestX < 274) {
+                    CUnitMange::a->KarionSoldier[3]->mUnitSprite.mDestX += 16;
+                }
+            }
+            if (CUnitMange::a->KarionSoldier[3]->mUnitSprite.mDestX >= 274)
+            {
+                CUnitMange::a->KarionSoldier[3]->mUnitSprite.ChangeAnimation(s0);
+                CUnitMange::a->KarionSoldier[3]->mUnitSprite.mDestY += 16;
+            }
+            if (CUnitMange::a->KarionSoldier[3]->mUnitSprite.mDestY >= 388)
+            {
+                NextScene = true;
+            }
+
         }
         break;
     default:

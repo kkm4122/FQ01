@@ -4,6 +4,7 @@
 #include "CSaveLoad.h"
 #include "InGameIntro.h"
 #include "InGameIntro2.h"
+#include "InGameIntro3.h"
 #include "CBattleScene.h"
 #include "CUnitMange.h"
 #include "CGameFQ4.h"
@@ -22,6 +23,7 @@ void CGameFQ4::OnCreate()
 	mSaveLoad = new CSaveLoad;
 	mGameIntro = new InGameIntro;
 	mGameIntro2 = new InGameIntro2;
+	mGameIntro3 = new InGameIntro3;
 	//mBattleScene = new CBattleScene;
 	//mCurrent = mIntroS;
 	//mCurrent = mBattleScene;7
@@ -31,6 +33,7 @@ void CGameFQ4::OnCreate()
 void CGameFQ4::OnDestroy()
 {
 	delete mBattleScene;
+	delete mGameIntro3;
 	delete mGameIntro2;
 	delete mGameIntro;
 	delete mSaveLoad;
@@ -52,6 +55,7 @@ void CGameFQ4::onChangeScene()
 		else if (mCurrent == mTitle) { mCurrent = mSaveLoad; }
 		else if (mCurrent == mSaveLoad) { mCurrent = mGameIntro; }
 		else if (mCurrent == mGameIntro){ mCurrent = mGameIntro2; }
+		else if (mCurrent == mGameIntro2) { mCurrent = mGameIntro3; }
 	}
 }
 

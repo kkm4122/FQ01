@@ -111,6 +111,18 @@
     <ClInclude Include="CBattleScene.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="AstarHandler.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="AStar.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="POS.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="InGameIntro3.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FQ01.cpp">
@@ -186,6 +198,18 @@
       <Filter>IngameIntro</Filter>
     </ClCompile>
     <ClCompile Include="CBattleScene.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="AstarHandler.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="AStar.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="POS.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="InGameIntro3.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -343,6 +367,39 @@
       <Filter>리소스 파일</Filter>
     </Image>
     <Image Include="..\..\..\..\kkmproject\FQ01\Image\Character\soldier02 (1).bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Image\Character\soldier02 (1).bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Image\obj\obj.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Image\UI\MessageBox_1.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Image\UI\MessageBox_1_2.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Image\UI\MessageBox_2.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Image\UI\MessageBox_2_2.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Image\UI\MessageBox_3.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Image\UI\MessageBox_3_2.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Image\UI\MessageBox_4.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Image\UI\MessageBox_4_2.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Image\map\가르시아성 맵.bmp">
       <Filter>리소스 파일</Filter>
     </Image>
   </ItemGroup>

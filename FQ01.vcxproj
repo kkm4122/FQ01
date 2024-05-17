@@ -147,6 +147,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AStar.h" />
+    <ClInclude Include="AstarHandler.h" />
     <ClInclude Include="CAnimation.h" />
     <ClInclude Include="CApplication.h" />
     <ClInclude Include="CBattleScene.h" />
@@ -166,6 +168,7 @@
     <ClInclude Include="CImageFile.h" />
     <ClInclude Include="InGameIntro.h" />
     <ClInclude Include="InGameIntro2.h" />
+    <ClInclude Include="InGameIntro3.h" />
     <ClInclude Include="IScene.h" />
     <ClInclude Include="CSprite.h" />
     <ClInclude Include="FQ01.h" />
@@ -174,10 +177,13 @@
     <ClInclude Include="Map.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="POS.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AStar.cpp" />
+    <ClCompile Include="AstarHandler.cpp" />
     <ClCompile Include="CAnimation.cpp" />
     <ClCompile Include="CApplication.cpp" />
     <ClCompile Include="CBattleScene.cpp" />
@@ -199,6 +205,7 @@
     <ClCompile Include="CTitle.cpp" />
     <ClCompile Include="InGameIntro.cpp" />
     <ClCompile Include="InGameIntro2.cpp" />
+    <ClCompile Include="InGameIntro3.cpp" />
     <ClCompile Include="IScene.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="pch.cpp">
@@ -208,6 +215,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="POS.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="FQ01.rc" />
@@ -221,6 +229,7 @@
     <Image Include="image\bitmap2.bmp" />
     <Image Include="Image\castle.bmp" />
     <Image Include="Image\char.bmp" />
+    <Image Include="Image\Character\soldier02 (1).bmp" />
     <Image Include="Image\Character\soldier02_1.bmp" />
     <Image Include="Image\Character\soldier02_2.bmp" />
     <Image Include="Image\Character\곤라트\gonrad.bmp" />
@@ -254,13 +263,23 @@
     <Image Include="Image\Intro8.bmp" />
     <Image Include="Image\Intro9.bmp" />
     <Image Include="Image\karion_meetingroom.bmp" />
+    <Image Include="Image\map\가르시아성 맵.bmp" />
     <Image Include="Image\map\전투씬 맵.bmp" />
     <Image Include="Image\NPCMessageBox.bmp" />
+    <Image Include="Image\obj\obj.bmp" />
     <Image Include="Image\saveload.bmp" />
     <Image Include="Image\SceneFrame.bmp" />
     <Image Include="Image\soldierSprite.bmp" />
     <Image Include="Image\systemMessageBox.bmp" />
     <Image Include="Image\Title.bmp" />
+    <Image Include="Image\UI\MessageBox_1.bmp" />
+    <Image Include="Image\UI\MessageBox_1_2.bmp" />
+    <Image Include="Image\UI\MessageBox_2.bmp" />
+    <Image Include="Image\UI\MessageBox_2_2.bmp" />
+    <Image Include="Image\UI\MessageBox_3.bmp" />
+    <Image Include="Image\UI\MessageBox_3_2.bmp" />
+    <Image Include="Image\UI\MessageBox_4.bmp" />
+    <Image Include="Image\UI\MessageBox_4_2.bmp" />
     <Image Include="Intro1.bmp" />
     <Image Include="small.ico" />
   </ItemGroup>
