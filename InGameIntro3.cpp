@@ -37,7 +37,7 @@ InGameIntro3::InGameIntro3()
 	FieldMap->AddChar(22, 29, 2, 2, CUnitMange::a->GarshiaSoldier[15], L"a.SnoSTOP:0");
 	FieldMap->AddChar(12, 31, 2, 2, CUnitMange::a->GarshiaSoldier[16], L"a.SnoSTOP:2");
 	FieldMap->AddChar(14, 29, 2, 2, CUnitMange::a->GarshiaSoldier[17], L"a.SnoSTOP:0");
-
+	FieldMap->AddChar(18, 25, 2, 2, CUnitMange::a->Genelu, L"a.SnoSTOP:0");
 }
 
 InGameIntro3::~InGameIntro3()

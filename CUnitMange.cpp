@@ -74,6 +74,14 @@ void CUnitMange::SetUnit()
 		Actum->m_anifile.ani->CreateAniStop32(Actum->m_anifile.imgFile->Width(), Actum->m_anifile.imgFile->Height(), 100);
 		Actum->UnitState.Set2(L"a.Sno:0", 114 - (16), 207 - (16), Actum->m_anifile.ani, Actum->m_anifile.imgFile, RGB(255, 0, 255), CSprite::DrawType_Transparent);
 	}
+	{//Á¦³Ú·ç
+		Genelu = new CUnit;
+		Genelu->m_anifile.imgFile = CImageFile::New(MAKEINTRESOURCE(IDB_GENELU), L"ANI_GENELU");
+		Genelu->m_anifile.ani = new CAnimation;
+		Genelu->m_anifile.ani->CreateAni32(Genelu->m_anifile.imgFile->Width(), Genelu->m_anifile.imgFile->Height(), 100);
+		Genelu->m_anifile.ani->CreateAniStop32(Genelu->m_anifile.imgFile->Width(), Genelu->m_anifile.imgFile->Height(), 100);
+		Genelu->UnitState.Set2(L"a.SnoSTOP:0", 114 - (16), 207 - (16), Genelu->m_anifile.ani, Genelu->m_anifile.imgFile, RGB(255, 0, 255), CSprite::DrawType_Transparent);
+	}
 	{//º´»ç 20
 		for (int i = 0; i < 20; i++)
 		{
