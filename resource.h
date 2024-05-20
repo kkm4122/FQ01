@@ -68,7 +68,6 @@
 #define TUI_3_2                         188
 #define TUI_4_1                         189
 #define TUI_4_2                         190
-#define IDB_BITMAP6                     191
 #define IDB_GARSIACASTLE                191
 #define IDS_CUT1                        10000
 #define IDS_CUT1_1                      10001
@@ -100,6 +99,17 @@
 #define IDS_CUT2_9                      10109
 #define IDS_CUT2_10                     10110
 #define IDS_CUT2_11                     10111
+#define IDS_CUT3_1                      10200
+#define IDS_CUT3_2                      10201
+#define IDS_CUT3_3                      10202
+#define IDS_CUT3_4                      10203
+#define IDS_CUT3_5                      10204
+#define IDS_CUT3_6                      10205
+#define IDS_CUT3_7                      10206
+#define IDS_CUT3_8                      10207
+#define IDS_CUT4_1                      10300
+#define IDS_CUT4_2                      10301
+#define IDS_CUT4_3                      10302
 #define IDC_STATIC                      -1
 
 // Next default values for new objects

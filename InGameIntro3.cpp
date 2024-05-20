@@ -11,7 +11,8 @@ InGameIntro3::InGameIntro3()
 {
 	FieldMap = new CMap;
 	FieldMap->SetMap(MAKEINTRESOURCE(IDB_GARSIACASTLE), L"IDB_GARSIACASTLE");
-	FieldMap->CamPosY += -19*16;
+	FieldMap->CamPosY = 16 * 4;
+	//FieldMap->CamPosY = -16*16;
 	UI = CImageFile::New(MAKEINTRESOURCE(IDB_UI), L"IDB_UI");
 	UIs.Set(0, 0, 0, 0, UI, RGB(255, 0, 255), CSprite::DrawType_Transparent);
 	//À§
