@@ -185,8 +185,7 @@ void InGameIntro::onFrameMove()
 				tsno++;
 			}
 			//if
-		}
-		
+		}		
 		break;
 	case(4):
 		if (Tboxnum == 9)
@@ -264,14 +263,9 @@ void InGameIntro::onDraw(HDC hdc)
 		Sobj[i].Draw(hdc);
 	}
 
-
-
 	CScreen rendtarget;
 	//rendtarget.Clear(0xffff00ff);
 
-	
-
-	
 	UIs.Draw(hdc);
 	if (substart)
 	{

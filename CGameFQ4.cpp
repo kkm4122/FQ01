@@ -27,7 +27,7 @@ void CGameFQ4::OnCreate()
 	//mBattleScene = new CBattleScene;
 	//mCurrent = mIntroS;
 	//mCurrent = mBattleScene;7
-	mCurrent = mGameIntro3;
+	mCurrent = mGameIntro;
 }
 
 void CGameFQ4::OnDestroy()
