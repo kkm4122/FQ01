@@ -82,7 +82,7 @@ void InGameIntro3::onDraw(HDC hdc)
 	{
 		if (ic) ic->Draw(subscreen.m_HDC);
 	}
-	
+	//Subsp.mDestY = 
 	Subsp.Draw(subscreen.m_HDC);
 	subscreen.Draw(hdc,0,48,Subsp.mSrcWidth,Subsp.mSrcHeight,0,subHeight);
 }
