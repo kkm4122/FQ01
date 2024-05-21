@@ -15,6 +15,9 @@
 CMap::CMap()
 {
 	MapImg = CImageFile::New(MAKEINTRESOURCE(BG_FEILD),L"BG_FEILD");
+	CIMB = CImageFile::New(MAKEINTRESOURCE(IDB_BITMAP1), L"IDB_BITMAP1");
+	CSB.Set(PosX, PosY, 0, 0, CIMB, 0, CSprite::DrawType_AlphaBlend);
+	CSB.mAlpha = 0;
 	Mapobj.Set(PosX, PosY, 0, 0, MapImg, 0, CSprite::DrawType_Draw);
 	SizeX = MapImg->Width() / 16;
 	SizeY = MapImg->Height() / 16;
@@ -54,7 +57,7 @@ void CMap::Draw(HDC hdc)
 	}//¸ÊÀÇ ÀÖ´Â À¯´ÖÁÂÇ¥ ÃÖ½ÅÈ­
 
 	Mapobj.Draw(Mapscreen.m_HDC);
-
+	CSB.Draw(Mapscreen.m_HDC);
 	for (CUnit* ic : mCharacters) {
 		if (ic) ic->Draw(Mapscreen.m_HDC);
 	}

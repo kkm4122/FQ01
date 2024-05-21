@@ -12,6 +12,9 @@ InGameIntro3::InGameIntro3()
 	FieldMap = new CMap;
 	FieldMap->SetMap(MAKEINTRESOURCE(IDB_GARSIACASTLE), L"IDB_GARSIACASTLE");
 	FieldMap->CamPosY = 16 * 4;
+	Subim = CImageFile::New(MAKEINTRESOURCE(IDB_SCREENFRAME), L"IDB_SCREENFRAME");
+	Subsp.Set(0, 0, 0, 0, Subim, RGB(255, 0, 255), CSprite::DrawType_Transparent);
+	submap.Set(FieldMap->PosX, subcamPosy, 0, 0, FieldMap->MapImg, 0, CSprite::DrawType_Transparent);
 	//FieldMap->CamPosY = -16*16;
 	UI = CImageFile::New(MAKEINTRESOURCE(IDB_UI), L"IDB_UI");
 	UIs.Set(0, 0, 0, 0, UI, RGB(255, 0, 255), CSprite::DrawType_Transparent);
@@ -39,6 +42,7 @@ InGameIntro3::InGameIntro3()
 	FieldMap->AddChar(14, 29, 2, 2, CUnitMange::a->GarshiaSoldier[17], L"a.SnoSTOP:0");
 	FieldMap->AddChar(18, 25, 2, 2, CUnitMange::a->Genelu, L"a.SnoSTOP:0");
 	FieldMap->AddChar(18, 38, 2, 2, CUnitMange::a->Ares, L"a.SnoSTOP:3");
+	
 }
 
 InGameIntro3::~InGameIntro3()
@@ -61,9 +65,26 @@ void InGameIntro3::onFrameMove()
 }
 
 void InGameIntro3::onDraw(HDC hdc)
-{
+{//subcamPosy = 0;
+	//subHeight = 0;
+	CScreen subscreen(640,368);
+	
+	//18 Á¦³Ú·ç
 	FieldMap->Draw(hdc);
 	UIs.Draw(hdc);
+	//submap.mDestY = 
+	submap.Draw(subscreen.m_HDC);
+	for (CUnit* ic : FieldMap->mCharacters)
+	{
+		if (ic) ic->UpdateCamPos(FieldMap->CamPosX, subcamPosy);
+	}
+	for (CUnit* ic : FieldMap->mCharacters)
+	{
+		if (ic) ic->Draw(subscreen.m_HDC);
+	}
+	
+	Subsp.Draw(subscreen.m_HDC);
+	subscreen.Draw(hdc,0,48,Subsp.mSrcWidth,Subsp.mSrcHeight,0,subHeight);
 }
 
 void InGameIntro3::onKeyDown(UINT virtual_key)
@@ -77,10 +98,24 @@ void InGameIntro3::onKeyDown(UINT virtual_key)
 		FieldMap->CamPosY += 16;
 		break;
 	case(VK_LEFT):
-		FieldMap->CamPosX -= 16;
+		FieldMap->mCharacters[18]->TilePos.x--;
 		break;
 	case(VK_RIGHT):
-		FieldMap->CamPosX += 16;
+		FieldMap->mCharacters[18]->TilePos.x++;
+		break;
+	case(VK_W):
+		subHeight+=16;
+		break;
+	case(VK_S):
+		subHeight -= 16;
+		break;
+	case(VK_A):
+		subcamPosy -= 16;
+		//FieldMap->CSB.mAlpha+=5;
+		break;
+	case(VK_D):
+		subcamPosy += 16;
+		//FieldMap->CSB.mAlpha -= 5;
 		break;
 	}
 }

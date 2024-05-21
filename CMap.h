@@ -120,6 +120,8 @@ public:
 	std::vector<CUnit*>mObject;
 	CUnit Obstacle;
 	CImageFile* MapImg;
+	CImageFile* CIMB;
+	CSprite CSB;
 	CSprite Mapobj;
 	int PosX = 0;
 	int PosY = 0;

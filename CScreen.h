@@ -15,5 +15,6 @@ public:
 	void Draw(HDC hdc);
 	
 	void Draw(HDC hdc, int dest_x, int dest_y, int width, int height);
+	void Draw(HDC hdc, int sx, int sy, int width, int height, int dx, int dy);
 };
 

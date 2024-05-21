@@ -6,7 +6,7 @@
 
 #include "CTextout.h"
 #include"resource.h"
-
+#include "CScreen.h"
 #include "IScene.h"
 class CMap;
 class InGameIntro3 :
@@ -22,9 +22,14 @@ public:
 	virtual void onKeyDown(UINT virtual_key)override;
 
 	virtual void onMouseDown(UINT x, UINT y, UINT left_right) override;
+	CImageFile* Subim;
+	CSprite Subsp;
 	CMap* FieldMap;
+	CSprite submap;
 	CImageFile* UI;
 	CSprite UIs;
 	int framecount = 0;
+	int subcamPosy = 8*16;
+	int subHeight = 360-120-48;
 };
 

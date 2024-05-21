@@ -41,3 +41,12 @@ void CScreen::Draw(HDC hdc, int dest_x, int dest_y, int width, int height)
 		dest_x, dest_y, SRCCOPY
 	);
 }
+void CScreen::Draw(HDC hdc, int sx, int sy, int width, int height,int dx, int dy)
+{
+	BitBlt(hdc,
+		sx, sy,
+		width, height,
+		m_HDC,
+		dx, dy, SRCCOPY
+	);
+}
