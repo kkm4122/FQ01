@@ -70,8 +70,9 @@
 #define TUI_4_2                         190
 #define IDB_GARSIACASTLE                191
 #define IDB_GENELU                      192
-#define IDB_BITMAP6                     193
 #define IDB_SCREENFRAME                 193
+#define IDB_BITMAP6                     194
+#define IDB_ROCKMAN                     194
 #define IDS_CUT1                        10000
 #define IDS_CUT1_1                      10001
 #define IDS_CUT1_2                      10002
@@ -120,7 +121,7 @@
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NO_MFC                     1
-#define _APS_NEXT_RESOURCE_VALUE        194
+#define _APS_NEXT_RESOURCE_VALUE        195
 #define _APS_NEXT_COMMAND_VALUE         32771
 #define _APS_NEXT_CONTROL_VALUE         1000
 #define _APS_NEXT_SYMED_VALUE           110

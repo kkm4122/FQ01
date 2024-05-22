@@ -3,7 +3,6 @@
 #include "CUnit.h"
 #include "CMap.h"
 #include "IScene.h"
-
 #include "CTextout.h"
 #include"resource.h"
 class CImageFile;

@@ -212,7 +212,3 @@ public:
 	std::wstring s2 = L"a.SnoSTOP:2";
 	std::wstring s3 = L"a.SnoSTOP:3";
 };
-
-
-
-

@@ -229,6 +229,7 @@
     <Image Include="image\bitmap2.bmp" />
     <Image Include="Image\castle.bmp" />
     <Image Include="Image\char.bmp" />
+    <Image Include="Image\Character\rockman.bmp" />
     <Image Include="Image\Character\soldier02 (1).bmp" />
     <Image Include="Image\Character\soldier02_1.bmp" />
     <Image Include="Image\Character\soldier02_2.bmp" />

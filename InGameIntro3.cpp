@@ -136,6 +136,7 @@ void InGameIntro3::SetScene()
 	//FieldMap->CamPosY = -16*16;
 	UI = CImageFile::New(MAKEINTRESOURCE(IDB_UI), L"IDB_UI");
 	UIs.Set(0, 0, 0, 0, UI, RGB(255, 0, 255), CSprite::DrawType_Transparent);
+	TS.Set(160, 191, 488, 256, 16);
 	//À§
 	FieldMap->AddChar(12, 8, 2, 2, CUnitMange::a->GarshiaSoldier[0], L"a.SnoSTOP:0");
 	FieldMap->AddChar(24, 8, 2, 2, CUnitMange::a->GarshiaSoldier[1], L"a.SnoSTOP:0");
@@ -160,6 +161,5 @@ void InGameIntro3::SetScene()
 	FieldMap->AddChar(14, 29, 2, 2, CUnitMange::a->GarshiaSoldier[17], L"a.SnoSTOP:0");
 	FieldMap->AddChar(18, 25, 2, 2, CUnitMange::a->Genelu, L"a.SnoSTOP:0");
 	FieldMap->AddChar(18, 35, 2, 2, CUnitMange::a->Ares, L"a.SnoSTOP:3");
-	TS.Set(160, 191, 488, 256, 16);
 	//FieldMap->mCharacters[0]->DrawUnit = false;
 }
