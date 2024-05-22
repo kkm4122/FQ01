@@ -59,7 +59,7 @@ void CMap::Draw(HDC hdc)
 	Mapobj.Draw(Mapscreen.m_HDC);
 	CSB.Draw(Mapscreen.m_HDC);
 	for (CUnit* ic : mCharacters) {
-		if (ic) ic->Draw(Mapscreen.m_HDC);
+		if (ic&&ic->DrawUnit) ic->Draw(Mapscreen.m_HDC);
 	}
 	Mapscreen.Draw(hdc, Mapobj.mDestX, Mapobj.mDestY, SizeX * 16, SizeY * 16);
 

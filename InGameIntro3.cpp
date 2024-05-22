@@ -161,4 +161,5 @@ void InGameIntro3::SetScene()
 	FieldMap->AddChar(18, 25, 2, 2, CUnitMange::a->Genelu, L"a.SnoSTOP:0");
 	FieldMap->AddChar(18, 35, 2, 2, CUnitMange::a->Ares, L"a.SnoSTOP:3");
 	TS.Set(160, 191, 488, 256, 16);
+	//FieldMap->mCharacters[0]->DrawUnit = false;
 }

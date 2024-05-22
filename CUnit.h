@@ -192,6 +192,7 @@ public:
 	POS mPosition;
 	POS mTarget;
 	POS mDir;
+	bool DrawUnit = true;
 	int size = 2;
 	float mSpeed;
 	int TeamNo;
