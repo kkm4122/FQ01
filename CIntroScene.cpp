@@ -296,3 +296,7 @@ void CIntroScene::onKeyDown(UINT virtual_key)
         break;
     }
 }
+
+void CIntroScene::SetScene()
+{
+}

@@ -22,6 +22,7 @@ public:
 	virtual void onKeyDown(UINT virtual_key)override;
 
 	virtual void onMouseDown(UINT x, UINT y, UINT left_right) override;
+	virtual void SetScene() override;
 	CImageFile* Subim;
 	CSprite Subsp;
 	CMap* FieldMap;

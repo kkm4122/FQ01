@@ -16,11 +16,14 @@
     <Filter Include="Engine">
       <UniqueIdentifier>{35d2511c-249c-47f0-bd8a-23ac4cd361c7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="IngameIntro">
-      <UniqueIdentifier>{be8fa6f3-5b7a-4600-a85d-ad433f571938}</UniqueIdentifier>
+    <Filter Include="asdf">
+      <UniqueIdentifier>{ca700834-390d-40c3-9275-2f966f81bb0a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Intro~saveload">
+    <Filter Include="asdf\Intro~saveload">
       <UniqueIdentifier>{21ff7968-0731-43a3-8319-db33ea1d373c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="asdf\IngameIntro">
+      <UniqueIdentifier>{be8fa6f3-5b7a-4600-a85d-ad433f571938}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -58,19 +61,19 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="CIntroScene.h">
-      <Filter>Intro~saveload</Filter>
+      <Filter>asdf\Intro~saveload</Filter>
     </ClInclude>
     <ClInclude Include="CTitle.h">
-      <Filter>Intro~saveload</Filter>
+      <Filter>asdf\Intro~saveload</Filter>
     </ClInclude>
     <ClInclude Include="CSaveLoad.h">
-      <Filter>Intro~saveload</Filter>
+      <Filter>asdf\Intro~saveload</Filter>
     </ClInclude>
     <ClInclude Include="CSaveData.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="InGameIntro.h">
-      <Filter>IngameIntro</Filter>
+      <Filter>asdf\IngameIntro</Filter>
     </ClInclude>
     <ClInclude Include="CCharObj.h">
       <Filter>헤더 파일</Filter>
@@ -106,7 +109,7 @@
       <Filter>Engine</Filter>
     </ClInclude>
     <ClInclude Include="InGameIntro2.h">
-      <Filter>IngameIntro</Filter>
+      <Filter>asdf\IngameIntro</Filter>
     </ClInclude>
     <ClInclude Include="CBattleScene.h">
       <Filter>헤더 파일</Filter>
@@ -144,19 +147,19 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="CIntroScene.cpp">
-      <Filter>Intro~saveload</Filter>
+      <Filter>asdf\Intro~saveload</Filter>
     </ClCompile>
     <ClCompile Include="CTitle.cpp">
-      <Filter>Intro~saveload</Filter>
+      <Filter>asdf\Intro~saveload</Filter>
     </ClCompile>
     <ClCompile Include="CSaveLoad.cpp">
-      <Filter>Intro~saveload</Filter>
+      <Filter>asdf\Intro~saveload</Filter>
     </ClCompile>
     <ClCompile Include="CSaveData.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="InGameIntro.cpp">
-      <Filter>IngameIntro</Filter>
+      <Filter>asdf\IngameIntro</Filter>
     </ClCompile>
     <ClCompile Include="CCharObj.cpp">
       <Filter>소스 파일</Filter>
@@ -195,7 +198,7 @@
       <Filter>Engine</Filter>
     </ClCompile>
     <ClCompile Include="InGameIntro2.cpp">
-      <Filter>IngameIntro</Filter>
+      <Filter>asdf\IngameIntro</Filter>
     </ClCompile>
     <ClCompile Include="CBattleScene.cpp">
       <Filter>소스 파일</Filter>
@@ -400,6 +403,9 @@
       <Filter>리소스 파일</Filter>
     </Image>
     <Image Include="Image\map\가르시아성 맵.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Image\Character\바르시아왕 제넬루\genelu.bmp">
       <Filter>리소스 파일</Filter>
     </Image>
   </ItemGroup>

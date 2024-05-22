@@ -108,6 +108,10 @@ void CBattleScene::onKeyDown(UINT virtual_key)
     //case()
 }
 
+void CBattleScene::SetScene()
+{
+}
+
 void CBattleScene::onMouseDown(UINT x, UINT y, UINT left_right)
 {
 }

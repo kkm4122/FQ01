@@ -61,3 +61,7 @@ void CTitle::onKeyDown(UINT virtual_key)
 	}
 }
 
+void CTitle::SetScene()
+{
+}
+

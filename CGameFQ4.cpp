@@ -24,7 +24,7 @@ void CGameFQ4::OnCreate()
 	mGameIntro = new InGameIntro;
 	mGameIntro2 = new InGameIntro2;
 	mGameIntro3 = new InGameIntro3;
-	//mBattleScene = new CBattleScene;
+	mBattleScene = new CBattleScene;
 	//mCurrent = mIntroS;
 	//mCurrent = mBattleScene;7
 	mCurrent = mGameIntro3;
@@ -32,13 +32,13 @@ void CGameFQ4::OnCreate()
 
 void CGameFQ4::OnDestroy()
 {
-	delete mBattleScene;
-	delete mGameIntro3;
-	delete mGameIntro2;
-	delete mGameIntro;
-	delete mSaveLoad;
-	delete mTitle;
-	delete mIntroS;
+	if (mBattleScene)delete mBattleScene;
+	if (mGameIntro3)delete mGameIntro3;
+	if (mGameIntro2)delete mGameIntro2;
+	if (mGameIntro)delete mGameIntro;
+	if (mSaveLoad)delete mSaveLoad;
+	if (mTitle)delete mTitle;
+	if (mIntroS)delete mIntroS;
 
 }
 

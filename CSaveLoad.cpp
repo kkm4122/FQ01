@@ -135,6 +135,10 @@ void CSaveLoad::onMouseDown(UINT x, UINT y, UINT left_right)
     }
 }
 
+void CSaveLoad::SetScene()
+{
+}
+
     
 
 

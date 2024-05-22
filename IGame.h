@@ -14,7 +14,12 @@ public:
 	virtual void onFrameMove()
 	{
 		onChangeScene();//¾À º¯È¯
-		if (mCurrent)mCurrent->onFrameMove();
+		if (mCurrent) 
+		{
+			if (mCurrent->SetOn)mCurrent->SetScene();
+			mCurrent->SetOn = false;
+			mCurrent->onFrameMove();
+		}
 		InvalidateRect(CApplication::theApp->mhWnd, NULL, FALSE);
 	}
 	virtual void onDraw(HDC hdc)

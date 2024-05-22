@@ -15,6 +15,8 @@ public:
 	virtual void onKeyDown(UINT virtual_key) {}
 	virtual void onMouseDown(UINT x, UINT y, UINT left_right) {}
 	virtual void onMouseMove(UINT x, UINT y) {}
+	virtual void SetScene() = 0;
 	//CUnitMange UM;
+	bool SetOn = true;
 };
 

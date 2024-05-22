@@ -41,46 +41,7 @@ std::wstring s3 = L"a.SnoSTOP:3";
 
 InGameIntro2::InGameIntro2()
 {
-    str = new WCHAR[512];
-    MainMap.PosX = 16;
-    MainMap.PosY = 48;
-    MainMap.MapImg = CImageFile::New(MAKEINTRESOURCE(IDB_KARION_MEET), L"IDB_KARION_MEET");
-    mBG.Set(MainMap.PosX,MainMap.PosY,0,0, MainMap.MapImg,0, CSprite::DrawType_Draw);
-    CUnitMange::a->Ares->UnitSet(304, 288, L"a.SnoSTOP:0");
-    CUnitMange::a->Gonrad->UnitSet(336, 112, L"a.SnoSTOP:0");
-    CUnitMange::a->Gonrad->Facing = true;
-    
-    CUnitMange::a->ArchBishop->UnitSet(242, 80, L"a.Sno:0");
-    
-    CUnitMange::a->Aerain->UnitSet(304, 384, L"a.SnoSTOP:3");
-
-    CUnitMange::a->KarionSoldier[0]->UnitSet(208, 112, L"a.SnoSTOP:0");
-    CUnitMange::a->KarionSoldier[1]->UnitSet(272, 112, L"a.SnoSTOP:0");
-    CUnitMange::a->KarionSoldier[2]->UnitSet(400, 112, L"a.SnoSTOP:0");
-    CUnitMange::a->KarionSoldier[3]->UnitSet(242, 320, L"a.SnoSTOP:2");
-    CUnitMange::a->KarionSoldier[4]->UnitSet(368, 320, L"a.SnoSTOP:1");
-    for (int i = 0; i < 5; i++)
-    {
-        CUnitMange::a->KarionSoldier[i]->Facing = true;
-        
-    }
-    CUnitMange::a->KarionSoldier2[0]->UnitSet(97, 144, L"a.SnoSTOP:1");
-    CUnitMange::a->KarionSoldier2[1]->UnitSet(512, 144, L"a.SnoSTOP:2");
-    CUnitMange::a->KarionSoldier2[0]->Facing = true;
-    CUnitMange::a->KarionSoldier2[1]->Facing = true;
-    
-    UI = CImageFile::New(MAKEINTRESOURCE(IDB_UI), L"IDB_UI");
-    UIs.Set(0, 0, 0, 0, UI, RGB(255, 0, 255), CSprite::DrawType_Transparent);
-
-    Textwin = CImageFile::New(MAKEINTRESOURCE(IDB_TEXTBOX), L"IDB_TEXTBOX");
-    TW.Set(144, 175, 0, 0, Textwin, RGB(255, 0, 255), CSprite::DrawType_Transparent);
-
-    CharTextwin = CImageFile::New(MAKEINTRESOURCE(IDB_NPCTEXTBOX), L"IDB_NPCTEXTBOX");
-    CTW.Set(81, 175, 0, 0, CharTextwin, RGB(255, 0, 255), CSprite::DrawType_Transparent);
-    //x+71,y+8
-    TS.Set(160, 191, 488, 256, 16);
-    TS2.Set(161, 191, 489, 256, 16);
-
+    SetScene();
 }
 
 InGameIntro2::~InGameIntro2()
@@ -97,6 +58,7 @@ bool InGameIntro2::Sample()
 
 bool InGameIntro2::isChanged()
 {
+    //SetOn = true;
     return NextScene;
 }
 
@@ -675,4 +637,52 @@ void InGameIntro2::onMouseDown(UINT x, UINT y, UINT left_right)
     default:
         break;
     }
+}
+
+void InGameIntro2::SetScene()
+{
+
+
+    str = new WCHAR[512];
+    MainMap.PosX = 16;
+    MainMap.PosY = 48;
+    MainMap.MapImg = CImageFile::New(MAKEINTRESOURCE(IDB_KARION_MEET), L"IDB_KARION_MEET");
+    UI = CImageFile::New(MAKEINTRESOURCE(IDB_UI), L"IDB_UI");
+    Textwin = CImageFile::New(MAKEINTRESOURCE(IDB_TEXTBOX), L"IDB_TEXTBOX");
+    CharTextwin = CImageFile::New(MAKEINTRESOURCE(IDB_NPCTEXTBOX), L"IDB_NPCTEXTBOX");
+    mBG.Set(MainMap.PosX, MainMap.PosY, 0, 0, MainMap.MapImg, 0, CSprite::DrawType_Draw);
+
+
+
+    UIs.Set(0, 0, 0, 0, UI, RGB(255, 0, 255), CSprite::DrawType_Transparent);
+
+    TW.Set(144, 175, 0, 0, Textwin, RGB(255, 0, 255), CSprite::DrawType_Transparent);
+
+
+    CTW.Set(81, 175, 0, 0, CharTextwin, RGB(255, 0, 255), CSprite::DrawType_Transparent);
+    //x+71,y+8
+    TS.Set(160, 191, 488, 256, 16);
+    TS2.Set(161, 191, 489, 256, 16);
+    CUnitMange::a->Ares->UnitSet(304, 288, L"a.SnoSTOP:0");
+    CUnitMange::a->Gonrad->UnitSet(336, 112, L"a.SnoSTOP:0");
+    CUnitMange::a->Gonrad->Facing = true;
+
+    CUnitMange::a->ArchBishop->UnitSet(242, 80, L"a.Sno:0");
+
+    CUnitMange::a->Aerain->UnitSet(304, 384, L"a.SnoSTOP:3");
+
+    CUnitMange::a->KarionSoldier[0]->UnitSet(208, 112, L"a.SnoSTOP:0");
+    CUnitMange::a->KarionSoldier[1]->UnitSet(272, 112, L"a.SnoSTOP:0");
+    CUnitMange::a->KarionSoldier[2]->UnitSet(400, 112, L"a.SnoSTOP:0");
+    CUnitMange::a->KarionSoldier[3]->UnitSet(242, 320, L"a.SnoSTOP:2");
+    CUnitMange::a->KarionSoldier[4]->UnitSet(368, 320, L"a.SnoSTOP:1");
+    for (int i = 0; i < 5; i++)
+    {
+        CUnitMange::a->KarionSoldier[i]->Facing = true;
+
+    }
+    CUnitMange::a->KarionSoldier2[0]->UnitSet(97, 144, L"a.SnoSTOP:1");
+    CUnitMange::a->KarionSoldier2[1]->UnitSet(512, 144, L"a.SnoSTOP:2");
+    CUnitMange::a->KarionSoldier2[0]->Facing = true;
+    CUnitMange::a->KarionSoldier2[1]->Facing = true;
 }

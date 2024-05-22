@@ -40,6 +40,8 @@ CImageFile* CImageFile::New(const WCHAR* fileName, const WCHAR* name)
 
 void CImageFile::Delete(CImageFile* delItem)
 {
+	if (delItem == nullptr) { return; }
+	
 	delItem->Release();
 	if (delItem->mRefCount <= 0)
 	{
@@ -103,7 +105,10 @@ void CImageFile::TransDraw(HDC hdc, int dest_x, int dest_y, int src_x, int src_y
 {
 	HDC hBmpDC = CreateCompatibleDC(hdc);
 
+	
+		
 	HBITMAP old = (HBITMAP)SelectObject(hBmpDC, mhBitmap);
+	
 	TransparentBlt(hdc,
 		dest_x, dest_y,	width, height,
 		hBmpDC,

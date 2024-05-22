@@ -354,3 +354,7 @@ void InGameIntro::onMouseDown(UINT x, UINT y, UINT left_right)
 	}
 }
 
+void InGameIntro::SetScene()
+{
+}
+

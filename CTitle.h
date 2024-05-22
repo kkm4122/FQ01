@@ -15,6 +15,7 @@ public:
 	virtual void onFrameMove() override;
 	virtual void onDraw(HDC hdc) override;
 	virtual void onKeyDown(UINT virtual_key)override;
+	virtual void SetScene() override;
 public:
 	CImageFile* TitleImage;
 	CImageFile* Fadeout;
