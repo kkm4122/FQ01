@@ -114,6 +114,16 @@ void CUnitMange::SetUnit()
 			//GarshiaSoldier[i]->TileSet(0,0,)
 		}
 	}
+	{//바위인간
+		for (int i = 0; i < 20; i++)
+		{
+			RockMan[i] = new CUnit;
+			RockMan[i]->m_anifile.imgFile = CImageFile::New(MAKEINTRESOURCE(IDB_ROCKMAN), L"IDB_ROCKMAN");
+			RockMan[i]->m_anifile.ani = new CAnimation;
+			RockMan[i]->m_anifile.ani->CreateAni32(RockMan[i]->m_anifile.imgFile->Width(), RockMan[i]->m_anifile.imgFile->Height(), 100);
+			RockMan[i]->m_anifile.ani->CreateAniStop32(RockMan[i]->m_anifile.imgFile->Width(), RockMan[i]->m_anifile.imgFile->Height(), 100);
+		}
+	}
 	{//장애물 오브잭 검은색16x16픽셀
 		for (int i = 0; i < 100; i++)
 		{
@@ -135,9 +145,12 @@ void CUnitMange::onDestroy()
 	{
 		DestroyUnit(KarionSoldier[i]);
 		DestroyUnit(KarionSoldier2[i]);
+		DestroyUnit(KarionSoldier3[i]);
+		DestroyUnit(RockMan[i]);
 	}
 	DestroyUnit(Gonrad);
 	DestroyUnit(ArchBishop);
+	DestroyUnit(Genelu);
 }
 
 void CUnitMange::DestroyUnit(CUnit* Unit)

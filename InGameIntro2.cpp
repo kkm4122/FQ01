@@ -587,8 +587,6 @@ void InGameIntro2::onDraw(HDC hdc)
        // TS.OutPut(hdc, str);
        // TS2.OutPut(hdc, str);
     }
-   
-    
 }
 
 

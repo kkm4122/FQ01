@@ -52,7 +52,7 @@ void InGameIntro3::onDraw(HDC hdc)
 	}
 	//Subsp.mDestY = 
 	Subsp.Draw(subscreen.m_HDC);
-	subscreen.Draw(hdc,0,48,Subsp.mSrcWidth,Subsp.mSrcHeight,0,subHeight);
+	subscreen.Draw(hdc,0,48,Subsp.mSrcWidth,Subsp.mSrcHeight-16,0,subHeight);
 	
 	{//폰트 설정
 		LoadString(CApplication::theApp->mhInst, IDS_CUT3_1 + Tboxnum, str, 512);
