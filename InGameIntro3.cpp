@@ -161,5 +161,13 @@ void InGameIntro3::SetScene()
 	FieldMap->AddChar(14, 29, 2, 2, CUnitMange::a->GarshiaSoldier[17], L"a.SnoSTOP:0");
 	FieldMap->AddChar(18, 25, 2, 2, CUnitMange::a->Genelu, L"a.SnoSTOP:0");
 	FieldMap->AddChar(18, 35, 2, 2, CUnitMange::a->Ares, L"a.SnoSTOP:3");
+	FieldMap->AddChar(22, 25, 2, 2, CUnitMange::a->RockMan[0], L"a.SnoSTOP:0");
+	FieldMap->AddChar(22, 23, 2, 2, CUnitMange::a->RockMan[1], L"a.SnoSTOP:0");
+	FieldMap->AddChar(22, 21, 2, 2, CUnitMange::a->RockMan[2], L"a.SnoSTOP:0");
+	FieldMap->AddChar(14, 25, 2, 2, CUnitMange::a->RockMan[3], L"a.SnoSTOP:0");
+	FieldMap->AddChar(14, 23, 2, 2, CUnitMange::a->RockMan[4], L"a.SnoSTOP:0");
+	FieldMap->AddChar(14, 21, 2, 2, CUnitMange::a->RockMan[5], L"a.SnoSTOP:0");
+	for (int i = 0; i < 6; i++)
+		CUnitMange::a->RockMan[i]->DrawUnit = false;
 	//FieldMap->mCharacters[0]->DrawUnit = false;
 }
