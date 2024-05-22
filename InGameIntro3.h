@@ -23,14 +23,28 @@ public:
 
 	virtual void onMouseDown(UINT x, UINT y, UINT left_right) override;
 	virtual void SetScene() override;
+public:
 	CImageFile* Subim;
 	CSprite Subsp;
 	CMap* FieldMap;
 	CSprite submap;
 	CImageFile* UI;
 	CSprite UIs;
+	CTextOut TS;
+	WCHAR* str;
 	int framecount = 0;
-	int subcamPosy = 8*16;
-	int subHeight = 360-120-48;
+	int subcamPosy = 9*16;
+	int subHeight = 360-120-48+32+(16*9);
+
+
+	bool NextScene = false;
+	bool substart = false;
+	int tsno = 0;//이벤트 순서  번호
+	bool Tbox = false;
+	bool anim = false;
+	bool ClickEvent = true;
+	int Tboxnum = 0;//대사 스크립트 번호
+	int CTboxnum = 0;
+	int dt = 0;
 };
 

@@ -2,6 +2,7 @@
 #include "CMap.h"
 #include "CUnitMange.h"
 #include "CImageFile.h"
+#include "CApplication.h"
 #include "InGameIntro3.h"
 #define VK_W 87
 #define VK_S 83
@@ -52,6 +53,15 @@ void InGameIntro3::onDraw(HDC hdc)
 	//Subsp.mDestY = 
 	Subsp.Draw(subscreen.m_HDC);
 	subscreen.Draw(hdc,0,48,Subsp.mSrcWidth,Subsp.mSrcHeight,0,subHeight);
+	
+	{//폰트 설정
+		LoadString(CApplication::theApp->mhInst, IDS_CUT3_1 + Tboxnum, str, 512);
+		SetBkMode(hdc, TRANSPARENT);
+		HFONT hFont, oldFont;
+		hFont = CreateFontW(16, 0, 0, 0, 1000, 0, 0, 0, HANGUL_CHARSET, 0, 0, 0, VARIABLE_PITCH || FF_ROMAN, TEXT("바탕체"));
+		oldFont = (HFONT)SelectObject(hdc, hFont);
+	}
+	if(Tbox)TS.Draw(hdc,str,1);
 }
 
 void InGameIntro3::onKeyDown(UINT virtual_key)
@@ -78,7 +88,7 @@ void InGameIntro3::onKeyDown(UINT virtual_key)
 		break;
 	case(VK_A):
 		subcamPosy -= 16;
-		//FieldMap->CSB.mAlpha+=5;
+		FieldMap->CSB.mAlpha+=5;
 		break;
 	case(VK_D):
 		subcamPosy += 16;
@@ -93,10 +103,30 @@ void InGameIntro3::onKeyDown(UINT virtual_key)
 
 void InGameIntro3::onMouseDown(UINT x, UINT y, UINT left_right)
 {
+	switch (left_right)
+	{
+	case(MK_LBUTTON):
+		if (ClickEvent)
+		{
+			if (Tbox)
+			{
+				Tboxnum++;
+			}
+			else
+			{
+				tsno++;
+				ClickEvent = false;
+			}
+		}
+		break;
+	default:
+		break;
+	}
 }
 
 void InGameIntro3::SetScene()
 {
+	str = new WCHAR[512];
 	FieldMap = new CMap;
 	FieldMap->SetMap(MAKEINTRESOURCE(IDB_GARSIACASTLE), L"IDB_GARSIACASTLE");
 	FieldMap->CamPosY = 16 * 4;
@@ -129,5 +159,6 @@ void InGameIntro3::SetScene()
 	FieldMap->AddChar(12, 31, 2, 2, CUnitMange::a->GarshiaSoldier[16], L"a.SnoSTOP:2");
 	FieldMap->AddChar(14, 29, 2, 2, CUnitMange::a->GarshiaSoldier[17], L"a.SnoSTOP:0");
 	FieldMap->AddChar(18, 25, 2, 2, CUnitMange::a->Genelu, L"a.SnoSTOP:0");
-	FieldMap->AddChar(18, 38, 2, 2, CUnitMange::a->Ares, L"a.SnoSTOP:3");
+	FieldMap->AddChar(18, 35, 2, 2, CUnitMange::a->Ares, L"a.SnoSTOP:3");
+	TS.Set(160, 191, 488, 256, 16);
 }

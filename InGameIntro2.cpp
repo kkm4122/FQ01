@@ -662,7 +662,7 @@ void InGameIntro2::SetScene()
     CTW.Set(81, 175, 0, 0, CharTextwin, RGB(255, 0, 255), CSprite::DrawType_Transparent);
     //x+71,y+8
     TS.Set(160, 191, 488, 256, 16);
-    TS2.Set(161, 191, 489, 256, 16);
+    //TS2.Set(161, 191, 489, 256, 16);
     CUnitMange::a->Ares->UnitSet(304, 288, L"a.SnoSTOP:0");
     CUnitMange::a->Gonrad->UnitSet(336, 112, L"a.SnoSTOP:0");
     CUnitMange::a->Gonrad->Facing = true;

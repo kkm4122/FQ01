@@ -65,7 +65,7 @@ void CTextOut::Draw(HDC hdc, LPCWSTR str, int charsize)
 void CTextOut::UIDraw(HDC hdc, int Charsize)
 {
 	
-	switch (Charsize)
+	switch (Charsize)//유닛 스프라이트 크기
 	{
 	case 1:
 		switch (a)
