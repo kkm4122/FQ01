@@ -42,7 +42,7 @@ public:
 	int tsno = 0;//이벤트 순서  번호
 	bool Tbox = false;
 	bool anim = false;
-	bool ClickEvent = true;
+	bool ClickEvent = false;
 	int Tboxnum = 0;//대사 스크립트 번호
 	int CTboxnum = 0;
 	int dt = 0;

@@ -64,8 +64,8 @@ void InGameIntro3::onFrameMove()
 void InGameIntro3::onDraw(HDC hdc)
 {//subcamPosy = 0;
 	//subHeight = 0;
-	CScreen subscreen(640,368);
-	
+	CScreen subscreen(640, 368);
+
 	//18 Á¦³Ú·ç
 	FieldMap->Draw(hdc);
 	UIs.Draw(hdc);
@@ -81,8 +81,8 @@ void InGameIntro3::onDraw(HDC hdc)
 	}
 	//Subsp.mDestY = 
 	Subsp.Draw(subscreen.m_HDC);
-	subscreen.Draw(hdc,0,48,Subsp.mSrcWidth,Subsp.mSrcHeight-16,0,subHeight);
-	
+	subscreen.Draw(hdc, 0, 48, Subsp.mSrcWidth, Subsp.mSrcHeight - 16, 0, subHeight);
+
 	{//ÆùÆ® ¼³Á¤
 		LoadString(CApplication::theApp->mhInst, IDS_CUT3_1 + Tboxnum, str, 512);
 		SetBkMode(hdc, TRANSPARENT);
@@ -90,7 +90,45 @@ void InGameIntro3::onDraw(HDC hdc)
 		hFont = CreateFontW(16, 0, 0, 0, 1000, 0, 0, 0, HANGUL_CHARSET, 0, 0, 0, VARIABLE_PITCH || FF_ROMAN, TEXT("¹ÙÅÁÃ¼"));
 		oldFont = (HFONT)SelectObject(hdc, hFont);
 	}
-	if(Tbox)TS.Draw(hdc,str,1);
+	if (Tbox)
+	{
+		TS.Draw(hdc, str, 1);
+		switch (Tboxnum)
+		{
+		case 0:
+			CUnitMange::a->Ares->UnitState.Update(10);
+			CUnitMange::a->Ares->UnitState.Draw(hdc);
+			break;
+		case 1:
+			CUnitMange::a->Genelu->UnitState.Update(10);
+			CUnitMange::a->Genelu->UnitState.Draw(hdc);
+			break;
+		case 2:
+			CUnitMange::a->Ares->UnitState.Update(10);
+			CUnitMange::a->Ares->UnitState.Draw(hdc);
+			break;
+		case 3:
+			CUnitMange::a->Ares->UnitState.Update(10);
+			CUnitMange::a->Ares->UnitState.Draw(hdc);
+			break;
+		case 4:
+			CUnitMange::a->Genelu->UnitState.Update(10);
+			CUnitMange::a->Genelu->UnitState.Draw(hdc);
+			break;
+		case 5:
+			CUnitMange::a->Genelu->UnitState.Update(10);
+			CUnitMange::a->Genelu->UnitState.Draw(hdc);
+			break;
+		case 6:
+			CUnitMange::a->Genelu->UnitState.Update(10);
+			CUnitMange::a->Genelu->UnitState.Draw(hdc);
+			break;
+		case 7:
+			break;
+		default:
+			break;
+		}
+	}
 }
 
 void InGameIntro3::onKeyDown(UINT virtual_key)

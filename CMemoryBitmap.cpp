@@ -31,7 +31,7 @@ void CMemoryBitmap::Create(HDC hdcWnd, int width, int height)
 
 	m_HDC = CreateCompatibleDC(hdcWnd);
 	m_hBitmap = CreateDIBSection(m_HDC, &m_BMI, DIB_RGB_COLORS, (void**)&m_Colors, NULL, 0x0);
-	if (m_hBitmap == nullptr)
+	if (m_hBitmap == nullptr)//에러찾기
 	{
 		DWORD example_error = GetLastError(); 
 		TCHAR* message = nullptr; FormatMessage(FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_ALLOCATE_BUFFER, nullptr, example_error, MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), (TCHAR*)&message, 0, nullptr); 
@@ -53,4 +53,5 @@ void CMemoryBitmap::Clear(UINT32 color)
 	for (int y = 0; y < height; y++)
 		for (int x = 0; x < width; x++)
 			m_Colors[y * width + x] = color;
+	
 }
