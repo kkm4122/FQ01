@@ -19,12 +19,12 @@ void CGameFQ4::OnCreate()
 {
 	CUnitMange::a->SetUnit();
 	mIntroS = new CIntroScene;
-	mTitle = new CTitle;
-	mSaveLoad = new CSaveLoad;
-	mGameIntro = new InGameIntro;
-	mGameIntro2 = new InGameIntro2;
+	//mTitle = new CTitle;
+	//mSaveLoad = new CSaveLoad;
+	//mGameIntro = new InGameIntro;
+	//mGameIntro2 = new InGameIntro2;
 	mGameIntro3 = new InGameIntro3;
-	mBattleScene = new CBattleScene;
+	//mBattleScene = new CBattleScene;
 	//mCurrent = mIntroS;
 	//mCurrent = mBattleScene;7
 	mCurrent = mGameIntro3;

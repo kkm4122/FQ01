@@ -18,5 +18,13 @@ public:
 	virtual void SetScene() = 0;
 	//CUnitMange UM;
 	bool SetOn = true;
+	std::wstring m0 = L"a.Sno:0";//아래
+	std::wstring m1 = L"a.Sno:1";//왼쪽
+	std::wstring m2 = L"a.Sno:2";//오른쪽
+	std::wstring m3 = L"a.Sno:3";//위
+	std::wstring s0 = L"a.SnoSTOP:0";
+	std::wstring s1 = L"a.SnoSTOP:1";
+	std::wstring s2 = L"a.SnoSTOP:2";
+	std::wstring s3 = L"a.SnoSTOP:3";
 };
 

@@ -41,6 +41,7 @@ public:
 
 	UINT32* m_Colors;
 	BITMAPINFO m_BMI;        // bitmap header
+	static int ScreenCount;
 
 public:
 	CMemoryBitmap(HDC hdcWnd, int width, int height);
@@ -57,5 +58,6 @@ public:
 	int getHeight()							{ return m_BMI.bmiHeader.biHeight; }
 	void Create(HDC hdcWnd, int width, int height);//hwnd 받아오기 위한
 	void Clear(UINT32 color = 0xFF000000);
+
 };
 

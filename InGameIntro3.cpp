@@ -30,6 +30,35 @@ bool InGameIntro3::isChanged()
 void InGameIntro3::onFrameMove()
 {
 	FieldMap->Update();
+	switch (tsno)
+	{
+	case (0):
+		dt++;
+		if (dt % 5 == 0)
+		{
+			dt = 0;
+			if(FieldMap->CamPosY >48-304)FieldMap->CamPosY -= 16;
+			else
+			{
+				if(CUnitMange::a->Ares->TilePos.y>34)
+				CUnitMange::a->Ares->WalkOneTile(FieldMap, MOVE_UP);
+				else
+				{
+					CUnitMange::a->Ares->mUnitSprite.ChangeAnimation(s3);
+					tsno++;
+					
+				}
+			}
+		}
+		break;
+	case 1:
+		Tbox = true;
+		ClickEvent = true;
+		break;
+
+	default:
+		break;
+	}
 }
 
 void InGameIntro3::onDraw(HDC hdc)

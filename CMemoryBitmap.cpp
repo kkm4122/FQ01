@@ -1,8 +1,11 @@
 #include "pch.h"
 #include "CMemoryBitmap.h"
 
+int CMemoryBitmap::ScreenCount = 0;
+
 CMemoryBitmap::CMemoryBitmap(HDC hdcWnd, int width, int height)//깜박임 방지 더블버퍼
 {
+	ScreenCount++;
 	Create(hdcWnd, width, height);
 }
 
@@ -28,6 +31,15 @@ void CMemoryBitmap::Create(HDC hdcWnd, int width, int height)
 
 	m_HDC = CreateCompatibleDC(hdcWnd);
 	m_hBitmap = CreateDIBSection(m_HDC, &m_BMI, DIB_RGB_COLORS, (void**)&m_Colors, NULL, 0x0);
+	if (m_hBitmap == nullptr)
+	{
+		DWORD example_error = GetLastError(); 
+		TCHAR* message = nullptr; FormatMessage(FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_ALLOCATE_BUFFER, nullptr, example_error, MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), (TCHAR*)&message, 0, nullptr); 
+		OutputDebugString(message);
+		// ... 
+		LocalFree(message);
+	}
+
 	m_Old = (HBITMAP)SelectObject(m_HDC, m_hBitmap);
 
 	Clear(0xFF000000);

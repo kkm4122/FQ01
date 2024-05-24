@@ -2,8 +2,11 @@
 #include "CApplication.h"
 #include "CScreen.h"
 
+
 CScreen::CScreen()
 {
+
+
 	HDC hdc = GetDC(CApplication::theApp->mhWnd);
 
 	int Width= CApplication::theApp->WinWidth;
@@ -14,12 +17,15 @@ CScreen::CScreen()
 	//CApplication::theApp->WinHeight
 	Create(hdc,Width,Height);
 
+	ReleaseDC(CApplication::theApp->mhWnd, hdc);
 }
 
 CScreen::CScreen(int width, int height)
 {
 	HDC hdc = GetDC(CApplication::theApp->mhWnd);
 	Create(hdc, width, height);
+
+	ReleaseDC(CApplication::theApp->mhWnd,hdc);
 }
 
 void CScreen::Draw(HDC hdc)
