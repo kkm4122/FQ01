@@ -18,7 +18,7 @@ CImageFile* CImageFile::New(const WCHAR* fileName, const WCHAR* name)
 		}
 	}
 	CImageFile* it = new CImageFile(fileName, name);
-	it->AddRef();
+	
 	
 
 	bool sucess = false;
@@ -35,12 +35,13 @@ CImageFile* CImageFile::New(const WCHAR* fileName, const WCHAR* name)
 	{
 		g_ImgFileArray.push_back(it);
 	}
+	it->AddRef();
 	return it;
 }
 
 void CImageFile::Delete(CImageFile* delItem)
 {
-	if (delItem == nullptr) { return; }
+	//if (delItem == nullptr) { return; }
 	
 	delItem->Release();
 	if (delItem->mRefCount <= 0)
@@ -61,9 +62,19 @@ void CImageFile::Delete(CImageFile* delItem)
 
 void CImageFile::DestroyAll()
 {
+	int i = 0;
 	for (CImageFile* it : g_ImgFileArray)
 	{
-		if(it)delete it;
+		i++;
+		if (i == 10)
+		{
+	
+		}
+		if (it) 
+		{
+			delete it;
+			it = nullptr;
+		}
 	}
 }
 

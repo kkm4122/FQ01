@@ -7,6 +7,11 @@
 #include "CTextout.h"
 
 
+CTextOut::~CTextOut()
+{
+	delete CT;
+}
+
 void CTextOut::Set(int dx, int dy, int w, int h, int fs)
 {
 	this->dx = dx;

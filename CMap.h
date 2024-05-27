@@ -121,6 +121,7 @@ public:
 	CUnit Obstacle;
 	CImageFile* MapImg;
 	CImageFile* CIMB;
+	CScreen* CS;
 	CSprite CSB;
 	CSprite Mapobj;
 	int PosX = 0;

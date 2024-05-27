@@ -4,6 +4,7 @@
 #include "CImageFile.h"
 #include "CApplication.h"
 #include "InGameIntro3.h"
+#include "CScreen.h"
 #define VK_W 87
 #define VK_S 83
 #define VK_A 65
@@ -15,6 +16,10 @@ InGameIntro3::InGameIntro3()
 
 InGameIntro3::~InGameIntro3()
 {
+	//delete subscreen;
+	delete str;
+	delete FieldMap;
+	delete Subim;
 }
 
 bool InGameIntro3::Sample()
@@ -64,24 +69,24 @@ void InGameIntro3::onFrameMove()
 void InGameIntro3::onDraw(HDC hdc)
 {//subcamPosy = 0;
 	//subHeight = 0;
-	CScreen subscreen(640, 368);
+	CScreen SubScr(hdc, 640, 366);
 
 	//18 제넬루
 	FieldMap->Draw(hdc);
 	UIs.Draw(hdc);
 	submap.mDestY = subcamPosy;
-	submap.Draw(subscreen.m_HDC);
+	submap.Draw(SubScr.m_HDC);
 	for (CUnit* ic : FieldMap->mCharacters)
 	{
 		if (ic) ic->UpdateCamPos(FieldMap->CamPosX, subcamPosy);
 	}
 	for (CUnit* ic : FieldMap->mCharacters)
 	{
-		if (ic) ic->Draw(subscreen.m_HDC);
+		if (ic) ic->Draw(SubScr.m_HDC);
 	}
 	//Subsp.mDestY = 
-	Subsp.Draw(subscreen.m_HDC);
-	subscreen.Draw(hdc, 0, 48, Subsp.mSrcWidth, Subsp.mSrcHeight - 16, 0, subHeight);
+	Subsp.Draw(SubScr.m_HDC);
+	SubScr.Draw(hdc, 0, 48, Subsp.mSrcWidth, Subsp.mSrcHeight - 16, 0, subHeight);
 
 	{//폰트 설정
 		LoadString(CApplication::theApp->mhInst, IDS_CUT3_1 + Tboxnum, str, 512);
@@ -193,6 +198,7 @@ void InGameIntro3::onMouseDown(UINT x, UINT y, UINT left_right)
 
 void InGameIntro3::SetScene()
 {
+	
 	str = new WCHAR[512];
 	FieldMap = new CMap;
 	FieldMap->SetMap(MAKEINTRESOURCE(IDB_GARSIACASTLE), L"IDB_GARSIACASTLE");

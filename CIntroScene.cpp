@@ -208,10 +208,17 @@ void CIntroScene::onFrameMove()
             Text_num = 0;
             Intro_num = 0;
             //mBG.mAlpha = 0;
+        
+            mBG.Set(0, (540 - IntroImage[Intro_num]->Height()) / 4 + 8, 0, 0, IntroImage[Intro_num], 0, CSprite::DrawType_Draw);
+
+            CurrentText = &IntroT[Text_num];
+            Fout.mAlpha = 255;
+            Fadein = true;
+            /*
             mBG.Set(0, (540 - TitleImage->Height())/4, 0, 0, TitleImage, 0, CSprite::DrawType_Draw);
             //CurrentText = &IntroT[9];
             CurrentText = &IntroT[Text_num];
-            NextScene = true;
+            *///NextScene = true;
         }
         Fadein = true;
     }
@@ -290,8 +297,18 @@ void CIntroScene::onKeyDown(UINT virtual_key)
         }
         else
         {
+
+            Text_num = 0;
+            Intro_num = 0;
+            //mBG.mAlpha = 0;
+            mBG.Set(0, (540 - IntroImage[Intro_num]->Height()) / 4 + 8, 0, 0, IntroImage[Intro_num], 0, CSprite::DrawType_Draw);
+
+            CurrentText = &IntroT[Text_num];
+            Fout.mAlpha = 255;
+            Fadein = true;
+            /*
             mBG.Set(0, (540 - TitleImage->Height()) / 2, 0, 0, TitleImage, 0, CSprite::DrawType_Draw);
-            NextScene = true;
+            *///NextScene = true;
         }
         break;
     }

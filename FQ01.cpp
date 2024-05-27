@@ -153,9 +153,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 
     case WM_DESTROY:
         pGame->OnDestroy();
+        delete pGame;
         pUnit->onDestroy();
         delete pUnit;
-        delete pGame;
         KillTimer(hWnd, 101);
         PostQuitMessage(0);
         break;

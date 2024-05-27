@@ -12,6 +12,7 @@
 
 CGameFQ4::~CGameFQ4()
 {
+	//CUnitMange::a->onDestroy();
 	CImageFile::DestroyAll();
 }
 
@@ -19,14 +20,14 @@ void CGameFQ4::OnCreate()
 {
 	CUnitMange::a->SetUnit();
 	mIntroS = new CIntroScene;
-	//mTitle = new CTitle;
-	//mSaveLoad = new CSaveLoad;
-	//mGameIntro = new InGameIntro;
-	//mGameIntro2 = new InGameIntro2;
+	mTitle = new CTitle;
+	mSaveLoad = new CSaveLoad;
+	mGameIntro = new InGameIntro;
+	mGameIntro2 = new InGameIntro2;
 	mGameIntro3 = new InGameIntro3;
-	//mBattleScene = new CBattleScene;
+	mBattleScene = new CBattleScene;
 	//mCurrent = mIntroS;
-	//mCurrent = mBattleScene;7
+	//mCurrent = mBattleScene;
 	mCurrent = mGameIntro3;
 }
 
@@ -44,10 +45,7 @@ void CGameFQ4::OnDestroy()
 
 void CGameFQ4::onChangeScene()
 {
-	if (mCurrent->Sample())
-	{
-		mCurrent = mGameIntro2;
-	}
+	
 	if (mCurrent->isChanged())
 	{
 		

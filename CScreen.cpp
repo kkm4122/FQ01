@@ -16,7 +16,6 @@ CScreen::CScreen()
 	//CApplication::theApp->WinWidth
 	//CApplication::theApp->WinHeight
 	Create(hdc,Width,Height);
-
 	ReleaseDC(CApplication::theApp->mhWnd, hdc);
 }
 

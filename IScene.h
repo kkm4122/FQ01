@@ -3,6 +3,7 @@
 // 추상클래스
 // 인터페이스 클래스
 //class CUnitMange;
+class Cscreen;
 class IScene		//상속받아 인트로 화면 만들어보기
 {
 public:

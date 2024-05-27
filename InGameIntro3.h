@@ -9,6 +9,7 @@
 #include "CScreen.h"
 #include "IScene.h"
 class CMap;
+class Cscreen;
 class InGameIntro3 :
     public IScene
 {
@@ -32,6 +33,7 @@ public:
 	CSprite UIs;
 	CTextOut TS;
 	WCHAR* str;
+	//CScreen* subscreen;
 	int framecount = 0;
 	int subcamPosy = 9*16;
 	int subHeight = 360-120-48+32+(16*9);

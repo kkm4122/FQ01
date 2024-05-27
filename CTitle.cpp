@@ -9,7 +9,7 @@ CTitle::CTitle()
 	Fadeout = new CImageFile(MAKEINTRESOURCE(IDB_BITMAP1),L"FADEOUT");
 	Fout.Set(0, 0, 0, 0, Fadeout, 0, CSprite::DrawType_AlphaBlend);
 	Fout.mAlpha = 255;
-	mBG.Set(0, 0, 0, 0, TitleImage, 0, CSprite::DrawType_Draw);
+	mBG.Set(0, 38, 0, 0, TitleImage, 0, CSprite::DrawType_Draw);
 }
 
 CTitle::~CTitle()

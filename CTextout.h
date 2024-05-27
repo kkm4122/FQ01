@@ -12,7 +12,7 @@ public:
 	HFONT FontInfo;
 	
 public:
-
+	~CTextOut();
 	void Set(int dx, int dy, int w, int h, int fs);
 	void OutPut(HDC hdc, LPCWSTR str);
 	CImageFile* CT;

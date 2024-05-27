@@ -28,6 +28,11 @@ CUnitMange::~CUnitMange()
 {
 }
 
+void CUnitMange::DestroyAll()
+{
+	
+}
+
 void CUnitMange::SetUnit()
 {
 	{//아레스 유닛 정보
@@ -157,7 +162,8 @@ void CUnitMange::DestroyUnit(CUnit* Unit)
 {
 	if (Unit)
 	{
-		delete Unit->m_anifile.ani;
+			
+		delete Unit;
+		Unit=nullptr;
 	}
-	delete Unit;
 }

@@ -9,7 +9,7 @@ public:
 	CUnitMange();
 	~CUnitMange();
 	static CUnitMange* a;
-
+	void DestroyAll();
 
 	void SetUnit();
 	void onDestroy();
