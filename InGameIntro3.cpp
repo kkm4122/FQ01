@@ -9,6 +9,7 @@
 #define VK_S 83
 #define VK_A 65
 #define VK_D 68
+int dt2 = 0;
 InGameIntro3::InGameIntro3()
 {
 	SetScene();
@@ -17,9 +18,7 @@ InGameIntro3::InGameIntro3()
 InGameIntro3::~InGameIntro3()
 {
 	//delete subscreen;
-	delete str;
-	delete FieldMap;
-	delete Subim;
+	
 }
 
 bool InGameIntro3::Sample()
@@ -59,8 +58,129 @@ void InGameIntro3::onFrameMove()
 	case 1:
 		Tbox = true;
 		ClickEvent = true;
+		if (Tboxnum == 3) {
+			tsno++;
+			Tbox = false;
+			ClickEvent = false;
+		}
 		break;
+	case 2:
 
+		dt++;
+		if (dt % 5 == 0)
+		{
+			dt = 0;
+			if (CUnitMange::a->Ares->TilePos.y > 30)
+				CUnitMange::a->Ares->WalkOneTile(FieldMap, MOVE_UP);
+			else
+			{
+				if (CUnitMange::a->GarshiaSoldier[14]->TilePos.x > 20)
+				{
+					CUnitMange::a->GarshiaSoldier[14]->
+						WalkOneTile(FieldMap, MOVE_LEFT);
+				}
+				if (CUnitMange::a->GarshiaSoldier[15]->TilePos.x > 20)
+				{
+					CUnitMange::a->GarshiaSoldier[15]->
+						WalkOneTile(FieldMap, MOVE_LEFT);
+				}
+				//20
+				if (CUnitMange::a->GarshiaSoldier[16]->TilePos.x < 16)
+				{
+					CUnitMange::a->GarshiaSoldier[16]->
+						WalkOneTile(FieldMap, MOVE_RIGHT);
+				}
+				if (CUnitMange::a->GarshiaSoldier[17]->TilePos.x < 16)
+				{
+					CUnitMange::a->GarshiaSoldier[17]->
+						WalkOneTile(FieldMap, MOVE_RIGHT);
+				}
+				else
+				{
+					dt2++;
+				}
+				if (dt2 == 8) 
+				{
+					dt2 = 0;
+					tsno++;
+				}
+			}
+		}
+		
+		break;
+	case 3:
+		dt++;
+		switch (dt)
+		{
+		case 10:
+			CUnitMange::a->Ares->mUnitSprite.ChangeAnimation(s9);
+			break;
+		case 20:
+			CUnitMange::a->Ares->mUnitSprite.ChangeAnimation(s8);
+			break;
+		case 30:
+			CUnitMange::a->Ares->mUnitSprite.ChangeAnimation(s10);
+			break;
+		case 40:
+			CUnitMange::a->Ares->mUnitSprite.ChangeAnimation(s11);
+			break;
+		case 50:
+			CUnitMange::a->Ares->mUnitSprite.ChangeAnimation(s9);
+			break;
+		case 60:
+			CUnitMange::a->Ares->mUnitSprite.ChangeAnimation(s8);
+			break;
+		case 80:
+			CUnitMange::a->Ares->mUnitSprite.ChangeAnimation(s4);
+			break;
+		case 100:
+			CUnitMange::a->Ares->mUnitSprite.ChangeAnimation(s12);
+			break;
+		case 110:
+			for(int i=0;i<4; i++)
+			{ 
+				CUnitMange::a->GarshiaSoldier[14 + i]->mUnitSprite.ChangeAnimation(s11);
+			}
+			CUnitMange::a->Ares->mUnitSprite.ChangeAnimation(s9);
+			break;
+		case 120:
+			for (int i = 0; i < 4; i++)
+			{
+				CUnitMange::a->GarshiaSoldier[14 + i]->mUnitSprite.ChangeAnimation(s5);
+			}
+			break;
+		case 130:
+			for (int i = 0; i < 4; i++)
+			{
+				CUnitMange::a->GarshiaSoldier[14 + i]->mUnitSprite.ChangeAnimation(s10);
+			}
+			break;
+		case 140:
+			for (int i = 0; i < 4; i++)
+			{
+				CUnitMange::a->GarshiaSoldier[14 + i]->mUnitSprite.ChangeAnimation(s4);
+			}
+			break;
+		case 150:
+			for (int i = 0; i < 4; i++)
+			{
+				CUnitMange::a->GarshiaSoldier[14 + i]->DrawUnit = false;
+			}
+			break;
+		case 160:
+			CUnitMange::a->Ares->WalkOneTile(FieldMap, MOVE_UP);
+			CUnitMange::a->Ares->WalkOneTile(FieldMap, MOVE_UP);
+			break;
+		case 170:
+			tsno++;
+			CUnitMange::a->Ares->mUnitSprite.ChangeAnimation(s0);
+			break;
+		default:
+			break;
+		}
+		break;
+	case 4:
+		break;
 	default:
 		break;
 	}

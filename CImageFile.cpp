@@ -21,17 +21,16 @@ CImageFile* CImageFile::New(const WCHAR* fileName, const WCHAR* name)
 	
 	
 
-	bool sucess = false;
-	for (int i = 0; i < g_ImgFileArray.size(); i++)
+	bool success = false;
+	for (CImageFile* i : g_ImgFileArray)
 	{
-		if (g_ImgFileArray[i] == nullptr)
-		{
-			g_ImgFileArray[i] = it;
-			sucess = true;
-			
+		if (i == nullptr) {
+			i = it;
+			success = true;
+			break;
 		}
 	}
-	if (!sucess) 
+	if (!success) 
 	{
 		g_ImgFileArray.push_back(it);
 	}
@@ -44,18 +43,14 @@ void CImageFile::Delete(CImageFile* delItem)
 	//if (delItem == nullptr) { return; }
 	
 	delItem->Release();
-	if (delItem->mRefCount <= 0)
-	{
-		for (int i = 0; i < g_ImgFileArray.size(); i++)
-		{
-			if (g_ImgFileArray[i] == delItem)
-			{
-				g_ImgFileArray[i] = nullptr;
+
+	if (delItem->mRefCount <= 0) {
+		for (auto& i : g_ImgFileArray) {
+			if (i == delItem) {
+				i = nullptr;
 			}
-		}//위 배열에서 자기 자신이 있으면 지워주고 delete 호출
-
+		}
 		delete delItem;
-
 	}
 	
 }
@@ -66,9 +61,9 @@ void CImageFile::DestroyAll()
 	for (CImageFile* it : g_ImgFileArray)
 	{
 		i++;
-		if (i == 10)
+		if (i == 1)
 		{
-	
+			int a = 0;
 		}
 		if (it) 
 		{

@@ -39,8 +39,6 @@ public:
 	
 	~CUnit();
 	bool isMoving();
-	
-
 	void Think()
 	{
 		// Å¸°Ù Ã£±â(find)`

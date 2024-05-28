@@ -27,5 +27,15 @@ public:
 	std::wstring s1 = L"a.SnoSTOP:1";
 	std::wstring s2 = L"a.SnoSTOP:2";
 	std::wstring s3 = L"a.SnoSTOP:3";
+	std::wstring s4 = L"a.SnoSTOP:4";
+	std::wstring s5 = L"a.SnoSTOP:5";
+	std::wstring s6 = L"a.SnoSTOP:6";
+	std::wstring s7 = L"a.SnoSTOP:7";
+	std::wstring s8 = L"a.SnoSTOP:8";
+	std::wstring s9 = L"a.SnoSTOP:9";
+	std::wstring s10 = L"a.SnoSTOP:10";
+	std::wstring s11 = L"a.SnoSTOP:11";
+	std::wstring s12 = L"a.SnoSTOP:12";
+
 };
 
