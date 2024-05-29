@@ -164,8 +164,10 @@ void InGameIntro3::onFrameMove()
 		case 150:
 			for (int i = 0; i < 4; i++)
 			{
-				CUnitMange::a->GarshiaSoldier[14 + i]->DrawUnit = false;
+				FieldMap->DelChar(CUnitMange::a->GarshiaSoldier[14 + i]);
+				//CUnitMange::a->GarshiaSoldier[14 + i]->DrawUnit = false;
 			}
+			//FieldMap.
 			break;
 		case 160:
 			CUnitMange::a->Ares->WalkOneTile(FieldMap, MOVE_UP);
@@ -217,6 +219,146 @@ void InGameIntro3::onFrameMove()
 		}
 		break;
 	case 7:
+		dt++;
+		switch (dt)
+		{
+
+		case 10:
+			CUnitMange::a->Genelu->mUnitSprite.ChangeAnimation(s5);
+			break;
+		case 20:
+			CUnitMange::a->Genelu->mUnitSprite.ChangeAnimation(s11);
+			break;
+		case 30:
+			CUnitMange::a->Genelu->mUnitSprite.ChangeAnimation(s4);
+			break;
+		case 40:
+			CUnitMange::a->Genelu->mUnitSprite.ChangeAnimation(s10);
+			break;
+		case 50:
+			CUnitMange::a->Genelu->DrawUnit = false;			
+			FieldMap->mCharacters[18]->TilePos.y = 8;
+			break;
+		case 60:
+			tsno++;
+			break;
+		default:
+			break;
+		}
+		break;
+	case 8:
+		dt++;
+		if (dt % 5 == 0)
+		{
+			dt = 0;
+			if (FieldMap->CamPosY < 16 * 4)
+			{
+				FieldMap->CamPosY += 16;
+			}
+			else 
+			{
+				tsno++;
+			}
+				
+		}
+		break;
+	case 9:
+		dt++;
+		switch (dt)
+		{
+		case 5:
+			CUnitMange::a->Genelu->DrawUnit = true;
+			CUnitMange::a->Genelu->mUnitSprite.ChangeAnimation(s11);
+			break;
+		case 10:
+			CUnitMange::a->Genelu->mUnitSprite.ChangeAnimation(s5);
+			break;
+		case 20:
+			CUnitMange::a->Genelu->mUnitSprite.ChangeAnimation(s7);
+			break;
+		case 30:
+			tsno++;
+			dt = 0;
+			break;
+		default:
+			break;
+		}
+		
+		break;
+	case 10:
+		Tbox = true;
+		ClickEvent = true;
+		if (Tboxnum == 6)
+		{
+			tsno++;
+			Tbox = false;
+			ClickEvent = false;
+		}
+		break;
+	case 11:
+		dt++;
+		if (dt % 5 == 0)
+		{
+			dt = 0;
+			if (FieldMap->CamPosY > 48 - 304)FieldMap->CamPosY -= 16;
+			else
+			{
+				tsno++;
+			}
+		}
+		break;
+	case 12:
+		dt++;
+		switch (dt)
+		{
+		case 5:
+			
+			CUnitMange::a->RockMan[3]->DrawUnit = true; 
+			
+			break;
+		case 10:
+			CUnitMange::a->RockMan[0]->DrawUnit = true;
+			CUnitMange::a->RockMan[3]->WalkOneTile(FieldMap, MOVE_DOWN);
+			break;
+		case 15:
+			CUnitMange::a->RockMan[0]->WalkOneTile(FieldMap, MOVE_DOWN);
+			CUnitMange::a->RockMan[3]->WalkOneTile(FieldMap, MOVE_DOWN);
+			
+			break;
+		case 20:
+			CUnitMange::a->RockMan[0]->WalkOneTile(FieldMap, MOVE_DOWN);
+			CUnitMange::a->RockMan[3]->WalkOneTile(FieldMap, MOVE_DOWN);
+			break;
+		case 25:
+			CUnitMange::a->RockMan[0]->WalkOneTile(FieldMap, MOVE_DOWN);
+			CUnitMange::a->RockMan[3]->WalkOneTile(FieldMap, MOVE_DOWN);
+			break;
+		case 30:
+			CUnitMange::a->RockMan[0]->WalkOneTile(FieldMap, MOVE_DOWN);
+			CUnitMange::a->RockMan[3]->WalkOneTile(FieldMap, MOVE_DOWN);
+			break;
+		case 35:
+			CUnitMange::a->RockMan[0]->WalkOneTile(FieldMap, MOVE_DOWN);
+			CUnitMange::a->RockMan[3]->mUnitSprite.ChangeAnimation(s2);
+			CUnitMange::a->RockMan[4]->DrawUnit = true;
+			CUnitMange::a->RockMan[4]->WalkOneTile(FieldMap, MOVE_DOWN);
+			break;
+		case 40:
+			CUnitMange::a->RockMan[0]->mUnitSprite.ChangeAnimation(s1);
+			CUnitMange::a->RockMan[3]->WalkOneTile(FieldMap, MOVE_RIGHT);
+			CUnitMange::a->RockMan[4]->WalkOneTile(FieldMap, MOVE_DOWN);
+			CUnitMange::a->RockMan[1]->DrawUnit = true;
+			CUnitMange::a->RockMan[1]->WalkOneTile(FieldMap, MOVE_DOWN);
+		case 45:
+			CUnitMange::a->RockMan[0]->WalkOneTile(FieldMap, MOVE_LEFT);
+			CUnitMange::a->RockMan[3]->WalkOneTile(FieldMap, MOVE_RIGHT);
+			CUnitMange::a->RockMan[4]->WalkOneTile(FieldMap, MOVE_DOWN);
+			CUnitMange::a->RockMan[1]->DrawUnit = true;
+			CUnitMange::a->RockMan[1]->WalkOneTile(FieldMap, MOVE_DOWN);
+			break;
+		default:
+			break;
+		}
 		break;
 	default:
 		break;
