@@ -94,6 +94,16 @@ public:
 		mCharacters.push_back(AddUnit);
 		//SetUnit(a);
 	}
+	void DelChar(CUnit* a)
+	{
+		CUnit* DelUnit = a;
+		for (auto& i : mCharacters)
+		{
+			if (i == a)
+				mCharacters.erase(remove(mCharacters.begin(),mCharacters.end(),i));	
+		}
+		
+	}
 	void AddObject(int x, int y, int size, int id, CUnit* a, const WCHAR* Anino)
 	{
 		CUnit* AddUnit = a;
