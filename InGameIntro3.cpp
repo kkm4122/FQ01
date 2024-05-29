@@ -171,15 +171,52 @@ void InGameIntro3::onFrameMove()
 			CUnitMange::a->Ares->WalkOneTile(FieldMap, MOVE_UP);
 			CUnitMange::a->Ares->WalkOneTile(FieldMap, MOVE_UP);
 			break;
-		case 170:
+		case 190:
 			tsno++;
-			CUnitMange::a->Ares->mUnitSprite.ChangeAnimation(s0);
+			dt = 0;
+			CUnitMange::a->Ares->mUnitSprite.ChangeAnimation(s11);
 			break;
 		default:
 			break;
 		}
 		break;
 	case 4:
+		if (FieldMap->CSB.mAlpha < 255)
+		{
+			FieldMap->CSB.mAlpha += 5;
+		}
+		else
+		{
+			CUnitMange::a->Ares->mUnitSprite.ChangeAnimation(m3);
+			tsno++;
+			
+		}
+		break;
+	case 5:
+		dt++;
+		if (dt == 10) 
+		{
+			
+			CUnitMange::a->Ares->mUnitSprite.ChangeAnimation(s5);
+			FieldMap->CSB.mAlpha = 0;
+			
+		}
+		else if (dt == 20)
+		{
+			tsno++;
+			dt = 0;
+		}
+		break;
+	case 6:
+		Tbox = true;
+		ClickEvent = true;
+		if (Tboxnum == 4) {
+			tsno++;
+			Tbox = false;
+			ClickEvent = false;
+		}
+		break;
+	case 7:
 		break;
 	default:
 		break;
