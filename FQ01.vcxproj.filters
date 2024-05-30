@@ -411,5 +411,8 @@
     <Image Include="Image\Character\rockman.bmp">
       <Filter>리소스 파일</Filter>
     </Image>
+    <Image Include="Image\Character\바르시아왕 제넬루\General01.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
   </ItemGroup>
 </Project>

@@ -23,6 +23,9 @@ public:
 	std::wstring m1 = L"a.Sno:1";//왼쪽
 	std::wstring m2 = L"a.Sno:2";//오른쪽
 	std::wstring m3 = L"a.Sno:3";//위
+	std::wstring m4 = L"a.Sno:4";
+	std::wstring m5 = L"a.Sno:5";
+	std::wstring m6 = L"a.Sno:6";
 	std::wstring s0 = L"a.SnoSTOP:0";
 	std::wstring s1 = L"a.SnoSTOP:1";
 	std::wstring s2 = L"a.SnoSTOP:2";

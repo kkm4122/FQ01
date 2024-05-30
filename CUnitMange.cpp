@@ -81,11 +81,19 @@ void CUnitMange::SetUnit()
 	}
 	{//제넬루
 		Genelu = new CUnit;
-		Genelu->m_anifile.imgFile = CImageFile::New(MAKEINTRESOURCE(IDB_GENELU), L"ANI_GENELU");
+		Genelu->m_anifile.imgFile = CImageFile::New(MAKEINTRESOURCE(IDB_GENELU), L"IDB_GENELU");
 		Genelu->m_anifile.ani = new CAnimation;
 		Genelu->m_anifile.ani->CreateAni32(Genelu->m_anifile.imgFile->Width(), Genelu->m_anifile.imgFile->Height(), 100);
 		Genelu->m_anifile.ani->CreateAniStop32(Genelu->m_anifile.imgFile->Width(), Genelu->m_anifile.imgFile->Height(), 100);
 		Genelu->UnitState.Set2(L"a.SnoSTOP:0", 114 - (16), 207 - (16), Genelu->m_anifile.ani, Genelu->m_anifile.imgFile, RGB(255, 0, 255), CSprite::DrawType_Transparent);
+	}
+	{//가르시아장군
+		GarshiaGeneral = new CUnit;
+		GarshiaGeneral->m_anifile.imgFile = CImageFile::New(MAKEINTRESOURCE(IDB_GARSHIAGENERAL), L"IDB_GARSHIAGENERAL");
+		GarshiaGeneral->m_anifile.ani = new CAnimation;
+		GarshiaGeneral->m_anifile.ani->CreateAni32(GarshiaGeneral->m_anifile.imgFile->Width(), GarshiaGeneral->m_anifile.imgFile->Height(), 100);
+		GarshiaGeneral->m_anifile.ani->CreateAniStop32(GarshiaGeneral->m_anifile.imgFile->Width(), GarshiaGeneral->m_anifile.imgFile->Height(), 100);
+		GarshiaGeneral->UnitState.Set2(L"a.SnoSTOP:0", 114 - (16), 207 - (16), GarshiaGeneral->m_anifile.ani, GarshiaGeneral->m_anifile.imgFile, RGB(255, 0, 255), CSprite::DrawType_Transparent);
 	}
 	{//병사 20
 		for (int i = 0; i < 20; i++)

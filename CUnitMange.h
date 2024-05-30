@@ -20,6 +20,7 @@ public:
 	CUnit* ArchBishop;
 	CUnit* Actum;
 	CUnit* Genelu;
+	CUnit* GarshiaGeneral;
 	CUnit* BlackObj[100];
 	CUnit* KarionSoldier[20];
 	CUnit* KarionSoldier2[20];
