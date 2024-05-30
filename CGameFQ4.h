@@ -8,6 +8,7 @@ class InGameIntro;
 class InGameIntro2;
 class InGameIntro3;
 class CBattleScene;
+class FieldBattle;
 class CGameFQ4 :
     public IGame
 {
@@ -26,5 +27,6 @@ public:
     InGameIntro2* mGameIntro2;
     InGameIntro3* mGameIntro3;
     CBattleScene* mBattleScene;
+    FieldBattle* mFieldBattle;
 };
 

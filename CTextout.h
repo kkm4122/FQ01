@@ -19,7 +19,6 @@ public:
 	CSprite CTS;
 	void Draw(HDC hdc, LPCWSTR str, int charsize);
 	void UIDraw(HDC hdc, int Charsize);
-
 };
 
 //DT_CALCRECT
