@@ -450,18 +450,73 @@ void InGameIntro3::onFrameMove()
 			{
 				subHeight -= 16;
 			}
-			else tsno++;
+			else 
+			{
+				dt = 0;
+				tsno++;
 			}
+		}
 		break;
 	case 14:
 		Tbox = true;
 		ClickEvent = true;
-		if (Tboxnum == 8)
+		if (Tboxnum == 7)
 		{
-			//tsno++;
+			tsno++;
 			Tbox = false;
 			ClickEvent = false;
 		}
+		break;
+	case 15:
+		dt++;
+		if (dt % 5 == 0)
+		{
+			if (subHeight < 368)
+			{
+				subHeight += 16;
+			}
+			else tsno++;
+		}
+		break;
+	case 16:
+		Tbox = true;
+		ClickEvent = true;
+		if (Tboxnum == 8)
+		{
+			tsno++;
+			Tbox = false;
+			ClickEvent = false;
+			dt = 0;
+		}
+		break;
+	case 17:
+		dt++;
+		switch(dt)
+		{
+		case 5:
+			CUnitMange::a->Ares->TilePos.y++;
+			tsno++;
+			dt = 0;
+			break;
+		default:
+			break;
+		}
+		break;
+	case 18:
+		dt++;
+		if (dt % 5 == 0)
+		{
+
+			FieldMap->CamPosY -= 16;
+			CUnitMange::a->Ares->TilePos.y++;
+			for (int i = 0; i < 6; i++)
+			{
+				CUnitMange::a->RockMan[i]->WalkOneTile(FieldMap, MOVE_DOWN);
+			}
+			CUnitMange::a->GarshiaGeneral->WalkOneTile(FieldMap, MOVE_DOWN);
+		}
+		if (dt == 100)
+			tsno++;
 		break;
 	default:
 		break;

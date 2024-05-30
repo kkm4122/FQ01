@@ -148,7 +148,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="AStar.h" />
-    <ClInclude Include="AstarHandler.h" />
     <ClInclude Include="CAnimation.h" />
     <ClInclude Include="CApplication.h" />
     <ClInclude Include="CBattleScene.h" />
@@ -164,6 +163,7 @@
     <ClInclude Include="CTextout.h" />
     <ClInclude Include="CUnit.h" />
     <ClInclude Include="CUnitMange.h" />
+    <ClInclude Include="FieldBattle.h" />
     <ClInclude Include="IGame.h" />
     <ClInclude Include="CImageFile.h" />
     <ClInclude Include="InGameIntro.h" />
@@ -183,7 +183,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AStar.cpp" />
-    <ClCompile Include="AstarHandler.cpp" />
     <ClCompile Include="CAnimation.cpp" />
     <ClCompile Include="CApplication.cpp" />
     <ClCompile Include="CBattleScene.cpp" />
@@ -201,6 +200,7 @@
     <ClCompile Include="CTextout.cpp" />
     <ClCompile Include="CUnit.cpp" />
     <ClCompile Include="CUnitMange.cpp" />
+    <ClCompile Include="FieldBattle.cpp" />
     <ClCompile Include="FQ01.cpp" />
     <ClCompile Include="CTitle.cpp" />
     <ClCompile Include="InGameIntro.cpp" />

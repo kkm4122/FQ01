@@ -16,14 +16,14 @@
     <Filter Include="Engine">
       <UniqueIdentifier>{35d2511c-249c-47f0-bd8a-23ac4cd361c7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="asdf">
+    <Filter Include="Scene">
       <UniqueIdentifier>{ca700834-390d-40c3-9275-2f966f81bb0a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="asdf\Intro~saveload">
-      <UniqueIdentifier>{21ff7968-0731-43a3-8319-db33ea1d373c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="asdf\IngameIntro">
+    <Filter Include="Scene\IngameIntro">
       <UniqueIdentifier>{be8fa6f3-5b7a-4600-a85d-ad433f571938}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Intro to Title">
+      <UniqueIdentifier>{21ff7968-0731-43a3-8319-db33ea1d373c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -61,19 +61,19 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="CIntroScene.h">
-      <Filter>asdf\Intro~saveload</Filter>
+      <Filter>Scene\Intro to Title</Filter>
     </ClInclude>
     <ClInclude Include="CTitle.h">
-      <Filter>asdf\Intro~saveload</Filter>
+      <Filter>Scene\Intro to Title</Filter>
     </ClInclude>
     <ClInclude Include="CSaveLoad.h">
-      <Filter>asdf\Intro~saveload</Filter>
+      <Filter>Scene\Intro to Title</Filter>
     </ClInclude>
     <ClInclude Include="CSaveData.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="InGameIntro.h">
-      <Filter>asdf\IngameIntro</Filter>
+      <Filter>Scene\IngameIntro</Filter>
     </ClInclude>
     <ClInclude Include="CCharObj.h">
       <Filter>헤더 파일</Filter>
@@ -109,12 +109,9 @@
       <Filter>Engine</Filter>
     </ClInclude>
     <ClInclude Include="InGameIntro2.h">
-      <Filter>asdf\IngameIntro</Filter>
+      <Filter>Scene\IngameIntro</Filter>
     </ClInclude>
     <ClInclude Include="CBattleScene.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="AstarHandler.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="AStar.h">
@@ -124,6 +121,9 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="InGameIntro3.h">
+      <Filter>Scene\IngameIntro</Filter>
+    </ClInclude>
+    <ClInclude Include="FieldBattle.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
@@ -147,19 +147,19 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="CIntroScene.cpp">
-      <Filter>asdf\Intro~saveload</Filter>
+      <Filter>Scene\Intro to Title</Filter>
     </ClCompile>
     <ClCompile Include="CTitle.cpp">
-      <Filter>asdf\Intro~saveload</Filter>
+      <Filter>Scene\Intro to Title</Filter>
     </ClCompile>
     <ClCompile Include="CSaveLoad.cpp">
-      <Filter>asdf\Intro~saveload</Filter>
+      <Filter>Scene\Intro to Title</Filter>
     </ClCompile>
     <ClCompile Include="CSaveData.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="InGameIntro.cpp">
-      <Filter>asdf\IngameIntro</Filter>
+      <Filter>Scene\IngameIntro</Filter>
     </ClCompile>
     <ClCompile Include="CCharObj.cpp">
       <Filter>소스 파일</Filter>
@@ -198,12 +198,9 @@
       <Filter>Engine</Filter>
     </ClCompile>
     <ClCompile Include="InGameIntro2.cpp">
-      <Filter>asdf\IngameIntro</Filter>
+      <Filter>Scene\IngameIntro</Filter>
     </ClCompile>
     <ClCompile Include="CBattleScene.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="AstarHandler.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="AStar.cpp">
@@ -213,6 +210,9 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="InGameIntro3.cpp">
+      <Filter>Scene\IngameIntro</Filter>
+    </ClCompile>
+    <ClCompile Include="FieldBattle.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
