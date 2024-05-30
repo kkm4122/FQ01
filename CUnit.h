@@ -2,9 +2,9 @@
 
 #include"CAnimation.h"
 #include"CSprite.h"
-//#include"POS.h"
+
 #include"Astar.h"
-#include"AstarHandler.h"
+
 
 
 #define STATE_Idle      0
