@@ -120,10 +120,11 @@ void CUnitMange::SetUnit()
 		for (int i = 0; i < 5; i++)
 		{
 			GarshiaH[i] = new CUnit;
-			GarshiaH[i]->m_anifile.imgFile = CImageFile::New(MAKEINTRESOURCE(IDB_KARIONSOLDIER), L"IDB_KARIONSOLDIER");
+			GarshiaH[i]->size = 3;
+			GarshiaH[i]->m_anifile.imgFile = CImageFile::New(MAKEINTRESOURCE(IDB_GARSHIAH), L"IDB_GARSHIAH");
 			GarshiaH[i]->m_anifile.ani = new CAnimation;
-			GarshiaH[i]->m_anifile.ani->CreateAni32(GarshiaH[i]->m_anifile.imgFile->Width(), GarshiaH[i]->m_anifile.imgFile->Height(), 100);
-			GarshiaH[i]->m_anifile.ani->CreateAniStop32(GarshiaH[i]->m_anifile.imgFile->Width(), GarshiaH[i]->m_anifile.imgFile->Height(), 100);
+			GarshiaH[i]->m_anifile.ani->CreateAni(GarshiaH[i]->m_anifile.imgFile->Width(), GarshiaH[i]->m_anifile.imgFile->Height(), 100,GarshiaH[i]->size);
+			GarshiaH[i]->m_anifile.ani->CreateStop(GarshiaH[i]->m_anifile.imgFile->Width(), GarshiaH[i]->m_anifile.imgFile->Height(), 100, GarshiaH[i]->size);
 
 		}
 	}

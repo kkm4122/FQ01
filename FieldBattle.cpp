@@ -28,6 +28,21 @@ bool FieldBattle::isChanged()
 void FieldBattle::onFrameMove()
 {
     FieldMap->Update();
+    switch (tsno)
+    {
+    case 0:
+        dt++;
+        if (dt % 5 == 0)
+        {
+            if (FieldMap->CamPosY != 48)
+            {
+                FieldMap->CamPosY += 16;
+            }
+        }
+        break;
+    default:
+        break;
+    }
 }
 
 void FieldBattle::onDraw(HDC hdc)
@@ -43,6 +58,9 @@ void FieldBattle::onKeyDown(UINT virtual_key)
     case(VK_S):
         FieldMap->CamPosY += 16;
         break;
+    case(VK_W):
+        FieldMap->CamPosY -= 16;
+        break;
     default:
         break;
     }
@@ -53,7 +71,7 @@ void FieldBattle::SetScene()
 {
     FieldMap = new CMap;
     FieldMap->SetMap(MAKEINTRESOURCE(BG_FEILD), L"BG_FEILD");
-    //FieldMap->CamPosY -= 8*16;
+    FieldMap->CamPosY -= 8*16;
     UI = CImageFile::New(MAKEINTRESOURCE(IDB_UI), L"IDB_UI");
     UIs.Set(0, 0, 0, 0, UI, RGB(255, 0, 255), CSprite::DrawType_Transparent);
     {//왼쪽 병사 오른쪽 주시
@@ -97,6 +115,18 @@ void FieldBattle::SetScene()
         FieldMap->AddChar(21, 3, 2, 2, CUnitMange::a->Garshiaarcher[3], L"a.SnoSTOP:0");
         FieldMap->AddChar(24, 3, 2, 2, CUnitMange::a->Garshiaarcher[4], L"a.SnoSTOP:0");
         FieldMap->AddChar(27, 3, 2, 2, CUnitMange::a->Garshiaarcher[5], L"a.SnoSTOP:0");
+    }
+    {//가르시아 기마병
+        FieldMap->AddChar(21, 12, 3, 2, CUnitMange::a->GarshiaH[0], L"a.SnoSTOP:0");
+        FieldMap->AddChar(13, 12, 3, 2, CUnitMange::a->GarshiaH[1], L"a.SnoSTOP:0");
+    }
+    {//카리온 폰
+        FieldMap->AddChar(13, 17, 2, 2, CUnitMange::a->KarionPawn[0], L"a.SnoSTOP:2");
+        FieldMap->AddChar(9, 17, 2, 2, CUnitMange::a->KarionPawn[1], L"a.SnoSTOP:2");
+        FieldMap->AddChar(11, 20, 2, 2, CUnitMange::a->KarionPawn[2], L"a.SnoSTOP:2");
+        FieldMap->AddChar(22, 17, 2, 2, CUnitMange::a->KarionPawn[3], L"a.SnoSTOP:1");
+        FieldMap->AddChar(26, 17, 2, 2, CUnitMange::a->KarionPawn[4], L"a.SnoSTOP:1");
+        FieldMap->AddChar(24, 20, 2, 2, CUnitMange::a->KarionPawn[5], L"a.SnoSTOP:1");
     }
     FieldMap->AddChar(17, 4, 3, 2, CUnitMange::a->GarshiaCom[0], L"a.SnoSTOP:0");
     FieldMap->AddChar(17, 16, 3, 2, CUnitMange::a->HActum,L"a.SnoSTOP:3");
