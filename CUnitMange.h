@@ -22,6 +22,7 @@ public:
 	CUnit* HActum;
 	CUnit* Genelu;
 	CUnit* GarshiaGeneral;
+	CUnit* GarshiaCom[3];
 	CUnit* GarshiaH[5];
 	CUnit* BlackObj[100];
 	CUnit* KarionSoldier[20];

@@ -231,6 +231,7 @@
     <Image Include="Image\char.bmp" />
     <Image Include="Image\Character\rockman.bmp" />
     <Image Include="Image\Character\size3\말탄애크터.bmp" />
+    <Image Include="Image\Character\size3\적장.bmp" />
     <Image Include="Image\Character\soldier02 (1).bmp" />
     <Image Include="Image\Character\soldier02_1.bmp" />
     <Image Include="Image\Character\soldier02_2.bmp" />

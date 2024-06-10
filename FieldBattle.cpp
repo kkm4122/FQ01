@@ -98,7 +98,8 @@ void FieldBattle::SetScene()
         FieldMap->AddChar(24, 3, 2, 2, CUnitMange::a->Garshiaarcher[4], L"a.SnoSTOP:0");
         FieldMap->AddChar(27, 3, 2, 2, CUnitMange::a->Garshiaarcher[5], L"a.SnoSTOP:0");
     }
-    FieldMap->AddChar(17, 15, 3, 2, CUnitMange::a->HActum,L"a.SnoSTOP:3");
+    FieldMap->AddChar(17, 4, 3, 2, CUnitMange::a->GarshiaCom[0], L"a.SnoSTOP:0");
+    FieldMap->AddChar(17, 16, 3, 2, CUnitMange::a->HActum,L"a.SnoSTOP:3");
 }
 
 void FieldBattle::onMouseDown(UINT x, UINT y, UINT left_right)

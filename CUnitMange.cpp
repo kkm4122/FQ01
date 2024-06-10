@@ -105,6 +105,18 @@ void CUnitMange::SetUnit()
 		GarshiaGeneral->UnitState.Set2(L"a.SnoSTOP:0", 114 - (16), 207 - (16), GarshiaGeneral->m_anifile.ani, GarshiaGeneral->m_anifile.imgFile, RGB(255, 0, 255), CSprite::DrawType_Transparent);
 	}
 	{//가르시아 적장
+		for (int i = 0; i < 3; i++)
+		{
+			GarshiaCom[i] = new CUnit;
+			GarshiaCom[i]->size = 3;
+			GarshiaCom[i]->m_anifile.imgFile = CImageFile::New(MAKEINTRESOURCE(IDB_GARSHIACOM), L"IDB_GARSHIACOM");
+			GarshiaCom[i]->m_anifile.ani = new CAnimation;
+			GarshiaCom[i]->m_anifile.ani->CreateAni(GarshiaCom[i]->m_anifile.imgFile->Width(), GarshiaCom[i]->m_anifile.imgFile->Height(), 100,GarshiaCom[i]->size);
+			GarshiaCom[i]->m_anifile.ani->CreateStop(GarshiaCom[i]->m_anifile.imgFile->Width(), GarshiaCom[i]->m_anifile.imgFile->Height(), 100, GarshiaCom[i]->size);
+
+		}
+	}
+	{//가르시아 기마병
 		for (int i = 0; i < 5; i++)
 		{
 			GarshiaH[i] = new CUnit;
