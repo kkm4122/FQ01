@@ -127,6 +127,17 @@ void CUnitMange::SetUnit()
 			//GarshiaSoldier[i]->TileSet(0,0,)
 		}
 	}
+	{
+		for (int i = 0; i < 30; i++)
+		{
+			Garshiaarcher[i] = new CUnit;
+			Garshiaarcher[i]->m_anifile.imgFile = CImageFile::New(MAKEINTRESOURCE(IDB_GARSHIAARCHER), L"IDB_GARSHIAARCHER");
+			Garshiaarcher[i]->m_anifile.ani = new CAnimation;
+			Garshiaarcher[i]->m_anifile.ani->CreateAni32(Garshiaarcher[i]->m_anifile.imgFile->Width(), Garshiaarcher[i]->m_anifile.imgFile->Height(), 100);
+			Garshiaarcher[i]->m_anifile.ani->CreateAniStop32(Garshiaarcher[i]->m_anifile.imgFile->Width(), Garshiaarcher[i]->m_anifile.imgFile->Height(), 100);
+			//GarshiaSoldier[i]->TileSet(0,0,)
+		}
+	}
 	{//바위인간
 		for (int i = 0; i < 20; i++)
 		{

@@ -234,6 +234,7 @@
     <Image Include="Image\Character\soldier02_1.bmp" />
     <Image Include="Image\Character\soldier02_2.bmp" />
     <Image Include="Image\Character\곤라트\gonrad.bmp" />
+    <Image Include="Image\Character\궁병.bmp" />
     <Image Include="Image\Character\노호크왕 오라슨\orason_2.bmp" />
     <Image Include="Image\Character\대주교\archbishop.bmp" />
     <Image Include="Image\Character\리스레이왕 라이오스\laios_2.bmp" />

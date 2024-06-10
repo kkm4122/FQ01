@@ -74,6 +74,7 @@ void CGameFQ4::onChangeScene()
 		}
 		else if (mCurrent == mGameIntro2)
 		{
+			mGameIntro3 = new InGameIntro3;
 			mCurrent = mGameIntro3;
 		}
 	}

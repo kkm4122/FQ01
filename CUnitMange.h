@@ -6,9 +6,9 @@ class CUnit;
 class CUnitMange
 {
 public:
+	static CUnitMange* a;
 	CUnitMange();
 	~CUnitMange();
-	static CUnitMange* a;
 	void DestroyAll();
 
 	void SetUnit();
@@ -26,6 +26,7 @@ public:
 	CUnit* KarionSoldier2[20];
 	CUnit* KarionSoldier3[20];
 	CUnit* GarshiaSoldier[30];
+	CUnit* Garshiaarcher[30];
 	CUnit* RockMan[20];
 };
 
