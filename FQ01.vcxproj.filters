@@ -417,5 +417,11 @@
     <Image Include="Image\Character\궁병.bmp">
       <Filter>리소스 파일</Filter>
     </Image>
+    <Image Include="Image\Character\soldier05 (1).bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Image\Character\size3\말탄애크터.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
   </ItemGroup>
 </Project>

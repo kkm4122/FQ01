@@ -174,6 +174,56 @@ void CAnimation::CreateAniStop32(int bw, int bh, int dt)
 
 	}
 }
+void CAnimation::CreateAni(int bw, int bh, int dt, int size)
+{
+	int s = 16 * size;
+	int w = bw / s;
+	int h = bh / s;
+
+
+
+	//가로 세로 
+	for (int i = 0; i < h; i++)
+	{
+		FrameAnimation* a = new FrameAnimation;
+		for (int j = 0; j < w; j++)
+		{
+			a->m_Frames.push_back(FRAME(j * s, i * s, s, s));
+			a->m_AnimKeys.push_back(ANIM_KEY(j, dt));
+		}
+		WCHAR AniFno[100];
+		swprintf_s(AniFno, 100, L"a.Sno:%d", i);
+		a->m_Name = AniFno;
+		m_FramAnimations.push_back(a);
+		//delete a;
+	}
+}
+void CAnimation::CreateStop(int bw, int bh, int dt, int size)
+{
+	int s = 16 * size;
+	int w = bw / s;
+	int h = bh / s;
+
+
+
+	//가로 세로 
+	for (int j = 0; j < w; j++)
+	{
+		for (int i = 0; i < h; i++)
+		{
+			FrameAnimation* a = new FrameAnimation;
+			a->m_Frames.push_back(FRAME(j * s, i * s, s, s));
+			a->m_AnimKeys.push_back(ANIM_KEY(0, dt));
+
+			WCHAR AniFno[100];
+			swprintf_s(AniFno, 100, L"a.SnoSTOP:%d", i + (j * h));
+			a->m_Name = AniFno;
+			m_FramAnimations.push_back(a);
+			//delete a;
+		}
+
+	}
+}
 void CAnimation::CreateAniStop16(int bw, int bh, int dt)
 {
 	int w16 = bw / 16;

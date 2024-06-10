@@ -79,6 +79,15 @@ void CUnitMange::SetUnit()
 		Actum->m_anifile.ani->CreateAniStop32(Actum->m_anifile.imgFile->Width(), Actum->m_anifile.imgFile->Height(), 100);
 		Actum->UnitState.Set2(L"a.Sno:0", 114 - (16), 207 - (16), Actum->m_anifile.ani, Actum->m_anifile.imgFile, RGB(255, 0, 255), CSprite::DrawType_Transparent);
 	}
+	{//에크텀
+		HActum = new CUnit;
+		HActum->size = 3;
+		HActum->m_anifile.imgFile = CImageFile::New(MAKEINTRESOURCE(IDB_HACTUM), L"IDB_HACTUM");
+		HActum->m_anifile.ani = new CAnimation;
+		HActum->m_anifile.ani->CreateAni(HActum->m_anifile.imgFile->Width(), HActum->m_anifile.imgFile->Height(), 100,HActum->size);
+		HActum->m_anifile.ani->CreateStop(HActum->m_anifile.imgFile->Width(), HActum->m_anifile.imgFile->Height(), 100, HActum->size);
+		HActum->UnitState.Set2(L"a.Sno:0", 114 - (16), 207 - (16), HActum->m_anifile.ani, HActum->m_anifile.imgFile, RGB(255, 0, 255), CSprite::DrawType_Transparent);
+	}
 	{//제넬루
 		Genelu = new CUnit;
 		Genelu->m_anifile.imgFile = CImageFile::New(MAKEINTRESOURCE(IDB_GENELU), L"IDB_GENELU");
@@ -94,6 +103,17 @@ void CUnitMange::SetUnit()
 		GarshiaGeneral->m_anifile.ani->CreateAni32(GarshiaGeneral->m_anifile.imgFile->Width(), GarshiaGeneral->m_anifile.imgFile->Height(), 100);
 		GarshiaGeneral->m_anifile.ani->CreateAniStop32(GarshiaGeneral->m_anifile.imgFile->Width(), GarshiaGeneral->m_anifile.imgFile->Height(), 100);
 		GarshiaGeneral->UnitState.Set2(L"a.SnoSTOP:0", 114 - (16), 207 - (16), GarshiaGeneral->m_anifile.ani, GarshiaGeneral->m_anifile.imgFile, RGB(255, 0, 255), CSprite::DrawType_Transparent);
+	}
+	{//가르시아 적장
+		for (int i = 0; i < 5; i++)
+		{
+			GarshiaH[i] = new CUnit;
+			GarshiaH[i]->m_anifile.imgFile = CImageFile::New(MAKEINTRESOURCE(IDB_KARIONSOLDIER), L"IDB_KARIONSOLDIER");
+			GarshiaH[i]->m_anifile.ani = new CAnimation;
+			GarshiaH[i]->m_anifile.ani->CreateAni32(GarshiaH[i]->m_anifile.imgFile->Width(), GarshiaH[i]->m_anifile.imgFile->Height(), 100);
+			GarshiaH[i]->m_anifile.ani->CreateAniStop32(GarshiaH[i]->m_anifile.imgFile->Width(), GarshiaH[i]->m_anifile.imgFile->Height(), 100);
+
+		}
 	}
 	{//병사 20
 		for (int i = 0; i < 20; i++)
@@ -114,6 +134,16 @@ void CUnitMange::SetUnit()
 			KarionSoldier2[i]->m_anifile.ani = new CAnimation;
 			KarionSoldier2[i]->m_anifile.ani->CreateAni32(KarionSoldier2[i]->m_anifile.imgFile->Width(), KarionSoldier2[i]->m_anifile.imgFile->Height(), 100);
 			KarionSoldier2[i]->m_anifile.ani->CreateAniStop32(KarionSoldier2[i]->m_anifile.imgFile->Width(), KarionSoldier2[i]->m_anifile.imgFile->Height(), 100);
+		}
+	}
+	{//방패 병사 20
+		for (int i = 0; i < 20; i++)
+		{
+			KarionPawn[i] = new CUnit;
+			KarionPawn[i]->m_anifile.imgFile = CImageFile::New(MAKEINTRESOURCE(IDB_KARIONPWAN), L"IDB_KARIONPWAN");
+			KarionPawn[i]->m_anifile.ani = new CAnimation;
+			KarionPawn[i]->m_anifile.ani->CreateAni32(KarionPawn[i]->m_anifile.imgFile->Width(), KarionPawn[i]->m_anifile.imgFile->Height(), 100);
+			KarionPawn[i]->m_anifile.ani->CreateAniStop32(KarionPawn[i]->m_anifile.imgFile->Width(), KarionPawn[i]->m_anifile.imgFile->Height(), 100);
 		}
 	}
 	{//가르시아 병사 30명
