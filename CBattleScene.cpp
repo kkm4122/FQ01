@@ -60,7 +60,7 @@ void CBattleScene::onFrameMove()
     {
         framecount = 0;
        // FieldMap->mCharacters[1]->DirWalk(FieldMap->mCharacters[0]);
-        FieldMap->mCharacters[1]->WalkToAstar(FieldMap, FieldMap->mCharacters[2]);
+        FieldMap->mCharacters[1]->WalkToAstar(FieldMap, FieldMap->mCharacters[0]);
         FieldMap->mCharacters[2]->WalkToAstar(FieldMap, FieldMap->mCharacters[0]);
     }
 }

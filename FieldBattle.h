@@ -19,8 +19,18 @@ public:
 	CMap* FieldMap;
 	CImageFile* UI;
 	CSprite UIs;
+	CTextOut TS;
+	WCHAR* str;
+
+	bool ClickEvent = false;
+	bool NextScene = false;
+	bool substart = false;
+	bool Tbox = false;
+	bool anim = false;
+	
+	int tsno = 0;//이벤트 순서  번호
+	int Tboxnum = 0;//대사 스크립트 번호
 	int dt = 0;
-	int tsno = 0;
 	int framecount = 0;
 };
 

@@ -58,6 +58,11 @@ void CTextOut::Draw(HDC hdc, LPCWSTR str, int charsize)
 	
 	//DrawText(hdc, str, wcslen(str), &Tbox, DT_CALCRECT);
 	//DrawText(hdc, str, wcslen(str), &Tbox, DT_WORDBREAK);
+	if (charsize == 2) 
+	{ 
+		Tbox.left += 16;
+		Tbox2.left += 16;
+	}
 	DrawText(hdc, str, wcslen(str), &Tbox, DT_WORDBREAK); 
 	DrawText(hdc, str, wcslen(str), &Tbox2, DT_WORDBREAK);
 	//sprintf_s(str, 100, "x: %d	y: %d\n", x,y);

@@ -87,6 +87,7 @@ void CUnitMange::SetUnit()
 		HActum->m_anifile.ani->CreateAni(HActum->m_anifile.imgFile->Width(), HActum->m_anifile.imgFile->Height(), 100,HActum->size);
 		HActum->m_anifile.ani->CreateStop(HActum->m_anifile.imgFile->Width(), HActum->m_anifile.imgFile->Height(), 100, HActum->size);
 		HActum->UnitState.Set2(L"a.Sno:0", 114 - (16), 207 - (16), HActum->m_anifile.ani, HActum->m_anifile.imgFile, RGB(255, 0, 255), CSprite::DrawType_Transparent);
+		HActum->UnitState.Set2(L"a.Sno:0", 114 - (16), 207 - (16), HActum->m_anifile.ani, HActum->m_anifile.imgFile, RGB(255, 0, 255), CSprite::DrawType_Transparent);
 	}
 	{//제넬루
 		Genelu = new CUnit;
@@ -113,7 +114,7 @@ void CUnitMange::SetUnit()
 			GarshiaCom[i]->m_anifile.ani = new CAnimation;
 			GarshiaCom[i]->m_anifile.ani->CreateAni(GarshiaCom[i]->m_anifile.imgFile->Width(), GarshiaCom[i]->m_anifile.imgFile->Height(), 100,GarshiaCom[i]->size);
 			GarshiaCom[i]->m_anifile.ani->CreateStop(GarshiaCom[i]->m_anifile.imgFile->Width(), GarshiaCom[i]->m_anifile.imgFile->Height(), 100, GarshiaCom[i]->size);
-
+			GarshiaCom[i]->UnitState.Set2(L"a.Sno:0", 114 - (16), 207 - (16), GarshiaCom[i]->m_anifile.ani, GarshiaCom[i]->m_anifile.imgFile, RGB(255, 0, 255), CSprite::DrawType_Transparent);
 		}
 	}
 	{//가르시아 기마병
@@ -157,6 +158,7 @@ void CUnitMange::SetUnit()
 			KarionPawn[i]->m_anifile.ani = new CAnimation;
 			KarionPawn[i]->m_anifile.ani->CreateAni32(KarionPawn[i]->m_anifile.imgFile->Width(), KarionPawn[i]->m_anifile.imgFile->Height(), 100);
 			KarionPawn[i]->m_anifile.ani->CreateAniStop32(KarionPawn[i]->m_anifile.imgFile->Width(), KarionPawn[i]->m_anifile.imgFile->Height(), 100);
+			KarionPawn[i]->UnitState.Set2(L"a.Sno:0", 114 - (16), 207 - (16), KarionPawn[i]->m_anifile.ani, KarionPawn[i]->m_anifile.imgFile, RGB(255, 0, 255), CSprite::DrawType_Transparent);
 		}
 	}
 	{//가르시아 병사 30명
@@ -170,7 +172,7 @@ void CUnitMange::SetUnit()
 			//GarshiaSoldier[i]->TileSet(0,0,)
 		}
 	}
-	{
+	{//가르시아 궁수
 		for (int i = 0; i < 30; i++)
 		{
 			Garshiaarcher[i] = new CUnit;

@@ -53,6 +53,7 @@ public:
 		mPosition.y = tile_y * 16;
 	}
 	void WalkToAstar(CMap* Map, CUnit* a);
+	void TargetOn(CMap* map);
 	void MoveTo(int tile_x, int tile_y)
 	{
 		// 해당 변수만큼 이동
@@ -201,6 +202,7 @@ public:
 	//int MapInfo;
 	std::list<POS*> path;	//경로 좌표
 	bool Facing = false;
+	bool Death = false;
 	std::wstring mDown = L"a.Sno:0";//아래
 	std::wstring mLeft = L"a.Sno:1";//왼쪽
 	std::wstring mRight = L"a.Sno:2";//오른쪽

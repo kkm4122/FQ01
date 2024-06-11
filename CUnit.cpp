@@ -28,6 +28,28 @@ void CUnit::Draw(HDC hdc)
 
 void CUnit::WalkToAstar(CMap* Map, CUnit* target)
 {
+	if (target == nullptr)
+	{
+		return;
+	}
+	else if (target->Death)
+	{
+		return;
+	}
+	/*if (target->TilePos.x > 0 && target->TilePos.y > 0)
+	{
+
+		for (int i = 0; i < target->size + 2; i++)
+		{
+			for (int j = 0; j < target->size + 2; j++)
+			{
+				if (Map->mTiles[target->TilePos.y - 1][target->TilePos.x - 1].unit != target && Map->mTiles[target->TilePos.y - 1][target->TilePos.x - 1].unit != this && Map->mTiles[target->TilePos.y - 1][target->TilePos.x - 1].unit != nullptr)
+				{
+
+				}
+			}
+		}
+	}*/
 	if (!path.empty())
 	{
 		//POS* destP = path.front()
@@ -38,16 +60,24 @@ void CUnit::WalkToAstar(CMap* Map, CUnit* target)
 			dir.x = nextP->x - TilePos.x;
 			dir.y = nextP->y - TilePos.y;
 			Map->Update();
+			//if(Map->mTiles[nextP->y][nextP->x].unit)
 			for (int i = 0; i < size; i++)
 			{
 				for (int j = 0; j < size; j++)
 				{
+
+					if (Map->mTiles[nextP->y + i][nextP->x + j].unit != this && Map->mTiles[nextP->y + i][nextP->x + j].unit != nullptr)
+					{
+						path.clear();
+						return;
+					}
 					if (Map->mTiles[nextP->y + i][nextP->x + j].unit == target)
 					{
 						path.clear();
 						return;
 					}
-					
+
+
 				}
 			}
 			Move(dir.x, dir.y);
@@ -67,6 +97,11 @@ void CUnit::WalkToAstar(CMap* Map, CUnit* target)
 			{
 				for (int j = 0; j < size; j++)
 				{
+					if (Map->mTiles[nextP->y + i][nextP->x + j].unit != this && Map->mTiles[nextP->y + i][nextP->x + j].unit != nullptr)
+					{
+						path.clear();
+						return;
+					}
 					if (Map->mTiles[nextP->y + i][nextP->x + j].unit == target)
 					{
 						path.clear();
