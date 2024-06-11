@@ -121,6 +121,7 @@ void CUnit::WalkToAstar(CMap* Map, CUnit* target)
 	}
 	else
 	{
+		//패스가 만들어지는 상황이 안될때 추가 PathFind 함수 확인
 		path=A.PathFind(this, target, Map, TilePos, target->TilePos);
 	}
 }
