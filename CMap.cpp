@@ -14,7 +14,7 @@
 
 CMap::CMap()
 {
-	CS = new CScreen(640, 800);
+	//CS = new CScreen(640, 800);
 	MapImg = CImageFile::New(MAKEINTRESOURCE(BG_FEILD),L"BG_FEILD");
 	CIMB = CImageFile::New(MAKEINTRESOURCE(IDB_BITMAP1), L"IDB_BITMAP1");
 	CSB.Set(PosX, PosY, 0, 0, CIMB, 0, CSprite::DrawType_AlphaBlend);
@@ -50,6 +50,7 @@ CMap::~CMap()
 
 void CMap::Draw(HDC hdc)
 {
+	CScreen SubScr(hdc, 640, 800);
 	Mapobj.mDestX = CamPosX + PosX;
 	Mapobj.mDestY = CamPosY + PosY;
 	//¸ÊÀÇ Ãâ·ÂÁÂÇ¥(Ä«¸Þ¶ó ÁÂÇ¥)°¡ ¹Ù²ð¶§ ÃÖ½ÅÈ­
@@ -58,12 +59,12 @@ void CMap::Draw(HDC hdc)
 		if (ic)  ic->UpdateCamPos(CamPosX, CamPosY);
 	}//¸ÊÀÇ ÀÖ´Â À¯´ÖÁÂÇ¥ ÃÖ½ÅÈ­
 
-	Mapobj.Draw(CS->m_HDC);
-	CSB.Draw(CS->m_HDC);
+	Mapobj.Draw(SubScr.m_HDC);
+	CSB.Draw(SubScr.m_HDC);
 	for (CUnit* ic : mCharacters) {
-		if (ic&&ic->DrawUnit) ic->Draw(CS->m_HDC);
+		if (ic&&ic->DrawUnit) ic->Draw(SubScr.m_HDC);
 	}
-	CS->Draw(hdc, Mapobj.mDestX, Mapobj.mDestY, SizeX * 16, SizeY * 16);
+	SubScr.Draw(hdc, Mapobj.mDestX, Mapobj.mDestY, SizeX * 16, SizeY * 16);
 	//delete Mapscreen;
 }
 

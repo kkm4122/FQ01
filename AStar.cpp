@@ -78,6 +78,7 @@ std::list<POS*> AStar::PathFind(CUnit* Unit, CUnit* TUnit, CMap* CurMap, POS Sta
     {
         delete* iter; // 닫힌 노드 동적할당 해제 
     }
+    //패스 리턴전에 검사식 추가
     return path;
 }
 

@@ -36,6 +36,10 @@ void CUnit::WalkToAstar(CMap* Map, CUnit* target)
 	{
 		return;
 	}
+	/*if (BlockedOnAllSidesT(Map,target))
+	{
+		return;
+	}*/
 	/*if (target->TilePos.x > 0 && target->TilePos.y > 0)
 	{
 
@@ -149,6 +153,25 @@ void CUnit::Move(int x, int y)
 }
 
 
+
+bool CUnit::BlockedOnAllSidesT(CMap* Map, CUnit* target)//타겟 방향이 모두 막혀있을때
+{
+	if (target->TilePos.x > 0 && target->TilePos.y > 0)
+	{
+
+		for (int i = 0; i < target->size + 2; i++)
+		{
+			for (int j = 0; j < target->size + 2; j++)
+			{
+				if (Map->mTiles[target->TilePos.y - 1][target->TilePos.x - 1].unit != target && Map->mTiles[target->TilePos.y - 1][target->TilePos.x - 1].unit != this && Map->mTiles[target->TilePos.y - 1][target->TilePos.x - 1].unit != nullptr)
+				{
+
+				}
+			}
+		}
+	}
+	return true;
+}
 
 void CUnit::TargetAstar(CMap* Map, CUnit* a)
 {

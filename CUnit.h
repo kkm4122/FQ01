@@ -78,6 +78,7 @@ public:
 		else if (mDir.y < 0)return MOVE_UP;
 		else return MOVE_NONDIR;
 	}
+	bool BlockedOnAllSidesT(CMap* Map, CUnit* target);
 	void TargetAstar(CMap* Map, CUnit* target);
 	bool Searchthis(CMap* Map, CUnit* Target, POS NextP);
 	void MovePath(CMap* Map, CUnit* a);
@@ -165,6 +166,7 @@ public:
 	}
 	virtual void move() {};
 	//void DrawUnit(HDC hdc);
+	
 	void TileSet(int dx, int dy, const WCHAR* Anino)
 	{//타일로 받은 좌표값을 변환시켜 화면 출력
 		int tx = dx*16;
