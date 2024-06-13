@@ -66,7 +66,7 @@ void FieldBattle::onFrameMove()
             {
                 for (CUnit* ic : FieldMap->mCharacters)
                 {
-                    ic->WalkToAstar(FieldMap,ic->Target);
+                    if(ic->UnitNo==1)ic->WalkToAstar(FieldMap,ic->Target);
                 }
                 //WalkToAstar(FieldMap,)
             }
