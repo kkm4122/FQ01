@@ -69,6 +69,10 @@ std::list<POS*> AStar::PathFind(CUnit* Unit, CUnit* TUnit, CMap* CurMap, POS Sta
         //path.push_front(new POS(SNode->PointPOS.x, SNode->PointPOS.y));//시작경로 저장
         //path.reverse();//패스경로를 역순으로 저장 (목적지~시작)을 (시작~목적지)로(push_back일때만 사용)
     }
+    else//길을 찾지 못한 경우 비어있는 path 리턴
+    {
+        return path;
+    }
     for (; iter != OpenNode.end(); iter++)
     {
         delete* iter; // 열린 노드 동적할당 해제
