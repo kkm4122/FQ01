@@ -25,12 +25,12 @@ void CGameFQ4::OnCreate()
 	
 	
 	
-	mFieldBattle = new FieldBattle;
+	//mFieldBattle = new FieldBattle;
 	//mGameIntro3 = new InGameIntro3;
-	//mBattleScene = new CBattleScene;
+	mBattleScene = new CBattleScene;
 	//mCurrent = mIntroS;
-	//mCurrent = mBattleScene;
-	mCurrent = mFieldBattle;
+	mCurrent = mBattleScene;
+	//mCurrent = mFieldBattle;
 	//mCurrent = mGameIntro3;
 }
 
