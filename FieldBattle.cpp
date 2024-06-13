@@ -64,9 +64,9 @@ void FieldBattle::onFrameMove()
             dt++;
             if (dt % 10 == 0)
             {
-                for (int i = 0; i < 7; i++)
+                for (CUnit* ic : FieldMap->mCharacters)
                 {
-                    FieldMap->mCharacters[i]->WalkToAstar(FieldMap, FieldMap->mCharacters[33]);
+                    ic->WalkToAstar(FieldMap,ic->Target);
                 }
                 //WalkToAstar(FieldMap,)
             }
@@ -139,50 +139,50 @@ void FieldBattle::SetScene()
     UI = CImageFile::New(MAKEINTRESOURCE(IDB_UI), L"IDB_UI");
     UIs.Set(0, 0, 0, 0, UI, RGB(255, 0, 255), CSprite::DrawType_Transparent);
     {//왼쪽 병사 오른쪽 주시 0~6
-        FieldMap->AddChar(5, 6, 2, 2, CUnitMange::a->GarshiaSoldier[0], L"a.SnoSTOP:2");
-        FieldMap->AddChar(5, 10, 2, 2, CUnitMange::a->GarshiaSoldier[1], L"a.SnoSTOP:2");
-        FieldMap->AddChar(5, 13, 2, 2, CUnitMange::a->GarshiaSoldier[2], L"a.SnoSTOP:2");
-        FieldMap->AddChar(2, 9, 2, 2, CUnitMange::a->GarshiaSoldier[3], L"a.SnoSTOP:2");
-        FieldMap->AddChar(8, 9, 2, 2, CUnitMange::a->GarshiaSoldier[4], L"a.SnoSTOP:2");
-        FieldMap->AddChar(2, 12, 2, 2, CUnitMange::a->GarshiaSoldier[5], L"a.SnoSTOP:2");
-        FieldMap->AddChar(2, 15, 2, 2, CUnitMange::a->GarshiaSoldier[6], L"a.SnoSTOP:2");
+        FieldMap->AddChar(5, 6, 2, 1, CUnitMange::a->GarshiaSoldier[0], L"a.SnoSTOP:2");
+        FieldMap->AddChar(5, 10, 2, 1, CUnitMange::a->GarshiaSoldier[1], L"a.SnoSTOP:2");
+        FieldMap->AddChar(5, 13, 2, 1, CUnitMange::a->GarshiaSoldier[2], L"a.SnoSTOP:2");
+        FieldMap->AddChar(2, 9, 2, 1, CUnitMange::a->GarshiaSoldier[3], L"a.SnoSTOP:2");
+        FieldMap->AddChar(8, 9, 2, 1, CUnitMange::a->GarshiaSoldier[4], L"a.SnoSTOP:2");
+        FieldMap->AddChar(2, 12, 2, 1, CUnitMange::a->GarshiaSoldier[5], L"a.SnoSTOP:2");
+        FieldMap->AddChar(2, 15, 2, 1, CUnitMange::a->GarshiaSoldier[6], L"a.SnoSTOP:2");
         
     }
     {//왼쪽병사 아래쪽 주시 7~11
-        FieldMap->AddChar(8, 6, 2, 2, CUnitMange::a->GarshiaSoldier[7], L"a.SnoSTOP:0");
-        FieldMap->AddChar(11, 6, 2, 2, CUnitMange::a->GarshiaSoldier[8], L"a.SnoSTOP:0");
-        FieldMap->AddChar(14, 6, 2, 2, CUnitMange::a->GarshiaSoldier[9], L"a.SnoSTOP:0");
-        FieldMap->AddChar(12, 9, 2, 2, CUnitMange::a->GarshiaSoldier[10], L"a.SnoSTOP:0");
-        FieldMap->AddChar(16, 8, 2, 2, CUnitMange::a->GarshiaSoldier[11], L"a.SnoSTOP:0");
+        FieldMap->AddChar(8, 6, 2, 1, CUnitMange::a->GarshiaSoldier[7], L"a.SnoSTOP:0");
+        FieldMap->AddChar(11, 6, 2, 1, CUnitMange::a->GarshiaSoldier[8], L"a.SnoSTOP:0");
+        FieldMap->AddChar(14, 6, 2, 1, CUnitMange::a->GarshiaSoldier[9], L"a.SnoSTOP:0");
+        FieldMap->AddChar(12, 9, 2, 1, CUnitMange::a->GarshiaSoldier[10], L"a.SnoSTOP:0");
+        FieldMap->AddChar(16, 8, 2, 1, CUnitMange::a->GarshiaSoldier[11], L"a.SnoSTOP:0");
     }
     {//오른쪽 병사 아래쪽 주시    
-        FieldMap->AddChar(19, 8, 2, 2, CUnitMange::a->GarshiaSoldier[12], L"a.SnoSTOP:0");
-        FieldMap->AddChar(21, 6, 2, 2, CUnitMange::a->GarshiaSoldier[13], L"a.SnoSTOP:0");
-        FieldMap->AddChar(24, 6, 2, 2, CUnitMange::a->GarshiaSoldier[14], L"a.SnoSTOP:0");
-        FieldMap->AddChar(27, 6, 2, 2, CUnitMange::a->GarshiaSoldier[15], L"a.SnoSTOP:0");
-        FieldMap->AddChar(23, 9, 2, 2, CUnitMange::a->GarshiaSoldier[16], L"a.SnoSTOP:0");
+        FieldMap->AddChar(19, 8, 2, 1, CUnitMange::a->GarshiaSoldier[12], L"a.SnoSTOP:0");
+        FieldMap->AddChar(21, 6, 2, 1, CUnitMange::a->GarshiaSoldier[13], L"a.SnoSTOP:0");
+        FieldMap->AddChar(24, 6, 2, 1, CUnitMange::a->GarshiaSoldier[14], L"a.SnoSTOP:0");
+        FieldMap->AddChar(27, 6, 2, 1, CUnitMange::a->GarshiaSoldier[15], L"a.SnoSTOP:0");
+        FieldMap->AddChar(23, 9, 2, 1, CUnitMange::a->GarshiaSoldier[16], L"a.SnoSTOP:0");
     }
     {//오른쪽 병사 오른쪽 주시
-        FieldMap->AddChar(27, 9, 2, 2, CUnitMange::a->GarshiaSoldier[17], L"a.SnoSTOP:1");
-        FieldMap->AddChar(30, 6, 2, 2, CUnitMange::a->GarshiaSoldier[18], L"a.SnoSTOP:1");
-        FieldMap->AddChar(30, 10, 2, 2, CUnitMange::a->GarshiaSoldier[19], L"a.SnoSTOP:1");
-        FieldMap->AddChar(30, 13, 2, 2, CUnitMange::a->GarshiaSoldier[20], L"a.SnoSTOP:1");
-        FieldMap->AddChar(33, 9, 2, 2, CUnitMange::a->GarshiaSoldier[21], L"a.SnoSTOP:1");
-        FieldMap->AddChar(33, 12, 2, 2, CUnitMange::a->GarshiaSoldier[22], L"a.SnoSTOP:1");
-        FieldMap->AddChar(33, 15, 2, 2, CUnitMange::a->GarshiaSoldier[23], L"a.SnoSTOP:1");
+        FieldMap->AddChar(27, 9, 2, 1, CUnitMange::a->GarshiaSoldier[17], L"a.SnoSTOP:1");
+        FieldMap->AddChar(30, 6, 2, 1, CUnitMange::a->GarshiaSoldier[18], L"a.SnoSTOP:1");
+        FieldMap->AddChar(30, 10, 2, 1, CUnitMange::a->GarshiaSoldier[19], L"a.SnoSTOP:1");
+        FieldMap->AddChar(30, 13, 2, 1, CUnitMange::a->GarshiaSoldier[20], L"a.SnoSTOP:1");
+        FieldMap->AddChar(33, 9, 2, 1, CUnitMange::a->GarshiaSoldier[21], L"a.SnoSTOP:1");
+        FieldMap->AddChar(33, 12, 2, 1, CUnitMange::a->GarshiaSoldier[22], L"a.SnoSTOP:1");
+        FieldMap->AddChar(33, 15, 2, 1, CUnitMange::a->GarshiaSoldier[23], L"a.SnoSTOP:1");
 
     }
     {//궁병 24~29
-        FieldMap->AddChar(8, 3, 2, 2, CUnitMange::a->Garshiaarcher[0], L"a.SnoSTOP:0");
-        FieldMap->AddChar(11, 3, 2, 2, CUnitMange::a->Garshiaarcher[1], L"a.SnoSTOP:0");
-        FieldMap->AddChar(14, 3, 2, 2, CUnitMange::a->Garshiaarcher[2], L"a.SnoSTOP:0");
-        FieldMap->AddChar(21, 3, 2, 2, CUnitMange::a->Garshiaarcher[3], L"a.SnoSTOP:0");
-        FieldMap->AddChar(24, 3, 2, 2, CUnitMange::a->Garshiaarcher[4], L"a.SnoSTOP:0");
-        FieldMap->AddChar(27, 3, 2, 2, CUnitMange::a->Garshiaarcher[5], L"a.SnoSTOP:0");
+        FieldMap->AddChar(8, 3, 2, 1, CUnitMange::a->Garshiaarcher[0], L"a.SnoSTOP:0");
+        FieldMap->AddChar(11, 3, 2, 1, CUnitMange::a->Garshiaarcher[1], L"a.SnoSTOP:0");
+        FieldMap->AddChar(14, 3, 2, 1, CUnitMange::a->Garshiaarcher[2], L"a.SnoSTOP:0");
+        FieldMap->AddChar(21, 3, 2, 1, CUnitMange::a->Garshiaarcher[3], L"a.SnoSTOP:0");
+        FieldMap->AddChar(24, 3, 2, 1, CUnitMange::a->Garshiaarcher[4], L"a.SnoSTOP:0");
+        FieldMap->AddChar(27, 3, 2, 1, CUnitMange::a->Garshiaarcher[5], L"a.SnoSTOP:0");
     }
     {//가르시아 기마병30~31
-        FieldMap->AddChar(21, 12, 3, 2, CUnitMange::a->GarshiaH[0], L"a.SnoSTOP:0");
-        FieldMap->AddChar(13, 12, 3, 2, CUnitMange::a->GarshiaH[1], L"a.SnoSTOP:0");
+        FieldMap->AddChar(21, 12, 3, 1, CUnitMange::a->GarshiaH[0], L"a.SnoSTOP:0");
+        FieldMap->AddChar(13, 12, 3, 1, CUnitMange::a->GarshiaH[1], L"a.SnoSTOP:0");
     }
     {//카리온 폰32~37
         FieldMap->AddChar(13, 17, 2, 2, CUnitMange::a->KarionPawn[0], L"a.SnoSTOP:2");
@@ -192,8 +192,12 @@ void FieldBattle::SetScene()
         FieldMap->AddChar(26, 17, 2, 2, CUnitMange::a->KarionPawn[4], L"a.SnoSTOP:1");
         FieldMap->AddChar(24, 20, 2, 2, CUnitMange::a->KarionPawn[5], L"a.SnoSTOP:1");
     }
-    FieldMap->AddChar(17, 4, 3, 2, CUnitMange::a->GarshiaCom[0], L"a.SnoSTOP:0");//38
+    FieldMap->AddChar(17, 4, 3, 1, CUnitMange::a->GarshiaCom[0], L"a.SnoSTOP:0");//38
     FieldMap->AddChar(17, 16, 3, 2, CUnitMange::a->HActum,L"a.SnoSTOP:3");//39
+    for (CUnit* ic : FieldMap->mCharacters)
+    {
+        ic->searchUnit(FieldMap);
+    }
 }
 
 void FieldBattle::onMouseDown(UINT x, UINT y, UINT left_right)

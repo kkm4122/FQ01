@@ -36,24 +36,7 @@ void CUnit::WalkToAstar(CMap* Map, CUnit* target)
 	{
 		return;
 	}
-	/*if (BlockedOnAllSidesT(Map,target))
-	{
-		return;
-	}*/
-	/*if (target->TilePos.x > 0 && target->TilePos.y > 0)
-	{
-
-		for (int i = 0; i < target->size + 2; i++)
-		{
-			for (int j = 0; j < target->size + 2; j++)
-			{
-				if (Map->mTiles[target->TilePos.y - 1][target->TilePos.x - 1].unit != target && Map->mTiles[target->TilePos.y - 1][target->TilePos.x - 1].unit != this && Map->mTiles[target->TilePos.y - 1][target->TilePos.x - 1].unit != nullptr)
-				{
-
-				}
-			}
-		}
-	}*/
+	
 	if (!path.empty())
 	{
 		//POS* destP = path.front()
@@ -89,7 +72,7 @@ void CUnit::WalkToAstar(CMap* Map, CUnit* target)
 			path.pop_front();
 		}
 		else
-		{
+		{//타겟 유닛 위치가 바뀐경우
 			path.clear();
 			path=A.PathFind(this, target, Map, TilePos, target->TilePos);
 			POS* nextP = path.front();
@@ -157,20 +140,24 @@ void CUnit::Move(int x, int y)
 
 bool CUnit::BlockedOnAllSidesT(CMap* Map, CUnit* target)//타겟 방향이 모두 막혀있을때
 {
-	if (target->TilePos.x > 0 && target->TilePos.y > 0)
+	int s = target->size;
+	int y = target->TilePos.y;
+	int x = target->TilePos.x;
+	if (x> 0 && y > 0)
+	{
+		if (Map->mTiles[y - 1][x].unit == nullptr|| Map->mTiles[y - 1][x].unit!=this)
+		{
+			return false;
+		}
+		
+	}
+	else if (x>0 && y==0)
+	{ }
+	else if (x == 0 && y > 0)
 	{
 
-		for (int i = 0; i < target->size + 2; i++)
-		{
-			for (int j = 0; j < target->size + 2; j++)
-			{
-				if (Map->mTiles[target->TilePos.y - 1][target->TilePos.x - 1].unit != target && Map->mTiles[target->TilePos.y - 1][target->TilePos.x - 1].unit != this && Map->mTiles[target->TilePos.y - 1][target->TilePos.x - 1].unit != nullptr)
-				{
-
-				}
-			}
-		}
 	}
+	else if(x==0&&y==0)
 	return true;
 }
 
@@ -230,12 +217,20 @@ void CUnit::WalkOneTile(CMap* Map, int x)
 			TilePos.y--;
 			mUnitSprite.ChangeAnimation(mUp);
 		}
+		else
+		{
+			mUnitSprite.ChangeAnimation(s3);
+		}
 		break;
 	case MOVE_DOWN:
 		if (CanMoveXY(Map, 0, 1))
 		{
 			TilePos.y++;
 			mUnitSprite.ChangeAnimation(mDown);
+		}
+		else
+		{
+			mUnitSprite.ChangeAnimation(s0);
 		}
 		break;
 	case MOVE_LEFT:
@@ -244,12 +239,20 @@ void CUnit::WalkOneTile(CMap* Map, int x)
 			TilePos.x--;
 			mUnitSprite.ChangeAnimation(mLeft);
 		}
+		else
+		{
+			mUnitSprite.ChangeAnimation(s1);
+		}
 		break;
 	case MOVE_RIGHT:
 		if (CanMoveXY(Map, 1, 0))
 		{
 			TilePos.x++;
 			mUnitSprite.ChangeAnimation(mRight);
+		}
+		else
+		{
+			mUnitSprite.ChangeAnimation(s2);
 		}
 		break;
 	default:
@@ -280,6 +283,29 @@ bool CUnit::CanMoveXY(CMap* Map, int x, int y)
 		}
 	}
 	return true;
+}
+void CUnit::searchUnit(CMap* Map)
+{
+	int D = 999;	
+	if (Target == nullptr)
+	{
+		
+	}
+	else
+	{
+		D= abs(TilePos.x - Target->TilePos.x) + abs(TilePos.y - Target->TilePos.y);
+	}
+	
+	for (CUnit* ic : Map->mCharacters)
+	{
+		if (ic->UnitNo != UnitNo) {
+			int icD = abs(TilePos.x - ic->TilePos.x) + abs(TilePos.y - ic->TilePos.y);
+			if (D > icD) {
+				D = icD;
+				Target = ic;
+			}
+		}
+	}
 }
 void CUnit::UpdateCamPos(int cx, int cy)
 {

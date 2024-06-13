@@ -166,7 +166,7 @@ public:
 	}
 	virtual void move() {};
 	//void DrawUnit(HDC hdc);
-	
+	void searchUnit(CMap* Map);
 	void TileSet(int dx, int dy, const WCHAR* Anino)
 	{//타일로 받은 좌표값을 변환시켜 화면 출력
 		int tx = dx*16;
