@@ -25,7 +25,19 @@ void CUnit::Draw(HDC hdc)
 }
 
 
+bool CUnit::CanMove(CMap* Map)
+{
+	for (int i = 0; i < size; i++)
+	{
+		for (int j = 0; j < size; j++)
+		{
+			if (Map->mTiles[TilePos.y ][TilePos.x ].unit == this )
+			{
 
+			}
+		}
+	}
+}
 void CUnit::WalkToAstar(CMap* Map, CUnit* target)
 {
 	if (target == nullptr)
@@ -143,15 +155,11 @@ bool CUnit::BlockedOnAllSidesT(CMap* Map, CUnit* target)//타겟 방향이 모두 막혀�
 	int s = target->size;
 	int y = target->TilePos.y;
 	int x = target->TilePos.x;
-	if (x> 0 && y > 0)
+	if (x-size>= 0 && y-size >= 0)
 	{
-		if (Map->mTiles[y - 1][x].unit == nullptr|| Map->mTiles[y - 1][x].unit!=this)
-		{
-			return false;
-		}
-		
+
 	}
-	else if (x>0 && y==0)
+	else if (x-size<0 && y-size>=0)
 	{ }
 	else if (x == 0 && y > 0)
 	{

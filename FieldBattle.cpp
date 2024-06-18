@@ -60,17 +60,38 @@ void FieldBattle::onFrameMove()
         {
             tsno++;
         }
-        case 3:
-            dt++;
-            if (dt % 10 == 0)
-            {
-                for (CUnit* ic : FieldMap->mCharacters)
-                {
-                    if(ic->UnitNo==1)ic->WalkToAstar(FieldMap,ic->Target);
-                }
-                //WalkToAstar(FieldMap,)
-            }
-            break;
+    case 3:
+        dt++;
+        if (dt % 10 == 0)
+        {
+            for (int i = 0; i < 24; i++)
+                FieldMap->mCharacters[i]->WalkToAstar(FieldMap, FieldMap->mCharacters[i]->Target);
+            /* for (CUnit* ic : FieldMap->mCharacters)
+             {
+
+                 if(ic->size==3)
+                     ic->WalkToAstar(FieldMap,ic->Target);
+                 else if(ic->UnitNo==2)
+                     ic->WalkToAstar(FieldMap, ic->Target);
+
+             }*/
+             //WalkToAstar(FieldMap,)
+        }
+        if (dt % 150 == 0)
+        {
+            dt = 0;
+            tsno++;
+        }
+        break;
+    case 4:
+        dt++;
+        if (dt % 10 == 0)
+        {
+            for (int i = 0; i < 40; i++)
+                FieldMap->mCharacters[i]->WalkToAstar(FieldMap, FieldMap->mCharacters[i]->Target);
+        }
+    
+    break;
     default:
         break;
     }

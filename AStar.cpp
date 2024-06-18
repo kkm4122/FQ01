@@ -71,6 +71,7 @@ std::list<POS*> AStar::PathFind(CUnit* Unit, CUnit* TUnit, CMap* CurMap, POS Sta
     }
     else//길을 찾지 못한 경우 비어있는 path 리턴
     {
+        path.empty();
         return path;
     }
     for (; iter != OpenNode.end(); iter++)

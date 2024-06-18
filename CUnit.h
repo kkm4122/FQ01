@@ -53,6 +53,7 @@ public:
 		mPosition.y = tile_y * 16;
 	}
 	void WalkToAstar(CMap* Map, CUnit* a);
+	bool CanMove(CMap* Map);
 	void TargetOn(CMap* map);
 	void MoveTo(int tile_x, int tile_y)
 	{
