@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "CMap.h"
+
 #include "CUnit.h"
 
 
@@ -33,19 +34,48 @@ bool CUnit::CanMove(CMap* Map)
 		{
 			if (Map->mTiles[TilePos.y ][TilePos.x ].unit == this )
 			{
-
+				return true;
 			}
 		}
 	}
 }
 void CUnit::WalkToAstar(CMap* Map, CUnit* target)
 {
+	//srand((unsigned int)time(NULL));
 	if (target == nullptr)
 	{
 		return;
 	}
 	else if (target->Death)
 	{
+		return;
+	}
+	else if (targetOn)
+	{
+		return;
+	}
+	if (RandomMove)
+	{
+		
+		int a =  rand() % 4;
+		switch (a)
+		{
+		case 0:
+			mUnitSprite.ChangeAnimation(mRight);
+			break;
+		case 1:
+			mUnitSprite.ChangeAnimation(mLeft);
+			break;
+		case 2:
+			mUnitSprite.ChangeAnimation(mUp);
+			break;
+		case 3:
+			mUnitSprite.ChangeAnimation(mDown);
+			break;
+		default:
+			break;
+		}
+		
 		return;
 	}
 	
@@ -64,7 +94,7 @@ void CUnit::WalkToAstar(CMap* Map, CUnit* target)
 			{
 				for (int j = 0; j < size; j++)
 				{
-
+					//이동 불가 지역
 					if (Map->mTiles[nextP->y + i][nextP->x + j].unit != this && Map->mTiles[nextP->y + i][nextP->x + j].unit != nullptr)
 					{
 						path.clear();
@@ -72,6 +102,8 @@ void CUnit::WalkToAstar(CMap* Map, CUnit* target)
 					}
 					if (Map->mTiles[nextP->y + i][nextP->x + j].unit == target)
 					{
+						//목적지 도착
+						targetOn = true;
 						path.clear();
 						return;
 					}
@@ -117,6 +149,7 @@ void CUnit::WalkToAstar(CMap* Map, CUnit* target)
 	else
 	{
 		//패스가 만들어지는 상황이 안될때 추가 PathFind 함수 확인
+		
 		path=A.PathFind(this, target, Map, TilePos, target->TilePos);
 	}
 }

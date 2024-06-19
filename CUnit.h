@@ -206,6 +206,9 @@ public:
 	std::list<POS*> path;	//경로 좌표
 	bool Facing = false;
 	bool Death = false;
+	bool targetOn = false;
+	int dtAstar = 4;
+	bool RandomMove = false;
 	std::wstring mDown = L"a.Sno:0";//아래
 	std::wstring mLeft = L"a.Sno:1";//왼쪽
 	std::wstring mRight = L"a.Sno:2";//오른쪽

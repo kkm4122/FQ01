@@ -64,31 +64,33 @@ void FieldBattle::onFrameMove()
         dt++;
         if (dt % 10 == 0)
         {
-            for (int i = 0; i < 24; i++)
+            
+            for (int i = 0; i < 38; i++)
+            {
                 FieldMap->mCharacters[i]->WalkToAstar(FieldMap, FieldMap->mCharacters[i]->Target);
-            /* for (CUnit* ic : FieldMap->mCharacters)
-             {
+             }
+             //for (CUnit* ic : FieldMap->mCharacters)
+             //{
 
-                 if(ic->size==3)
-                     ic->WalkToAstar(FieldMap,ic->Target);
-                 else if(ic->UnitNo==2)
-                     ic->WalkToAstar(FieldMap, ic->Target);
+             //    //if(ic->size==2)
+             //        ic->WalkToAstar(FieldMap,ic->Target);
+             //    /*else if(ic->UnitNo==1)
+             //        ic->WalkToAstar(FieldMap, ic->Target);*/
 
-             }*/
+             //}
              //WalkToAstar(FieldMap,)
         }
-        if (dt % 150 == 0)
+        /*if (dt % 150 == 0)
         {
             dt = 0;
             tsno++;
-        }
+        }*/
         break;
     case 4:
         dt++;
         if (dt % 10 == 0)
         {
-            for (int i = 0; i < 40; i++)
-                FieldMap->mCharacters[i]->WalkToAstar(FieldMap, FieldMap->mCharacters[i]->Target);
+           
         }
     
     break;
@@ -176,14 +178,14 @@ void FieldBattle::SetScene()
         FieldMap->AddChar(12, 9, 2, 1, CUnitMange::a->GarshiaSoldier[10], L"a.SnoSTOP:0");
         FieldMap->AddChar(16, 8, 2, 1, CUnitMange::a->GarshiaSoldier[11], L"a.SnoSTOP:0");
     }
-    {//오른쪽 병사 아래쪽 주시    
+    {//오른쪽 병사 아래쪽 주시    12~16
         FieldMap->AddChar(19, 8, 2, 1, CUnitMange::a->GarshiaSoldier[12], L"a.SnoSTOP:0");
         FieldMap->AddChar(21, 6, 2, 1, CUnitMange::a->GarshiaSoldier[13], L"a.SnoSTOP:0");
         FieldMap->AddChar(24, 6, 2, 1, CUnitMange::a->GarshiaSoldier[14], L"a.SnoSTOP:0");
         FieldMap->AddChar(27, 6, 2, 1, CUnitMange::a->GarshiaSoldier[15], L"a.SnoSTOP:0");
         FieldMap->AddChar(23, 9, 2, 1, CUnitMange::a->GarshiaSoldier[16], L"a.SnoSTOP:0");
     }
-    {//오른쪽 병사 오른쪽 주시
+    {//오른쪽 병사 오른쪽 주시    17~23
         FieldMap->AddChar(27, 9, 2, 1, CUnitMange::a->GarshiaSoldier[17], L"a.SnoSTOP:1");
         FieldMap->AddChar(30, 6, 2, 1, CUnitMange::a->GarshiaSoldier[18], L"a.SnoSTOP:1");
         FieldMap->AddChar(30, 10, 2, 1, CUnitMange::a->GarshiaSoldier[19], L"a.SnoSTOP:1");
@@ -215,10 +217,29 @@ void FieldBattle::SetScene()
     }
     FieldMap->AddChar(17, 4, 3, 1, CUnitMange::a->GarshiaCom[0], L"a.SnoSTOP:0");//38
     FieldMap->AddChar(17, 16, 3, 2, CUnitMange::a->HActum,L"a.SnoSTOP:3");//39
-    for (CUnit* ic : FieldMap->mCharacters)
+    FieldMap->mCharacters[38]->Target = FieldMap->mCharacters[39];
+    //FieldMap->mCharacters[39]->Target = FieldMap->mCharacters[38];
+    for (int i = 0; i < 8; i++)
     {
-        ic->searchUnit(FieldMap);
+        FieldMap->mCharacters[i]->Target =FieldMap->mCharacters[33];
     }
+    for (int i = 8; i < 11; i++)
+    {
+        FieldMap->mCharacters[i]->Target = FieldMap->mCharacters[32];
+    }
+    for (int i = 11; i < 13; i++)
+    {
+        FieldMap->mCharacters[i]->Target = FieldMap->mCharacters[39];
+    }
+    for (int i = 13; i < 17; i++)
+    {
+        FieldMap->mCharacters[i]->Target = FieldMap->mCharacters[35];
+    }
+    for (int i = 17; i < 24; i++)
+    {
+        FieldMap->mCharacters[i]->Target = FieldMap->mCharacters[36];
+    }
+   
 }
 
 void FieldBattle::onMouseDown(UINT x, UINT y, UINT left_right)
