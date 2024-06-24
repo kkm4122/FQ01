@@ -2,15 +2,18 @@
 
 #include"CAnimation.h"
 #include"CSprite.h"
-
 #include"Astar.h"
 
 
 
-#define STATE_Idle      0
-#define STATE_Move      1
-#define STATE_Attack    2
-#define STATE_DEATH		3
+enum STATE
+{
+	STATE_Idle,
+	STATE_Move,
+	STATE_Attack,
+	STATE_Damaged,
+	STATE_Death
+};
 #define MOVE_UP			4
 #define MOVE_DOWN		5
 #define MOVE_LEFT		6
@@ -199,7 +202,8 @@ public:
 	float mSpeed;
 	int TeamNo;
 	int UnitNo;
-	int UnitSit = STATE_Idle;
+	STATE mState = STATE_Idle;
+	int randomstack = 0;
 	//bool TargetOn = false;
 	CUnit* Target = nullptr;
 	//int MapInfo;

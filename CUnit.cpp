@@ -56,7 +56,7 @@ void CUnit::WalkToAstar(CMap* Map, CUnit* target)
 	}
 	if (RandomMove)
 	{
-		
+		randomstack++;
 		int a =  rand() % 4;
 		switch (a)
 		{
@@ -75,14 +75,18 @@ void CUnit::WalkToAstar(CMap* Map, CUnit* target)
 		default:
 			break;
 		}
-		
+		if (randomstack > 5) 
+		{
+			randomstack = 0;
+			RandomMove = false;
+		}
 		return;
 	}
 	
 	if (!path.empty())
 	{
-		//POS* destP = path.front()
-		if (path.back()->x == target->TilePos.x&& path.back()->y == target->TilePos.y)
+		
+		if (Map->mTiles[path.front()->y][path.front()->x].unit==nullptr|| Map->mTiles[path.front()->y][path.front()->x].unit==this)
 		{
 			POS* nextP = path.front();
 			POS dir;
@@ -105,6 +109,7 @@ void CUnit::WalkToAstar(CMap* Map, CUnit* target)
 						//¸ñÀûÁö µµÂø
 						targetOn = true;
 						path.clear();
+						mState = STATE_Attack;
 						return;
 					}
 
@@ -118,32 +123,7 @@ void CUnit::WalkToAstar(CMap* Map, CUnit* target)
 		else
 		{//Å¸°Ù À¯´Ö À§Ä¡°¡ ¹Ù²ï°æ¿ì
 			path.clear();
-			path=A.PathFind(this, target, Map, TilePos, target->TilePos);
-			POS* nextP = path.front();
-			POS dir;
-			dir.x = nextP->x - TilePos.x;
-			dir.y = nextP->y - TilePos.y;
-			Map->Update();
-			for (int i = 0; i < size; i++)
-			{
-				for (int j = 0; j < size; j++)
-				{
-					if (Map->mTiles[nextP->y + i][nextP->x + j].unit != this && Map->mTiles[nextP->y + i][nextP->x + j].unit != nullptr)
-					{
-						path.clear();
-						return;
-					}
-					if (Map->mTiles[nextP->y + i][nextP->x + j].unit == target)
-					{
-						path.clear();
-						return;
-					}
-
-				}
-			}
-			Move(dir.x, dir.y);
 			
-			path.pop_front();
 		}
 	}
 	else

@@ -61,9 +61,9 @@ void CMap::Draw(HDC hdc)
 
 	Mapobj.Draw(SubScr.m_HDC);
 	CSB.Draw(SubScr.m_HDC);
-	for (CUnit* ic : mCharacters) {
-		if (ic&&ic->DrawUnit) ic->Draw(SubScr.m_HDC);
-	}
+		for (CUnit* ic : mCharacters) {
+			if (ic&&ic->DrawUnit) ic->Draw(SubScr.m_HDC);
+		}
 	SubScr.Draw(hdc, Mapobj.mDestX, Mapobj.mDestY, SizeX * 16, SizeY * 16);
 	//delete Mapscreen;
 }

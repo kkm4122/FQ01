@@ -35,8 +35,7 @@ public:
 			if (ic)
 			{
 				if (ic->TilePos.x >= 0 && ic->TilePos.x + ic->size - 1 < SizeX && ic->TilePos.y >= 0 && ic->TilePos.y + ic->size - 1 < SizeY)
-				{
-					
+				{					
 					for (int i = 0; i < ic->size; i++)
 					{
 						for (int j = 0; j < ic->size; j++)
@@ -44,7 +43,6 @@ public:
 							//if(mTiles[ic->TilePos.y + i][ic->TilePos.x + j].unit!=nullptr)
 							mTiles[ic->TilePos.y + i][ic->TilePos.x + j].unit = ic;
 						}
-
 					}
 				}
 			}

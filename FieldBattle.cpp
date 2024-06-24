@@ -65,9 +65,9 @@ void FieldBattle::onFrameMove()
         if (dt % 10 == 0)
         {
             
-            for (int i = 0; i < 38; i++)
+            for (auto ic:FieldMap->mCharacters)
             {
-                FieldMap->mCharacters[i]->WalkToAstar(FieldMap, FieldMap->mCharacters[i]->Target);
+                ic->WalkToAstar(FieldMap, ic->Target);
              }
              //for (CUnit* ic : FieldMap->mCharacters)
              //{
@@ -217,9 +217,9 @@ void FieldBattle::SetScene()
     }
     FieldMap->AddChar(17, 4, 3, 1, CUnitMange::a->GarshiaCom[0], L"a.SnoSTOP:0");//38
     FieldMap->AddChar(17, 16, 3, 2, CUnitMange::a->HActum,L"a.SnoSTOP:3");//39
-    FieldMap->mCharacters[38]->Target = FieldMap->mCharacters[39];
+    //FieldMap->mCharacters[38]->Target = FieldMap->mCharacters[39];
     //FieldMap->mCharacters[39]->Target = FieldMap->mCharacters[38];
-    for (int i = 0; i < 8; i++)
+    /*for (int i = 0; i < 8; i++)
     {
         FieldMap->mCharacters[i]->Target =FieldMap->mCharacters[33];
     }
@@ -238,8 +238,11 @@ void FieldBattle::SetScene()
     for (int i = 17; i < 24; i++)
     {
         FieldMap->mCharacters[i]->Target = FieldMap->mCharacters[36];
+    }*/
+    for (auto ic : FieldMap->mCharacters)
+    {
+        ic->searchUnit(FieldMap);
     }
-   
 }
 
 void FieldBattle::onMouseDown(UINT x, UINT y, UINT left_right)
