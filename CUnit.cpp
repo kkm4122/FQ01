@@ -22,8 +22,12 @@ void CUnit::Update(int dt)
 		switch (mState)
 		{
 		case STATE_Idle:
-			if (Target == nullptr)
-				//searchUnit(Map);
+			//if (Target == nullptr)
+			if (Umap)
+			{
+				searchUnit(Umap);
+				mState = STATE_Move;
+			}
 				break;
 		case STATE_Move:
 			//WalkToAstar(Map,Target);
