@@ -11,12 +11,33 @@ CUnit::~CUnit()
 
 bool CUnit::isMoving()
 {
-
+	
 	return !(mPosition == mTarget);
 }
 
 void CUnit::Update(int dt)
 {
+	if (UIOn)
+	{
+		switch (mState)
+		{
+		case STATE_Idle:
+			if (Target == nullptr)
+				//searchUnit(Map);
+				break;
+		case STATE_Move:
+			//WalkToAstar(Map,Target);
+			break;
+		case STATE_Attack:
+			break;
+		case STATE_Damaged:
+			break;
+		case STATE_Death:
+			break;
+		default:
+			break;
+		}
+	}
 	mUnitSprite.Update(dt);
 }
 
@@ -42,6 +63,7 @@ bool CUnit::CanMove(CMap* Map)
 void CUnit::WalkToAstar(CMap* Map, CUnit* target)
 {
 	//srand((unsigned int)time(NULL));
+	
 	if (target == nullptr)
 	{
 		return;

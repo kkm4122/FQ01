@@ -79,6 +79,7 @@ public:
 		AddUnit->TileSet(x, y, Anino);
 		AddUnit->TilePos.x = x;
 		AddUnit->TilePos.y = y;
+		AddUnit->Umap = this;
 		for (int uy = 0; uy < a->size; uy++)
 		{
 			for (int ux = 0; ux < a->size; ux++)
